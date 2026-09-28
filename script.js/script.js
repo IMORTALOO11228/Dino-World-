@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
   animals.forEach((animal) => {
     const card = document.createElement("a");
 
-    card.href = "#";
+    card.href = `animal.html?name=${encodeURIComponent(animal.name)}`;
     card.className = "period-card animal-card";
 
     card.innerHTML = `
