@@ -8,7 +8,7 @@
 
     <meta
         name="description"
-        content="اطلاعات جانوران ماقبل تاریخ در موزه تعاملی DinoWorld"
+        content="اطلاعات کامل جانوران ماقبل تاریخ در موزه تعاملی DinoWorld"
     >
 
     <title>DinoWorld | اطلاعات جانور ماقبل تاریخ</title>
@@ -95,7 +95,7 @@
                     style="
                         display: block;
                         width: 100%;
-                        max-width: 600px;
+                        max-width: 650px;
                         height: auto;
                         margin: 0 auto 30px;
                         border-radius: 20px;
@@ -108,16 +108,60 @@
                 </h2>
 
                 <p>
-                    به صفحه اختصاصی
-                    <strong>${animal.name}</strong>
-                    در موزه تعاملی DinoWorld خوش آمدید.
+                    🕰️ <strong>دوره زمین‌شناسی:</strong>
+                    ${animal.period}
                 </p>
 
                 <p>
-                    اطلاعات علمی، دوره زمین‌شناسی،
-                    رژیم غذایی، اندازه و محل کشف فسیل
-                    این جانور در این صفحه نمایش داده خواهد شد.
+                    🍖 <strong>غذا:</strong>
+                    ${animal.food}
                 </p>
+
+                <p>
+                    🌍 <strong>محل زندگی:</strong>
+                    ${animal.habitat}
+                </p>
+
+                <p>
+                    📏 <strong>اندازه:</strong>
+                    ${animal.size}
+                </p>
+
+                <p>
+                    🧍 <strong>مقایسه با انسان:</strong>
+                    ${animal.human}
+                </p>
+
+                <p>
+                    ⏳ <strong>طول عمر:</strong>
+                    ${animal.lifespan}
+                </p>
+
+                <p>
+                    ⚔️ <strong>دشمنان:</strong>
+                    ${animal.enemies}
+                </p>
+
+
+                <div
+                    style="
+                        margin-top: 30px;
+                        padding: 20px;
+                        border-radius: 20px;
+                        background: #1e293b;
+                        border: 1px solid #334155;
+                    "
+                >
+
+                    <h3>
+                        💡 نکته جالب
+                    </h3>
+
+                    <p>
+                        ${animal.fact}
+                    </p>
+
+                </div>
 
             `;
 
@@ -136,6 +180,10 @@
                 <p>
                     اطلاعات جانور موردنظر در پایگاه داده
                     موزه وجود ندارد.
+                </p>
+
+                <p>
+                    لطفاً از فهرست جانوران یک مورد را انتخاب کنید.
                 </p>
 
             `;
