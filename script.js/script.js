@@ -1,109 +1,494 @@
 const animals = [
-  { name: "Stegosaurus", period: "jurassic", image: "IMG_20260928_073915.png", icon: "🦕" },
-  { name: "Brachiosaurus", period: "jurassic", image: "IMG_20260928_073925.png", icon: "🦕" },
-  { name: "Ankylosaurus", period: "cretaceous", image: "IMG_20260928_073934.png", icon: "🦖" },
-  { name: "Spinosaurus", period: "cretaceous", image: "IMG_20260928_073950.png", icon: "🦖" },
-  { name: "Carnotaurus", period: "cretaceous", image: "IMG_20260928_074004.png", icon: "🦖" },
-  { name: "Dilophosaurus", period: "jurassic", image: "IMG_20260928_074014.png", icon: "🦖" },
-  { name: "Parasaurolophus", period: "cretaceous", image: "IMG_20260928_074022.png", icon: "🦕" },
-  { name: "Dimetrodon", period: "triassic", image: "IMG_20260928_074033.png", icon: "🦎" },
-  { name: "Allosaurus", period: "jurassic", image: "IMG_20260928_074041.png", icon: "🦖" },
-  { name: "Baryonyx", period: "cretaceous", image: "IMG_20260928_074207.png", icon: "🦖" },
-  { name: "Kaprosuchus", period: "cretaceous", image: "IMG_20260928_074219.png", icon: "🐊" },
-  { name: "Pteranodon", period: "cretaceous", image: "IMG_20260928_074228.png", icon: "🦅" },
-  { name: "Alanqa", period: "cretaceous", image: "IMG_20260928_074236.png", icon: "🦅" },
-  { name: "Troodon", period: "cretaceous", image: "IMG_20260928_074243.png", icon: "🦖" },
-  { name: "Tapejara", period: "cretaceous", image: "IMG_20260928_074252.png", icon: "🦅" },
-  { name: "Zhejiangopterus", period: "cretaceous", image: "IMG_20260928_074300.png", icon: "🦅" },
-  { name: "Mosasaurus", period: "cretaceous", image: "IMG_20260928_074307.png", icon: "🌊" },
-  { name: "Ornithocheirus", period: "cretaceous", image: "IMG_20260928_074317.png", icon: "🦅" },
-  { name: "Rinchenia", period: "cretaceous", image: "IMG_20260928_074333.png", icon: "🦖" },
-  { name: "Sonorasaurus", period: "cretaceous", image: "IMG_20260928_155709.png", icon: "🦕" },
-  { name: "Zalmoxes", period: "cretaceous", image: "IMG_20260928_155718.png", icon: "🦕" },
-  { name: "Iguanodon", period: "cretaceous", image: "IMG_20260928_155726.png", icon: "🦕" },
-  { name: "Deinocheirus", period: "cretaceous", image: "IMG_20260928_155736.png", icon: "🦖" },
-  { name: "Postosuchus", period: "triassic", image: "IMG_20260928_155854.png", icon: "🦎" },
-  { name: "Corythosaurus", period: "cretaceous", image: "IMG_20260928_155948.png", icon: "🦕" },
-  { name: "Gallimimus", period: "cretaceous", image: "IMG_20260928_160032.png", icon: "🦖" },
-  { name: "Irritator", period: "cretaceous", image: "IMG_20260928_160042.png", icon: "🦖" },
 
-  { name: "Woolly Mammoth", period: "cenozoic", image: "IMG_20260928_160055.png", icon: "🐘" },
-  { name: "Mastodon", period: "cenozoic", image: "IMG_20260928_160104.png", icon: "🐘" },
-  { name: "Deinotherium", period: "cenozoic", image: "IMG_20260928_160115.png", icon: "🐘" },
-  { name: "Woolly Rhino", period: "cenozoic", image: "IMG_20260928_160122.png", icon: "🦏" },
-  { name: "Uintatherium", period: "cenozoic", image: "IMG_20260928_160130.png", icon: "🦏" },
-  { name: "Indricotherium", period: "cenozoic", image: "IMG_20260928_160138.png", icon: "🦏" },
-  { name: "Elasmotherium", period: "cenozoic", image: "IMG_20260928_160145.png", icon: "🦏" },
-  { name: "Smilodon", period: "cenozoic", image: "IMG_20260928_160156.png", icon: "🐅" },
-  { name: "Thylacosmilus", period: "cenozoic", image: "IMG_20260928_160206.png", icon: "🐆" },
-  { name: "Panthera blytheae", period: "cenozoic", image: "IMG_20260928_160217.png", icon: "🐆" },
-  { name: "Arctodus", period: "cenozoic", image: "IMG_20260928_160225.png", icon: "🐻" },
-  { name: "Ailurarctos", period: "cenozoic", image: "IMG_20260928_160242.png", icon: "🐼" },
-  { name: "Kelenken", period: "cenozoic", image: "IMG_20260928_160253.png", icon: "🐦" },
-  { name: "Megatherium", period: "cenozoic", image: "IMG_20260928_160303.png", icon: "🦥" },
-  { name: "Mylodon", period: "cenozoic", image: "IMG_20260928_160312.png", icon: "🦥" },
-  { name: "Titanoboa", period: "cenozoic", image: "IMG_20260928_160321.png", icon: "🐍" },
-  { name: "Glyptodon", period: "cenozoic", image: "IMG_20260928_160336.png", icon: "🐢" },
-  { name: "Megaloceros", period: "cenozoic", image: "IMG_20260928_160352.png", icon: "🦌" },
-  { name: "Eremotherium", period: "cenozoic", image: "IMG_20260928_160401.png", icon: "🦥" },
-  { name: "Entelodon", period: "cenozoic", image: "IMG_20260928_160417.png", icon: "🐗" },
-  { name: "Megistotherium", period: "cenozoic", image: "IMG_20260928_160426.png", icon: "🐕" },
-  { name: "Hyaenodon", period: "cenozoic", image: "IMG_20260928_160445.png", icon: "🐺" },
-  { name: "Procoptodon", period: "cenozoic", image: "IMG_20260928_160458.png", icon: "🦘" },
-  { name: "Sarkastodon", period: "cenozoic", image: "IMG_20260928_160946.png", icon: "🐻" },
+  // 1
+  {
+    name: "Stegosaurus",
+    period: "jurassic",
+    image: "IMG_20260928_073915.png",
+    icon: "🦕",
+    food: "گیاهان، سرخس‌ها و پوشش گیاهی 🌿",
+    habitat: "آمریکای شمالی، در محیط‌های جنگلی و دشت‌های ژوراسیک",
+    size: "حدود 9 متر طول",
+    weight: "حدود چند تُن",
+    human: "تقریباً 5 برابر طول یک انسان",
+    lifespan: "دقیقاً مشخص نیست",
+    enemies: "شکارچیانی مانند Allosaurus و Ceratosaurus",
+    description: "Stegosaurus یکی از مشهورترین دایناسورهای گیاه‌خوار دوره ژوراسیک پسین بود. بدنش با صفحات استخوانی بزرگ پوشیده شده بود و دم قدرتمندش چهار خار داشت.",
+    behavior: "احتمالاً بیشتر وقت خود را به جست‌وجوی گیاهان روی زمین می‌گذراند. کاربرد دقیق صفحات پشت هنوز قطعی نیست و ممکن است برای نمایش، شناسایی یا دفاع بوده باشد.",
+    fact: "صفحات پشت درون پوست قرار داشتند و مستقیماً بخشی از اسکلت نبودند.",
+    fossil: "فسیل‌های مهم آن در غرب ایالات متحده پیدا شده‌اند."
+  },
 
-  { name: "Tyrannosaurus rex", period: "cretaceous", image: "IMG_20260928_161317.png", icon: "🦖" },
-  { name: "Velociraptor", period: "cretaceous", image: "IMG_20260928_161330.png", icon: "🦖" },
-  { name: "Triceratops", period: "cretaceous", image: "IMG_20260928_161343.png", icon: "🦏" },
-  { name: "Cervalces", period: "cenozoic", image: "InShot_20260928_160936770.png", icon: "🦌" },
-  { name: "Majungasaurus", period: "cretaceous", image: "InShot_20260928_161022512.png", icon: "🦖" },
-  { name: "Nundasuchus", period: "triassic", image: "InShot_20260928_161043904.png", icon: "🦎" },
-  { name: "Diplodocus", period: "jurassic", image: "InShot_20260928_161051638.png", icon: "🦕" },
-  { name: "Gorgosaurus", period: "cretaceous", image: "InShot_20260928_161058577.png", icon: "🦖" },
-  { name: "Tarbosaurus", period: "cretaceous", image: "InShot_20260928_161108623.png", icon: "🦖" },
-  { name: "Stygimoloch", period: "cretaceous", image: "InShot_20260928_161116869.png", icon: "🦖" },
-  { name: "Pterodaustro", period: "cretaceous", image: "InShot_20260928_161123774.png", icon: "🦅" },
-  { name: "Oviraptor", period: "cretaceous", image: "InShot_20260928_161130279.png", icon: "🦖" },
-  { name: "Aerotitan", period: "cretaceous", image: "InShot_20260928_161137514.png", icon: "🦅" },
-  { name: "Suchomimus", period: "cretaceous", image: "InShot_20260928_161144997.png", icon: "🦖" },
-  { name: "Compsognathus", period: "jurassic", image: "InShot_20260928_161151182.png", icon: "🦖" }
-];
+  // 2
+  {
+    name: "Brachiosaurus",
+    period: "jurassic",
+    image: "IMG_20260928_073925.png",
+    icon: "🦕",
+    food: "برگ درختان و گیاهان 🌿",
+    habitat: "آمریکای شمالی",
+    size: "حدود 22 متر طول",
+    weight: "حدود 47 تُن در برخی برآوردها",
+    human: "ارتفاعش چند برابر قد انسان بود",
+    lifespan: "دقیقاً مشخص نیست",
+    enemies: "بیشتر نوزادان در معرض شکارچیان بودند",
+    description: "Brachiosaurus یک ساروپود بسیار بزرگ و گردن‌بلند بود که در ژوراسیک پسین زندگی می‌کرد. پاهای جلویی آن از پاهای عقبی بلندتر بودند و همین ویژگی بدنش را به سمت بالا متمایل می‌کرد.",
+    behavior: "گردن بلندش به آن اجازه می‌داد به پوشش گیاهی مرتفع دسترسی داشته باشد. احتمالاً بخش زیادی از روز را صرف خوردن مقدار زیادی گیاه می‌کرد.",
+    fact: "نام Brachiosaurus به معنی «مارمولک بازو» است، چون بازوهای جلویی‌اش بسیار بلند بودند.",
+    fossil: "اولین بقایای شناخته‌شده در سال 1900 در کلرادو پیدا شد."
+  },
 
-window.dinoWorldAnimals = animals;
+  // 3
+  {
+    name: "Ankylosaurus",
+    period: "cretaceous",
+    image: "IMG_20260928_073934.png",
+    icon: "🦖",
+    food: "گیاهان و پوشش گیاهی کوتاه 🌿",
+    habitat: "آمریکای شمالی",
+    size: "حدود 8 متر طول",
+    weight: "چند تُن",
+    human: "حدود 4 برابر طول انسان",
+    lifespan: "دقیقاً مشخص نیست",
+    enemies: "شکارچیان بزرگی مانند Tyrannosaurus",
+    description: "Ankylosaurus یکی از زره‌پوش‌ترین دایناسورهای شناخته‌شده بود. بدنش با صفحات استخوانی پوشیده شده بود و در انتهای دمش یک گرز استخوانی بزرگ قرار داشت.",
+    behavior: "احتمالاً بیشتر زندگی خود را نزدیک سطح زمین و در جست‌وجوی گیاهان می‌گذراند. زره بدن و دمش می‌توانستند در برابر شکارچیان نقش دفاعی داشته باشند.",
+    fact: "دم گرزمانند آن احتمالاً یکی از مهم‌ترین ابزارهای دفاعی این جانور بود.",
+    fossil: "فسیل‌های آن در غرب آمریکای شمالی پیدا شده‌اند."
+  },
 
-document.addEventListener("DOMContentLoaded", () => {
-  const list = document.getElementById("animal-list");
+  // 4
+  {
+    name: "Spinosaurus",
+    period: "cretaceous",
+    image: "IMG_20260928_073950.png",
+    icon: "🦖",
+    food: "ماهی و احتمالاً جانوران دیگر 🐟",
+    habitat: "شمال آفریقا، در کنار رودخانه‌ها و محیط‌های آبی",
+    size: "حدود 14 متر یا بیشتر در برخی برآوردها",
+    weight: "حدود 7.4 تُن در یک برآورد",
+    human: "بیش از 6 برابر طول انسان",
+    lifespan: "دقیقاً مشخص نیست",
+    enemies: "رقبای بزرگ در زیست‌بوم آبی و خشکی",
+    description: "Spinosaurus یک شکارچی عظیم آفریقایی از کرتاسه پسین بود. پوزه کشیده، دندان‌های مخروطی و بادبان بزرگ پشتش از ویژگی‌های شاخص آن هستند.",
+    behavior: "شواهد جدید نشان می‌دهند ارتباط نزدیکی با محیط‌های آبی داشته و احتمالاً ماهی بخش مهمی از رژیم غذایی‌اش بوده است.",
+    fact: "بازسازی علمی Spinosaurus در طول زمان چند بار تغییر کرده، چون فسیل‌های کامل از آن نداریم.",
+    fossil: "از مصر و مراکش فسیل‌هایی از آن شناخته شده است."
+  },
 
-  if (!list) return;
+  // 5
+  {
+    name: "Carnotaurus",
+    period: "cretaceous",
+    image: "IMG_20260928_074004.png",
+    icon: "🦖",
+    food: "گوشت 🍖",
+    habitat: "آمریکای جنوبی، به‌ویژه آرژانتین",
+    size: "حدود 7.5 متر",
+    weight: "حدود 1 تا 2 تُن",
+    human: "تقریباً 4 برابر طول انسان",
+    lifespan: "دقیقاً مشخص نیست",
+    enemies: "رقبای شکارچی",
+    description: "Carnotaurus یک دایناسور گوشت‌خوار با دو شاخ بالای چشم بود. بدنش سبک و پاهایش نسبتاً بلند بودند و احتمالاً شکارچی فعالی محسوب می‌شد.",
+    behavior: "ساختار بدنش نشان می‌دهد برای دویدن مناسب بوده است. بازوهای بسیار کوتاهش یکی از ویژگی‌های عجیب آن بودند.",
+    fact: "نام Carnotaurus به معنی «گاو گوشت‌خوار» است.",
+    fossil: "فسیل مشهور آن در آرژانتین کشف شد."
+  },
 
-  const params = new URLSearchParams(window.location.search);
-  const selectedPeriod = params.get("period");
+  // 6
+  {
+    name: "Dilophosaurus",
+    period: "jurassic",
+    image: "IMG_20260928_074014.png",
+    icon: "🦖",
+    food: "جانوران کوچک و گوشت 🍖",
+    habitat: "آمریکای شمالی",
+    size: "حدود 7 متر",
+    weight: "حدود چند صد کیلوگرم",
+    human: "حدود 4 برابر طول انسان",
+    lifespan: "دقیقاً مشخص نیست",
+    enemies: "شکارچیان بزرگ‌تر",
+    description: "Dilophosaurus یکی از دایناسورهای گوشت‌خوار اولیه ژوراسیک بود. روی سرش دو تاج استخوانی بسیار مشخص داشت.",
+    behavior: "احتمالاً شکارچی فعالی بود و از جانوران کوچک تغذیه می‌کرد. شکل تاج‌ها احتمالاً بیشتر با نمایش و ارتباط بین افراد مرتبط بوده است.",
+    fact: "برخلاف نسخه مشهور فیلم Jurassic Park، مدرک علمی قابل اتکایی برای پرتاب سم یا یقه بازشونده در Dilophosaurus وجود ندارد.",
+    fossil: "فسیل‌های مهم آن در آریزونای آمریکا پیدا شده‌اند."
+  },
 
-  const filteredAnimals = selectedPeriod
-    ? animals.filter(animal => animal.period === selectedPeriod)
-    : animals;
+  // 7
+  {
+    name: "Parasaurolophus",
+    period: "cretaceous",
+    image: "IMG_20260928_074022.png",
+    icon: "🦕",
+    food: "گیاهان 🌿",
+    habitat: "آمریکای شمالی",
+    size: "حدود 9 تا 10 متر",
+    weight: "چند تُن",
+    human: "حدود 5 برابر طول انسان",
+    lifespan: "دقیقاً مشخص نیست",
+    enemies: "Tyrannosaurus و شکارچیان بزرگ",
+    description: "Parasaurolophus یک دایناسور گیاه‌خوار از گروه هادروسورها بود. تاج بلند و توخالی پشت سرش یکی از معروف‌ترین ویژگی‌های آن است.",
+    behavior: "تاج توخالی احتمالاً در تولید صدا و ارتباط بین افراد نقش داشته است. احتمال دارد در گروه‌های اجتماعی زندگی می‌کرده باشد.",
+    fact: "شکل تاج در افراد جوان و بالغ متفاوت بود.",
+    fossil: "فسیل‌های آن در آمریکای شمالی کشف شده‌اند."
+  },
 
-  list.innerHTML = "";
+  // 8
+  {
+    name: "Dimetrodon",
+    period: "triassic",
+    image: "IMG_20260928_074033.png",
+    icon: "🦎",
+    food: "گوشت 🍖",
+    habitat: "آمریکای شمالی و اروپا",
+    size: "حدود 3 تا 4 متر",
+    weight: "ده‌ها تا بیش از صد کیلوگرم بسته به گونه",
+    human: "حدود دو برابر طول انسان",
+    lifespan: "دقیقاً مشخص نیست",
+    enemies: "رقبای شکارچی هم‌دوره",
+    description: "Dimetrodon دایناسور نبود؛ یکی از خویشاوندان دور پستانداران بود که در پرمین زندگی می‌کرد. مهم‌ترین ویژگی آن بادبان بزرگ روی پشتش بود.",
+    behavior: "بادبان ممکن است در تنظیم دمای بدن یا نمایش بین افراد نقش داشته باشد. دندان‌های متفاوت آن برای گرفتن و بریدن طعمه مناسب بودند.",
+    fact: "با اینکه ظاهرش شبیه بعضی دایناسورهاست، میلیون‌ها سال پیش از بسیاری از دایناسورهای معروف زندگی می‌کرد.",
+    fossil: "فسیل‌های زیادی از آن در آمریکای شمالی پیدا شده‌اند."
+  },
 
-  filteredAnimals.forEach((animal) => {
-    const card = document.createElement("a");
+  // 9
+  {
+    name: "Allosaurus",
+    period: "jurassic",
+    image: "IMG_20260928_074041.png",
+    icon: "🦖",
+    food: "گوشت 🍖",
+    habitat: "آمریکای شمالی و اروپا",
+    size: "حدود 9 تا 10 متر",
+    weight: "حدود 1.5 تا 2 تُن",
+    human: "حدود 5 برابر طول انسان",
+    lifespan: "دقیقاً مشخص نیست",
+    enemies: "رقبای شکارچی و احتمالاً Allosaurusهای دیگر",
+    description: "Allosaurus یکی از شکارچیان مهم ژوراسیک پسین بود. جمجمه بزرگ، دندان‌های تیز و شاخک‌های استخوانی بالای چشم داشت.",
+    behavior: "احتمالاً از دایناسورهای گیاه‌خوار بزرگ تغذیه می‌کرد. شواهد فسیلی نشان می‌دهد در اکوسیستم‌های ژوراسیک نقش شکارچی مهمی داشته است.",
+    fact: "Allosaurus یکی از شناخته‌شده‌ترین گوشت‌خواران ژوراسیک است.",
+    fossil: "فسیل‌های فراوانی از آن در غرب آمریکا پیدا شده است."
+  },
 
-    card.href = `../animal.html?name=${encodeURIComponent(animal.name)}`;
-    card.className = "period-card animal-card";
+  // 10
+  {
+    name: "Baryonyx",
+    period: "cretaceous",
+    image: "IMG_20260928_074207.png",
+    icon: "🦖",
+    food: "ماهی و جانوران دیگر 🐟",
+    habitat: "اروپا، به‌ویژه مناطق رودخانه‌ای",
+    size: "حدود 7 تا 10 متر",
+    weight: "حدود 1 تا 2 تُن",
+    human: "چند برابر طول انسان",
+    lifespan: "دقیقاً مشخص نیست",
+    enemies: "رقبای شکارچی",
+    description: "Baryonyx یک اسپینوسورید با پوزه‌ای کشیده و پنجه‌های بزرگ روی دست‌ها بود. ساختار جمجمه‌اش نشان می‌دهد ماهی بخش مهمی از رژیم غذایی آن بوده است.",
+    behavior: "احتمالاً در نزدیکی رودخانه‌ها شکار می‌کرد و از پنجه‌های بزرگش برای گرفتن طعمه استفاده می‌کرد.",
+    fact: "نامش تقریباً به معنی «پنجه سنگین» است.",
+    fossil: "فسیل مهم آن در انگلستان کشف شد."
+  },
 
-    card.innerHTML = `
-      <span class="icon">${animal.icon}</span>
-      <h3>${animal.name}</h3>
-    `;
+  // 11
+  {
+    name: "Kaprosuchus",
+    period: "cretaceous",
+    image: "IMG_20260928_074219.png",
+    icon: "🐊",
+    food: "گوشت 🍖",
+    habitat: "آفریقا، در محیط‌های رودخانه‌ای",
+    size: "حدود 6 متر در برخی برآوردها",
+    weight: "دقیقاً مشخص نیست",
+    human: "حدود 3 برابر طول انسان",
+    lifespan: "نامشخص",
+    enemies: "شکارچیان بزرگ‌تر احتمالی",
+    description: "Kaprosuchus یک کروکودیلی‌مانند عجیب از کرتاسه بود و دایناسور محسوب نمی‌شد. دندان‌های بزرگ و برجسته‌اش از ویژگی‌های اصلی آن بودند.",
+    behavior: "احتمالاً شکارچی بود و در محیط‌های خشکی و آبی اطراف رودخانه‌ها زندگی می‌کرد.",
+    fact: "نام آن به دلیل ظاهر دندان‌ها به مفهوم «تمساح گراز» اشاره دارد.",
+    fossil: "از فسیل‌های شمال آفریقا شناخته شده است."
+  },
 
-    list.appendChild(card);
-  });
+  // 12
+  {
+    name: "Pteranodon",
+    period: "cretaceous",
+    image: "IMG_20260928_074228.png",
+    icon: "🦅",
+    food: "ماهی 🐟",
+    habitat: "سواحل و دریاهای داخلی آمریکای شمالی",
+    size: "پهنای بال تا حدود 6 متر",
+    weight: "حدود چند ده کیلوگرم",
+    human: "پهنای بال آن چند برابر قد انسان بود",
+    lifespan: "دقیقاً مشخص نیست",
+    enemies: "شکارچیان دریایی و رقبا",
+    description: "Pteranodon دایناسور نبود؛ یک پتروسور پرنده‌مانند بود که در کرتاسه زندگی می‌کرد. منقار بدون دندان و تاج بلند پشت سر داشت.",
+    behavior: "احتمالاً از ماهی‌ها تغذیه می‌کرد و می‌توانست مسافت‌های زیادی را روی آب‌ها پرواز کند.",
+    fact: "Pteranodon دندان نداشت.",
+    fossil: "فسیل‌های فراوان آن از کانزاس و مناطق اطراف دریای داخلی غربی به دست آمده‌اند."
+  },
 
-  if (filteredAnimals.length === 0) {
-    list.innerHTML = `
-      <p>
-        جانوری برای این دوره پیدا نشد.
-      </p>
-    `;
-  }
-});
+  // 13
+  {
+    name: "Alanqa",
+    period: "cretaceous",
+    image: "IMG_20260928_074236.png",
+    icon: "🦅",
+    food: "جانوران کوچک و احتمالاً ماهی 🐟",
+    habitat: "شمال آفریقا",
+    size: "پهنای بال چند متر",
+    weight: "دقیقاً مشخص نیست",
+    human: "در پرواز می‌توانست بسیار بزرگ‌تر از انسان به نظر برسد",
+    lifespan: "نامشخص",
+    enemies: "شکارچیان و رقبا",
+    description: "Alanqa یک پتروسور از گروه آزدارکیدها بود. پوزه کشیده و بدن سازگار با پرواز از ویژگی‌های مهم آن محسوب می‌شوند.",
+    behavior: "احتمالاً در محیط‌های باز و نزدیک آب‌ها به دنبال طعمه می‌گشت.",
+    fact: "پتروسورها دایناسور نبودند، بلکه گروه جداگانه‌ای از خزندگان پرنده بودند.",
+    fossil: "از مراکش شناخته شده است."
+  },
+
+  // 14
+  {
+    name: "Troodon",
+    period: "cretaceous",
+    image: "IMG_20260928_074243.png",
+    icon: "🦖",
+    food: "جانوران کوچک، تخم‌ها و احتمالاً مواد غذایی مختلف",
+    habitat: "آمریکای شمالی",
+    size: "حدود 2 تا 3 متر",
+    weight: "دقیقاً مشخص نیست",
+    human: "کوچک‌تر یا کوتاه‌تر از انسان",
+    lifespan: "نامشخص",
+    enemies: "شکارچیان بزرگ‌تر",
+    description: "Troodon نامی تاریخی برای دایناسورهای کوچک و تروپود است که در آمریکای شمالی شناخته شده‌اند. در گذشته درباره هوش و بینایی آن مطالب زیادی مطرح شد.",
+    behavior: "ساختار مغز و چشم‌های بزرگ باعث شده بود دانشمندان درباره توانایی‌های حسی آن علاقه‌مند شوند.",
+    fact: "جایگاه دقیق نام Troodon در طبقه‌بندی امروزی همچنان موضوع بحث علمی است.",
+    fossil: "فسیل‌های مربوط به این نام از آمریکای شمالی گزارش شده‌اند."
+  },
+
+  // 15
+  {
+    name: "Tapejara",
+    period: "cretaceous",
+    image: "IMG_20260928_074252.png",
+    icon: "🦅",
+    food: "میوه، ماهی و جانوران کوچک احتمالی",
+    habitat: "آمریکای جنوبی، به‌خصوص برزیل",
+    size: "پهنای بال حدود چند متر",
+    weight: "دقیقاً مشخص نیست",
+    human: "پهنای بال می‌توانست چند برابر قد انسان باشد",
+    lifespan: "نامشخص",
+    enemies: "شکارچیان و رقبا",
+    description: "Tapejara یک پتروسور با تاج بسیار بزرگ و چشمگیر بود. شکل تاج احتمالاً در نمایش و شناسایی افراد نقش داشته است.",
+    behavior: "احتمالاً پروازگر خوبی بود و می‌توانست از منابع غذایی مختلف استفاده کند.",
+    fact: "ظاهر سر و تاج Tapejara یکی از غیرعادی‌ترین شکل‌ها در میان پتروسورهاست.",
+    fossil: "فسیل‌های آن در برزیل پیدا شده‌اند."
+  },
+
+  // 16
+  {
+    name: "Zhejiangopterus",
+    period: "cretaceous",
+    image: "IMG_20260928_074300.png",
+    icon: "🦅",
+    food: "جانوران کوچک و احتمالاً ماهی",
+    habitat: "چین",
+    size: "پهنای بال حدود 3 تا 4 متر",
+    weight: "دقیقاً مشخص نیست",
+    human: "پهنای بال تقریباً دو برابر قد انسان",
+    lifespan: "نامشخص",
+    enemies: "شکارچیان بزرگ‌تر",
+    description: "Zhejiangopterus یک پتروسور از گروه آزدارکیدها بود. اسکلت نسبتاً کامل آن به دانشمندان کمک کرده تا شکل بدن این گروه را بهتر بشناسند.",
+    behavior: "احتمالاً روی زمین نیز حرکت می‌کرد و برای پیدا کردن طعمه در محیط‌های باز جست‌وجو می‌کرد.",
+    fact: "آزدارکیدها با وجود توانایی پرواز، ساختار بدنی متفاوتی از پرندگان داشتند.",
+    fossil: "فسیل آن از استان ژجیانگ چین شناخته شده است."
+  },
+
+  // 17
+  {
+    name: "Mosasaurus",
+    period: "cretaceous",
+    image: "IMG_20260928_074307.png",
+    icon: "🌊",
+    food: "ماهی، لاک‌پشت، آمونیت و خزندگان دریایی 🐟",
+    habitat: "دریاهای گرم کرتاسه",
+    size: "حدود 12 تا 17 متر",
+    weight: "چند تُن",
+    human: "بیش از 6 برابر طول انسان",
+    lifespan: "نامشخص",
+    enemies: "رقبای دریایی بزرگ",
+    description: "Mosasaurus یک دایناسور نبود؛ یک خزنده دریایی از گروه موساسورها بود. بدن کشیده، دم قدرتمند و آرواره‌های بزرگ به آن اجازه می‌داد در دریا شکار کند.",
+    behavior: "شکارچی رأس در بعضی زیست‌بوم‌های دریایی بود و احتمالاً طعمه‌های متنوعی می‌خورد.",
+    fact: "برخلاف ظاهر مارمانند، موساسورها به مارمولک‌ها و مارهای امروزی نزدیک‌تر بودند.",
+    fossil: "فسیل‌های آن از نقاط مختلف جهان پیدا شده‌اند."
+  },
+
+  // 18
+  {
+    name: "Ornithocheirus",
+    period: "cretaceous",
+    image: "IMG_20260928_074317.png",
+    icon: "🦅",
+    food: "احتمالاً ماهی 🐟",
+    habitat: "مناطق ساحلی و دریایی",
+    size: "پهنای بال چند متر",
+    weight: "دقیقاً مشخص نیست",
+    human: "پهنای بال بسیار بیشتر از عرض بدن انسان بود",
+    lifespan: "نامشخص",
+    enemies: "شکارچیان و رقبا",
+    description: "Ornithocheirus نامی است که برای پتروسورهای بزرگی به کار رفته و تاریخ طبقه‌بندی پیچیده‌ای دارد. این جانوران بال‌های بسیار کشیده و منقار مناسب برای گرفتن طعمه داشتند.",
+    behavior: "احتمالاً در نزدیکی دریاها پرواز می‌کردند و از ماهی یا جانوران کوچک تغذیه می‌کردند.",
+    fact: "بخشی از اختلافات درباره این جانور به پراکندگی و ناقص بودن فسیل‌ها مربوط است.",
+    fossil: "فسیل‌های مرتبط با این نام از اروپا گزارش شده‌اند."
+  },
+
+  // 19
+  {
+    name: "Rinchenia",
+    period: "cretaceous",
+    image: "IMG_20260928_074333.png",
+    icon: "🦖",
+    food: "همه‌چیزخوار احتمالی 🌿🍖",
+    habitat: "آسیای مرکزی، به‌ویژه مغولستان",
+    size: "حدود 1.5 تا 2 متر",
+    weight: "دقیقاً مشخص نیست",
+    human: "تقریباً هم‌اندازه یا کوچک‌تر از انسان",
+    lifespan: "نامشخص",
+    enemies: "شکارچیان بزرگ‌تر",
+    description: "Rinchenia یک اویرپتوروسور کوچک بود. بدن سبک، منقار و دست‌های مناسب برای گرفتن غذا از ویژگی‌های آن بودند.",
+    behavior: "احتمالاً رژیم غذایی متنوعی داشت و ممکن بود هم از گیاهان و هم جانوران کوچک استفاده کند.",
+    fact: "اویرپتوروسورها از دایناسورهای جالبی هستند که شواهدی از رفتارهای مرتبط با لانه و تخم در این گروه وجود دارد.",
+    fossil: "فسیل‌های آن از مغولستان شناخته شده‌اند."
+  },
+
+  // 20
+  {
+    name: "Sonorasaurus",
+    period: "cretaceous",
+    image: "IMG_20260928_155709.png",
+    icon: "🦕",
+    food: "گیاهان 🌿",
+    habitat: "آمریکای شمالی",
+    size: "حدود 15 متر",
+    weight: "دقیقاً مشخص نیست",
+    human: "حدود 7 برابر طول انسان",
+    lifespan: "نامشخص",
+    enemies: "شکارچیان بزرگ، مخصوصاً برای افراد جوان",
+    description: "Sonorasaurus یک ساروپود گیاه‌خوار بود که در کرتاسه زندگی می‌کرد. بدن بزرگ و گردن بلندش به آن اجازه می‌داد مقدار زیادی گیاه مصرف کند.",
+    behavior: "احتمالاً در مناطق نسبتاً گرم و پوشیده از گیاه زندگی می‌کرد.",
+    fact: "نام آن از منطقه سونورا در مکزیک گرفته شده است.",
+    fossil: "فسیل‌های آن در جنوب غرب آمریکای شمالی پیدا شده‌اند."
+  },
+
+  // 21
+  {
+    name: "Zalmoxes",
+    period: "cretaceous",
+    image: "IMG_20260928_155718.png",
+    icon: "🦕",
+    food: "گیاهان 🌿",
+    habitat: "اروپای شرقی",
+    size: "حدود 3 متر",
+    weight: "دقیقاً مشخص نیست",
+    human: "کمی بزرگ‌تر از انسان",
+    lifespan: "نامشخص",
+    enemies: "شکارچیان بزرگ‌تر",
+    description: "Zalmoxes یک دایناسور گیاه‌خوار کوچک از گروه اورنیتوپودها بود. جثه نسبتاً کوچک آن با شرایط جزیره‌ای اروپا در آن زمان ارتباط داده شده است.",
+    behavior: "احتمالاً در جست‌وجوی گیاهان روی زمین حرکت می‌کرد.",
+    fact: "فسیل‌های این جانور به مطالعه دایناسورهای جزایر اروپای کرتاسه کمک کرده‌اند.",
+    fossil: "از رومانی شناخته شده است."
+  },
+
+  // 22
+  {
+    name: "Iguanodon",
+    period: "cretaceous",
+    image: "IMG_20260928_155726.png",
+    icon: "🦕",
+    food: "گیاهان 🌿",
+    habitat: "اروپا و بخش‌هایی از آسیا",
+    size: "حدود 9 تا 10 متر",
+    weight: "چند تُن",
+    human: "حدود 5 برابر طول انسان",
+    lifespan: "نامشخص",
+    enemies: "شکارچیان بزرگ",
+    description: "Iguanodon یکی از دایناسورهای گیاه‌خوار شناخته‌شده کرتاسه بود. منقار گیاه‌خواری و انگشت شست خارمانند از ویژگی‌های مهم آن بودند.",
+    behavior: "می‌توانست روی دو یا چهار پا حرکت کند و از پوشش گیاهی مختلف تغذیه کند.",
+    fact: "انگشت شستش در گذشته باعث شد دانشمندان تصور کنند شاخ روی بینی دارد.",
+    fossil: "از انگلستان و چند منطقه دیگر فسیل‌هایی از آن شناخته شده است."
+  },
+
+  // 23
+  {
+    name: "Deinocheirus",
+    period: "cretaceous",
+    image: "IMG_20260928_155736.png",
+    icon: "🦖",
+    food: "گیاهان، ماهی و مواد غذایی مختلف 🌿🐟",
+    habitat: "مغولستان، در محیط‌های رودخانه‌ای و مرطوب",
+    size: "حدود 11 متر",
+    weight: "چند تُن",
+    human: "حدود 5 برابر طول انسان",
+    lifespan: "نامشخص",
+    enemies: "شکارچیان بزرگ",
+    description: "Deinocheirus ابتدا فقط با دست‌های بسیار بزرگش شناخته می‌شد و سال‌ها دانشمندان نمی‌دانستند بدن کاملش چه شکلی بوده است.",
+    behavior: "پس از کشف بقایای کامل‌تر مشخص شد که جانوری بزرگ با منقار و بدن عجیب بوده و احتمالاً رژیم غذایی متنوعی داشته است.",
+    fact: "نامش به معنی «دست وحشتناک» است.",
+    fossil: "فسیل‌های مهم آن در مغولستان پیدا شده‌اند."
+  },
+
+  // 24
+  {
+    name: "Postosuchus",
+    period: "triassic",
+    image: "IMG_20260928_155854.png",
+    icon: "🦎",
+    food: "گوشت 🍖",
+    habitat: "آمریکای شمالی",
+    size: "حدود 6 متر",
+    weight: "دقیقاً مشخص نیست",
+    human: "حدود 3 برابر طول انسان",
+    lifespan: "نامشخص",
+    enemies: "رقبای شکارچی",
+    description: "Postosuchus دایناسور نبود؛ یکی از آرکوسورهای شکارچی بزرگ دوره تریاس بود. جمجمه و دندان‌های قدرتمندش برای شکار جانوران دیگر مناسب بودند.",
+    behavior: "احتمالاً یکی از شکارچیان مهم زیست‌بوم‌های تریاس بود.",
+    fact: "در زمانی زندگی می‌کرد که هنوز دایناسورها به اندازه دوره‌های بعدی غالب نشده بودند.",
+    fossil: "از جنوب غرب ایالات متحده شناخته شده است."
+  },
+
+  // 25
+  {
+    name: "Corythosaurus",
+    period: "cretaceous",
+    image: "IMG_20260928_155948.png",
+    icon: "🦕",
+    food: "گیاهان 🌿",
+    habitat: "آمریکای شمالی",
+    size: "حدود 9 متر",
+    weight: "چند تُن",
+    human: "حدود 5 برابر طول انسان",
+    lifespan: "نامشخص",
+    enemies: "Tyrannosaurus و شکارچیان بزرگ",
+    description: "Corythosaurus یک هادروسور گیاه‌خوار بود که تاجی توخالی و کلاه‌خودمانند روی سر داشت. این تاج احتمالاً برای ارتباط صوتی یا نمایش کاربرد داشته است.",
+    behavior: "احتمالاً در گروه‌های اجتماعی حرکت می‌کرد و از گیاهان مختلف تغذیه می‌کرد.",
+    fact: "تاج آن شبیه کلاه‌خود یونانی توصیف شده است.",
+    fossil: "فسیل‌های آن در آمریکای شمالی پیدا شده‌اند."
+  },
+
+  // 26
+  {
+    name: "Gallimimus",
+    period: "cretaceous",
+    image: "IMG_20260928_160032.png",
+    icon: "🦖",
+    food: "گیاهان، حشرات و جانوران کوچک 🌿🦗",
+    habitat: "مغولستان",
+    size: "حدود 6 متر",
+    weight: "حدود چند صد کیلوگرم",
+    human: "حدود 3 برابر طول انسان",
+    lifespan: "نامشخص",
+    enemies: "Tarbosaurus و شکارچیان بزرگ",
+    description: "Gallimimus یک اورنیتومیموسور با گردن و پاهای بلند بود که ظاهری شبیه پرندگان دونده داشت. بدن سبک آن احتمالاً برای حرکت سریع مناسب بود.",
+    behavior: "احتمالاً از غذاهای متنوعی استفاده می‌کرد و می‌توانست با سرعت خوبی فرار کند.",
+    fact: "نامش به معنی «مقلد مرغ» است.",
+    fossil: "فسیل‌های آن از مغولستان شناخته شده‌
