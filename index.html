@@ -1,37 +1,128 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="موزه تعاملی دنیای دایناسورها و جانوران ماقبل تاریخ">
-<title>DinoWorld | دنیای دایناسورها</title><link rel="stylesheet" href="style.css">
-<style>
-*{box-sizing:border-box}body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#0b1020;color:#fff;line-height:1.8}
-header{padding:70px 20px;text-align:center;background:linear-gradient(135deg,#13213d,#1d4d45)}
-h1{font-size:42px;margin:0 0 12px}header p{font-size:18px;color:#dceee9}
-.container{max-width:1000px;margin:auto;padding:35px 18px}h2{text-align:center;font-size:30px;margin-bottom:25px}
-.periods{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
-.card{background:#151d31;border:1px solid #2d3955;border-radius:18px;padding:25px;text-align:center;transition:.2s}
-.card:hover{transform:translateY(-4px);border-color:#62d6a7}.emoji{font-size:55px}
-.card h3{margin:10px 0 5px;color:#7ee2b8}.card p{color:#c8d0df}
-.about{margin-top:40px;background:#151d31;border-radius:18px;padding:25px}footer{text-align:center;padding:25px;color:#9da8ba}
-</style>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="موزه تعاملی دنیای دایناسورها و جانوران ماقبل تاریخ"
+    >
+
+    <title>DinoWorld | دنیای دایناسورها</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<header>
-<h1>🦖 به دنیای ماقبل تاریخ خوش آمدید!</h1>
-<p>سفر به میلیون‌ها سال قبل و آشنایی با دایناسورها و جانوران شگفت‌انگیز گذشته</p>
-</header>
-<main class="container">
-<h2>دوره زمین‌شناسی را انتخاب کن</h2>
-<section class="periods">
-<article class="card"><div class="emoji">🌋</div><h3>تریاس</h3><p>آغاز عصر دایناسورها؛ حدود ۲۵۲ تا ۲۰۱ میلیون سال پیش.</p></article>
-<article class="card"><div class="emoji">🦕</div><h3>ژوراسیک</h3><p>دورانی مشهور با دایناسورهای بزرگ و گوناگون؛ حدود ۲۰۱ تا ۱۴۵ میلیون سال پیش.</p></article>
-<article class="card"><div class="emoji">🦖</div><h3>کرتاسه</h3><p>آخرین دوره عصر دایناسورها؛ حدود ۱۴۵ تا ۶۶ میلیون سال پیش.</p></article>
-<article class="card"><div class="emoji">🦣</div><h3>سنوزوئیک</h3><p>دوران پس از انقراض دایناسورهای غیرپرنده؛ دوران شکوفایی پستانداران.</p></article>
-</section>
-<section class="about"><h2>🔬 درباره این پروژه</h2><p>DinoWorld یک پروژه آموزشی درباره دایناسورها و زندگی ماقبل تاریخ است. در این سایت قرار است با دوره‌های زمین‌شناسی، جانوران معروف، فسیل‌ها، محل کشف آن‌ها و اطلاعات جالب علمی آشنا شویم.</p></section>
-</main>
-<footer>ساخته شده برای پروژه درسی 💚 | DinoWorld</footer>
-<script src="script.js"></script></body>
+
+    <header class="hero">
+
+        <h1>🦖 به دنیای ماقبل تاریخ خوش آمدید!</h1>
+
+        <p>
+            سفر به میلیون‌ها سال قبل و آشنایی با دایناسورها
+            و جانوران شگفت‌انگیز گذشته
+        </p>
+
+    </header>
+
+
+    <main class="periods">
+
+        <h2>🕰️ دوره زمین‌شناسی را انتخاب کن</h2>
+
+
+        <div class="period-grid">
+
+            <a
+                href="animals.html/animals.html?period=triassic"
+                class="period-card"
+            >
+                <span class="icon">🌋</span>
+
+                <h3>تریاس</h3>
+
+                <p>
+                    آغاز عصر دایناسورها؛ حدود ۲۵۲ تا
+                    ۲۰۱ میلیون سال پیش.
+                </p>
+            </a>
+
+
+            <a
+                href="animals.html/animals.html?period=jurassic"
+                class="period-card"
+            >
+                <span class="icon">🦕</span>
+
+                <h3>ژوراسیک</h3>
+
+                <p>
+                    دورانی مشهور با دایناسورهای بزرگ و
+                    گوناگون؛ حدود ۲۰۱ تا ۱۴۵ میلیون سال پیش.
+                </p>
+            </a>
+
+
+            <a
+                href="animals.html/animals.html?period=cretaceous"
+                class="period-card"
+            >
+                <span class="icon">🦖</span>
+
+                <h3>کرتاسه</h3>
+
+                <p>
+                    آخرین دوره عصر دایناسورها؛ حدود ۱۴۵
+                    تا ۶۶ میلیون سال پیش.
+                </p>
+            </a>
+
+
+            <a
+                href="animals.html/animals.html?period=cenozoic"
+                class="period-card"
+            >
+                <span class="icon">🦣</span>
+
+                <h3>سنوزوئیک</h3>
+
+                <p>
+                    دوران پس از انقراض دایناسورهای غیرپرنده؛
+                    دوران شکوفایی پستانداران.
+                </p>
+            </a>
+
+        </div>
+
+
+        <section class="about">
+
+            <h2>🔬 درباره این پروژه</h2>
+
+            <p>
+                DinoWorld یک پروژه آموزشی درباره دایناسورها
+                و زندگی ماقبل تاریخ است. در این سایت می‌توان
+                با دوره‌های زمین‌شناسی، جانوران معروف،
+                فسیل‌ها، محل کشف آن‌ها و اطلاعات جالب علمی
+                آشنا شد.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        🟢 DinoWorld | طراحی شده توسط آریا عابدینی 💚
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
 </html>
