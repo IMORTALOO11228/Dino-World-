@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Tahoma, Arial, sans-serif;
+    direction: rtl;
+    background: #0f172a;
+    color: #f8fafc;
+    line-height: 1.8;
+}
+
+.hero {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #14532d, #0f172a);
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 7vw, 4rem);
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 700px;
+    font-size: 1.1rem;
+    color: #cbd5e1;
+}
+
+.periods {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.periods h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.period-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.period-card {
+    display: block;
+    padding: 30px 20px;
+    border-radius: 20px;
+    background: #1e293b;
+    color: #f8fafc;
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid #334155;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.period-card:hover {
+    transform: translateY(-5px);
+    background: #334155;
+}
+
+.period-card .icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.about {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 20px 60px;
+    text-align: center;
+    color: #cbd5e1;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #020617;
+    color: #94a3b8;
+}
+
+@media (max-width: 600px) {
+    .hero {
+        min-height: 45vh;
+    }
+
+    .periods {
+        padding-top: 35px;
+    }
+}
