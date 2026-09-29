@@ -66,9 +66,7 @@
         🟢 DinoWorld | طراحی شده توسط آریا عابدینی 💚
     </footer>
 
-
     <script src="script.js/script.js"></script>
-
 
     <script>
 
@@ -77,44 +75,36 @@
                 window.location.search
             );
 
-
         const selectedName =
             params.get("name");
 
-
         const selectedPeriod =
             params.get("period");
-
 
         const animal =
             window.dinoWorldAnimals?.find(
                 item => item.name === selectedName
             );
 
-
         const nameElement =
             document.getElementById(
                 "animal-name"
             );
-
 
         const detailsElement =
             document.getElementById(
                 "animal-details"
             );
 
-
         const backLink =
             document.getElementById(
                 "back-to-animals"
             );
 
-
         if (animal) {
 
             nameElement.textContent =
                 animal.icon + " " + animal.name;
-
 
             detailsElement.innerHTML = `
 
@@ -132,11 +122,9 @@
                     "
                 >
 
-
                 <h2>
                     ${animal.name}
                 </h2>
-
 
                 <p>
                     🕰️
@@ -146,7 +134,6 @@
                     ${animal.period}
                 </p>
 
-
                 <p>
                     🍖
                     <strong>
@@ -154,7 +141,6 @@
                     </strong>
                     ${animal.food}
                 </p>
-
 
                 <p>
                     🌍
@@ -164,7 +150,6 @@
                     ${animal.habitat}
                 </p>
 
-
                 <p>
                     📏
                     <strong>
@@ -172,7 +157,6 @@
                     </strong>
                     ${animal.size}
                 </p>
-
 
                 <p>
                     🧍
@@ -182,7 +166,6 @@
                     ${animal.human}
                 </p>
 
-
                 <p>
                     ⏳
                     <strong>
@@ -191,7 +174,6 @@
                     ${animal.lifespan}
                 </p>
 
-
                 <p>
                     ⚔️
                     <strong>
@@ -199,7 +181,6 @@
                     </strong>
                     ${animal.enemies}
                 </p>
-
 
                 <div
                     style="
@@ -223,10 +204,8 @@
 
             `;
 
-
             const periodToReturn =
                 selectedPeriod || animal.period;
-
 
             if (periodToReturn) {
 
@@ -242,7 +221,6 @@
 
             nameElement.textContent =
                 "❌ جانور پیدا نشد";
-
 
             detailsElement.innerHTML = `
 
