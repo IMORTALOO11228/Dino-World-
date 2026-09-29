@@ -39,11 +39,11 @@
         <div style="text-align: center; margin-top: 30px;">
 
             <a
-    id="back-to-animals"
-    href="animals.html/animals.html"
-    class="period-card"
->
-    ← بازگشت به فهرست جانوران
+                id="back-to-animals"
+                href="animals.html/animals.html"
+                class="period-card"
+            >
+                ← بازگشت به فهرست جانوران
             </a>
 
         </div>
@@ -63,7 +63,8 @@
         );
 
         const selectedName = params.get("name");
-const selectedPeriod = params.get("period");
+
+        const selectedPeriod = params.get("period");
 
         const animal = window.dinoWorldAnimals?.find(
             item => item.name === selectedName
@@ -74,6 +75,10 @@ const selectedPeriod = params.get("period");
 
         const detailsElement =
             document.getElementById("animal-details");
+
+        const backLink =
+            document.getElementById("back-to-animals");
+
 
         if (animal) {
 
@@ -111,94 +116,4 @@ const selectedPeriod = params.get("period");
                 </p>
 
                 <p>
-                    🌍 <strong>محل زندگی:</strong>
-                    ${animal.habitat}
-                </p>
-
-                <p>
-                    📏 <strong>اندازه:</strong>
-                    ${animal.size}
-                </p>
-
-                <p>
-                    🧍 <strong>مقایسه با انسان:</strong>
-                    ${animal.human}
-                </p>
-
-                <p>
-                    ⏳ <strong>طول عمر:</strong>
-                    ${animal.lifespan}
-                </p>
-
-                <p>
-                    ⚔️ <strong>دشمنان:</strong>
-                    ${animal.enemies}
-                </p>
-
-                <div
-                    style="
-                        margin-top: 30px;
-                        padding: 20px;
-                        border-radius: 20px;
-                        background: #1e293b;
-                        border: 1px solid #334155;
-                    "
-                >
-
-                    <h3>
-                        💡 نکته جالب
-                    </h3>
-
-                    <p>
-                        ${animal.fact}
-                    </p>
-
-                </div>
-
-            `;
-
-        } else {
-
-            nameElement.textContent =
-                "❌ جانور پیدا نشد";
-
-            detailsElement.innerHTML = `
-
-                <h2>
-                    اطلاعاتی پیدا نشد
-                </h2>
-
-                <p>
-                    اطلاعات جانور موردنظر در پایگاه داده
-                    موزه وجود ندارد.
-                </p>
-
-                <p>
-                    لطفاً از فهرست جانوران یک مورد را انتخاب کنید.
-                </p>
-
-            `;
-
-        }
-
-    } else {
-
-    nameElement.textContent =
-        "❌ جانور پیدا نشد";
-
-    // ...
-}
-
-const backLink = document.getElementById("back-to-animals");
-
-if (selectedPeriod) {
-    backLink.href =
-        "animals.html/animals.html?period=" +
-        encodeURIComponent(selectedPeriod);
-}
-
-</script>
-
-</body>
-
-</html>
+                    🌍 <strong>محل زندگی
