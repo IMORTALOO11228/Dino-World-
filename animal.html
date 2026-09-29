@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta
@@ -19,36 +18,20 @@
 <body>
 
     <header class="hero">
-
-        <h1 id="animal-name">
-            🦖 در حال بارگذاری...
-        </h1>
+        <h1 id="animal-name">🦖 در حال بارگذاری...</h1>
 
         <p>
             موزه تعاملی دنیای ماقبل تاریخ
         </p>
-
     </header>
 
     <main class="periods">
 
-        <section
-            id="animal-details"
-            class="about"
-        >
-
-            <p>
-                در حال بارگذاری اطلاعات جانور...
-            </p>
-
+        <section id="animal-details" class="about">
+            <p>در حال بارگذاری اطلاعات جانور...</p>
         </section>
 
-        <div
-            style="
-                text-align: center;
-                margin-top: 30px;
-            "
-        >
+        <div style="text-align:center; margin-top:30px;">
 
             <a
                 id="back-to-animals"
@@ -66,45 +49,47 @@
         🟢 DinoWorld | طراحی شده توسط آریا عابدینی 💚
     </footer>
 
-    <script src="script.js/script.js"></script>
+    <!-- بارگذاری پایگاه داده جانوران -->
+    <script src="./script.js/script.js"></script>
 
     <script>
 
-        const params =
-            new URLSearchParams(
-                window.location.search
-            );
+        const params = new URLSearchParams(
+            window.location.search
+        );
 
-        const selectedName =
-            params.get("name");
-
-        const selectedPeriod =
-            params.get("period");
-
-        const animal =
-            window.dinoWorldAnimals?.find(
-                item => item.name === selectedName
-            );
+        const selectedName = params.get("name");
+        const selectedPeriod = params.get("period");
 
         const nameElement =
-            document.getElementById(
-                "animal-name"
-            );
+            document.getElementById("animal-name");
 
         const detailsElement =
-            document.getElementById(
-                "animal-details"
-            );
+            document.getElementById("animal-details");
 
         const backLink =
-            document.getElementById(
-                "back-to-animals"
-            );
+            document.getElementById("back-to-animals");
 
+
+        /*
+         * پیدا کردن جانور از پایگاه داده
+         */
+        const animal =
+            window.dinoWorldAnimals
+                ? window.dinoWorldAnimals.find(
+                    item => item.name === selectedName
+                )
+                : null;
+
+
+        /*
+         * اگر جانور پیدا شد
+         */
         if (animal) {
 
             nameElement.textContent =
                 animal.icon + " " + animal.name;
+
 
             detailsElement.innerHTML = `
 
@@ -112,89 +97,71 @@
                     src="${animal.image}"
                     alt="تصویر ${animal.name}"
                     style="
-                        display: block;
-                        width: 100%;
-                        max-width: 650px;
-                        height: auto;
-                        margin: 0 auto 30px;
-                        border-radius: 20px;
-                        border: 1px solid #334155;
+                        display:block;
+                        width:100%;
+                        max-width:650px;
+                        height:auto;
+                        margin:0 auto 30px;
+                        border-radius:20px;
+                        border:1px solid #334155;
                     "
                 >
 
-                <h2>
-                    ${animal.name}
-                </h2>
+                <h2>${animal.name}</h2>
 
                 <p>
                     🕰️
-                    <strong>
-                        دوره زمین‌شناسی:
-                    </strong>
+                    <strong>دوره زمین‌شناسی:</strong>
                     ${animal.period}
                 </p>
 
                 <p>
                     🍖
-                    <strong>
-                        غذا:
-                    </strong>
+                    <strong>غذا:</strong>
                     ${animal.food}
                 </p>
 
                 <p>
                     🌍
-                    <strong>
-                        محل زندگی:
-                    </strong>
+                    <strong>محل زندگی:</strong>
                     ${animal.habitat}
                 </p>
 
                 <p>
                     📏
-                    <strong>
-                        اندازه:
-                    </strong>
+                    <strong>اندازه:</strong>
                     ${animal.size}
                 </p>
 
                 <p>
                     🧍
-                    <strong>
-                        مقایسه با انسان:
-                    </strong>
+                    <strong>مقایسه با انسان:</strong>
                     ${animal.human}
                 </p>
 
                 <p>
                     ⏳
-                    <strong>
-                        طول عمر:
-                    </strong>
+                    <strong>طول عمر:</strong>
                     ${animal.lifespan}
                 </p>
 
                 <p>
                     ⚔️
-                    <strong>
-                        دشمنان:
-                    </strong>
+                    <strong>دشمنان:</strong>
                     ${animal.enemies}
                 </p>
 
                 <div
                     style="
-                        margin-top: 30px;
-                        padding: 20px;
-                        border-radius: 20px;
-                        background: #1e293b;
-                        border: 1px solid #334155;
+                        margin-top:30px;
+                        padding:20px;
+                        border-radius:20px;
+                        background:#1e293b;
+                        border:1px solid #334155;
                     "
                 >
 
-                    <h3>
-                        💡 نکته جالب
-                    </h3>
+                    <h3>💡 نکته جالب</h3>
 
                     <p>
                         ${animal.fact}
@@ -204,6 +171,10 @@
 
             `;
 
+
+            /*
+             * حفظ دوره برای دکمه بازگشت
+             */
             const periodToReturn =
                 selectedPeriod || animal.period;
 
@@ -211,16 +182,19 @@
 
                 backLink.href =
                     "animals.html/animals.html?period=" +
-                    encodeURIComponent(
-                        periodToReturn
-                    );
+                    encodeURIComponent(periodToReturn);
 
             }
 
+
         } else {
 
+            /*
+             * اگر جانور پیدا نشد
+             */
             nameElement.textContent =
                 "❌ جانور پیدا نشد";
+
 
             detailsElement.innerHTML = `
 
