@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="کوییز تعاملی DinoWorld درباره دایناسورها و جانوران ماقبل تاریخ">
+<title>DinoWorld | کوییز و سرگرمی</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Tahoma,Arial,sans-serif;
+    background:#08111f;
+    color:#f8fafc;
+    line-height:1.8;
+}
+
+.page{
+    width:min(960px,100%);
+    margin:auto;
+    padding:20px;
+}
+
+.hero{
+    text-align:center;
+    padding:42px 18px 28px;
+    background:linear-gradient(135deg,#14532d,#0f172a);
+    border-radius:0 0 28px 28px;
+}
+
+.hero h1{
+    font-size:clamp(2rem,7vw,3.4rem);
+}
+
+.hero p{
+    color:#cbd5e1;
+}
+
+.panel{
+    background:#111c2e;
+    border:1px solid #334155;
+    border-radius:24px;
+    padding:22px;
+    margin-top:18px;
+}
+
+.menu{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:14px;
+    margin:22px 0;
+}
+
+.menu button,
+.back,
+.next,
+.restart{
+    border:1px solid #334155;
+    background:#1e293b;
+    color:#fff;
+    border-radius:16px;
+    padding:15px;
+    font:inherit;
+    cursor:pointer;
+    text-decoration:none;
+    text-align:center;
+}
+
+.menu button:hover,
+.back:hover{
+    background:#334155;
+}
+
+.hidden{
+    display:none;
+}
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    flex-wrap:wrap;
+    color:#cbd5e1;
+}
+
+.progress{
+    height:9px;
+    background:#243244;
+    border-radius:99px;
+    overflow:hidden;
+    margin:16px 0 22px;
+}
+
+.progress span{
+    display:block;
+    height:100%;
+    background:#22c55e;
+    width:0;
+}
+
+.question{
+    font-size:1.2rem;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.answers{
+    display:grid;
+    gap:12px;
+}
+
+.answer{
+    padding:14px 16px;
+    border-radius:14px;
+    border:1px solid #475569;
+    background:#1e293b;
+    color:#fff;
+    font:inherit;
+    text-align:right;
+    cursor:pointer;
+}
+
+.answer.correct{
+    background:#166534;
+    border-color:#22c55e;
+}
+
+.answer.wrong{
+    background:#7f1d1d;
+    border-color:#ef4444;
+}
+
+.answer:disabled{
+    cursor:default;
+}
+
+.feedback{
+    min-height:52px;
+    padding:12px;
+    margin-top:16px;
+    border-radius:14px;
+    background:#0f172a;
+    color:#cbd5e1;
+}
+
+.next,
+.restart{
+    margin-top:16px;
+    background:#22c55e;
+    color:#052e16;
+    border:0;
+    font-weight:bold;
+}
+
+.result{
+    text-align:center;
+}
+
+.score{
+    font-size:2.5rem;
+    font-weight:bold;
+}
+
+.small{
+    color:#94a3b8;
+}
+
+footer{
+    text-align:center;
+    color:#94a3b8;
+    padding:28px;
+}
+
+@media(max-width:600px){
+    .page{
+        padding:12px;
+    }
+
+    .panel{
+        padding:16px;
+    }
+
+    .menu{
+        grid-template-columns:1fr 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+    <h1>🧠 کوییز DinoWorld</h1>
+    <p>
+        دانشت را درباره دایناسورها، پتروسورها،
+        خزندگان دریایی و جانوران سنوزوئیک امتحان کن!
+    </p>
+</header>
+
+<main class="page">
+
+<section id="home" class="panel">
+    <h2>🎮 یک حالت را انتخاب کن</h2>
+
+    <p class="small">
+        ۶۵ سؤال در چهار بانک مختلف + یک حالت سرعتی تصادفی.
+    </p>
+
+    <div class="menu">
+
+        <button data-mode="main">
+            🧠 چالش اصلی
+            <br>
+            <span class="small">۲۰ سؤال</span>
+        </button>
+
+        <button data-mode="guess">
+            🦖 حدس بزن کیه؟
+            <br>
+            <span class="small">۱۵ سؤال</span>
+        </button>
+
+        <button data-mode="period">
+            ⏳ کدام دوره؟
+            <br>
+            <span class="small">۱۵ سؤال</span>
+        </button>
+
+        <button data-mode="truth">
+            🔎 حقیقت یا شایعه؟
+            <br>
+            <span class="small">۱۵ سؤال</span>
+        </button>
+
+        <button data-mode="speed">
+            ⚡ چالش سرعتی
+            <br>
+            <span class="small">۱۰ سؤال تصادفی</span>
+        </button>
+
+    </div>
+
+    <a class="back" href="index.html">
+        🏠 بازگشت به موزه
+    </a>
+</section>
+
+
+<section id="quiz" class="panel hidden">
+
+    <div class="topbar">
+        <strong id="modeTitle"></strong>
+        <span id="counter"></span>
+    </div>
+
+    <div class="progress">
+        <span id="bar"></span>
+    </div>
+
+    <div id="question" class="question"></div>
+
+    <div id="answers" class="answers"></div>
+
+    <div id="feedback" class="feedback" aria-live="polite">
+        یک گزینه را انتخاب کن.
+    </div>
+
+    <button id="next" class="next" disabled>
+        سؤال بعدی ←
+    </button>
+
+</section>
+
+
+<section id="result" class="panel hidden result">
+
+    <h2>🎉 نتیجه</h2>
+
+    <div id="score" class="score"></div>
+
+    <p id="resultText"></p>
+
+    <button id="restart" class="restart">
+        🔄 دوباره بازی کن
+    </button>
+
+    <br><br>
+
+    <a class="back" href="index.html">
+        🏠 بازگشت به موزه
+    </a>
+
+</section>
+
+</main>
+
+
+<footer>
+    🟢 DinoWorld | طراحی شده توسط آریا عابدینی 💚
+</footer>
+
+
+<script>
+
+const bank = {
+
+main: [
+
+[
+"کدام جانور صفحات استخوانی و گرز استخوانی در انتهای دم داشت؟",
+["Ankylosaurus","Stegosaurus","Iguanodon","Corythosaurus"],
+0
+],
+
+[
+"کدام جانور پاهای جلویی بلندتری از پاهای عقبی داشت؟",
+["Brachiosaurus","Allosaurus","Carnotaurus","Gallimimus"],
+0
+],
+
+[
+"کدام جانور به داشتن بادبان بزرگ روی پشت معروف است؟",
+["Spinosaurus","Triceratops","Velociraptor","Irritator"],
+0
+],
+
+[
+"دو شاخ بالای چشم‌ها و دست‌های بسیار کوچک، ویژگی کدام جانور است؟",
+["Carnotaurus","Tyrannosaurus Rex","Majungasaurus","Gorgosaurus"],
+0
+],
+
+[
+"کدام مورد یک پتروسور است و دایناسور نیست؟",
+["Pteranodon","Triceratops","Tarbosaurus","Diplodocus"],
+0
+],
+
+[
+"کدام جانور یک خزنده دریایی از گروه مارمولک‌ها بود؟",
+["Mosasaurus","Pteranodon","Spinosaurus","Kaprosuchus"],
+0
+],
+
+[
+"تاج بلند و لوله‌ای روی سر کدام جانور احتمالاً در ارتباط صوتی نقش داشته است؟",
+["Parasaurolophus","Ankylosaurus","Stegosaurus","Velociraptor"],
+0
+],
+
+[
+"خار بزرگ روی انگشت شست، ویژگی معروف کدام جانور بود؟",
+["Iguanodon","Zalmoxes","Sonorasaurus","Corythosaurus"],
+0
+],
+
+[
+"سال‌ها فقط بازوهای غول‌پیکر کدام جانور شناخته شده بود؟",
+["Deinocheirus","Gallimimus","Oviraptor","Rinchenia"],
+0
+],
+
+[
+"کدام جانور دایناسور نبود و به آرکوسورهای نزدیک به تمساح‌ها تعلق داشت؟",
+["Postosuchus","Iguanodon","Allosaurus","Diplodocus"],
+0
+],
+
+[
+"کدام نام از نظر طبقه‌بندی امروزی همچنان موضوع بحث است؟",
+["Troodon","Stegosaurus","Brachiosaurus","Triceratops"],
+0
+],
+
+[
+"کدام جانور یکی از اویراپتوروسورها بود؟",
+["Rinchenia","Mosasaurus","Corythosaurus","Kelenken"],
+0
+],
+
+[
+"کدام جانور یک پستاندار بسیار بزرگ و نزدیک به گروه کرگدن‌ها بود؟",
+["Indricotherium","Smilodon","Megaloceros","Mylodon"],
+0
+],
+
+[
+"کدام جانور پستانداری علف‌خوار با عاج‌هایی بود که از فک پایین بیرون می‌آمدند؟",
+["Deinotherium","Mastodon","Uintatherium","Woolly Mammoth"],
+0
+],
+
+[
+"کدام جانور به‌عنوان یک تنبل زمینی غول‌پیکر شناخته می‌شود؟",
+["Megatherium","Glyptodon","Arctodus","Hyaenodon"],
+0
+],
+
+[
+"کدام جانور یک مار غول‌پیکر دوره سنوزوئیک بود؟",
+["Titanoboa","Kelenken","Megaloceros","Thylacosmilus"],
+0
+],
+
+[
+"کدام جانور بدن زره‌پوش و محافظ استخوانی داشت؟",
+["Glyptodon","Mylodon","Smilodon","Cervalces"],
+0
+],
+
+[
+"کدام جانور یک پرنده غول‌پیکر و ناتوان از پرواز بود؟",
+["Kelenken","Pteranodon","Aerotitan","Tapejara"],
+0
+],
+
+[
+"کدام جانور پاهای بلند و بدن نسبتاً سبک داشت؟",
+["Gallimimus","Brachiosaurus","Mosasaurus","Glyptodon"],
+0
+],
+
+[
+"کدام جانور یک چنگال بزرگ روی دست داشت و با شکار ماهی مرتبط است؟",
+["Baryonyx","Iguanodon","Oviraptor","Corythosaurus"],
+0
+]
+
+],
+
+
+guess: [
+
+[
+"دو شاخ بالای چشم و دست‌های بسیار کوچک دارم؛ من کیستم؟",
+["Carnotaurus","Allosaurus","Tarbosaurus","Gorgosaurus"],
+0
+],
+
+[
+"پشت من بادبان بزرگی داشتم؛ من کیستم؟",
+["Spinosaurus","Suchomimus","Irritator","Baryonyx"],
+0
+],
+
+[
+"تاج لوله‌ای بلند روی سر دارم؛ من کیستم؟",
+["Parasaurolophus","Corythosaurus","Pterodaustro","Oviraptor"],
+0
+],
+
+[
+"یک خار بزرگ روی انگشت شستم دارم؛ من کیستم؟",
+["Iguanodon","Zalmoxes","Sonorasaurus","Corythosaurus"],
+0
+],
+
+[
+"گرز استخوانی در انتهای دم و زره سنگین دارم؛ من کیستم؟",
+["Ankylosaurus","Stegosaurus","Glyptodon","Triceratops"],
+0
+],
+
+[
+"دندان‌ها و فک مناسب شکار ماهی و یک چنگال بزرگ روی دست دارم؛ من کیستم؟",
+["Baryonyx","Irritator","Suchomimus","Spinosaurus"],
+0
+],
+
+[
+"بدنم بسیار بزرگ است و پاهای جلویی‌ام از پاهای عقبی بلندترند؛ من کیستم؟",
+["Brachiosaurus","Diplodocus","Sonorasaurus","Indricotherium"],
+0
+],
+
+[
+"بازوهای غول‌پیکرم سال‌ها تنها بخش شناخته‌شده‌ام بودند؛ من کیستم؟",
+["Deinocheirus","Gallimimus","Oviraptor","Rinchenia"],
+0
+],
+
+[
+"در دریا زندگی می‌کردم و دایناسور نبودم؛ من کیستم؟",
+["Mosasaurus","Spinosaurus","Pteranodon","Kaprosuchus"],
+0
+],
+
+[
+"پرواز می‌کردم، اما دایناسور نبودم؛ من کیستم؟",
+["Pteranodon","Aerotitan","Tapejara","Zhejiangopterus"],
+0
+],
+
+[
+"بدنم زره‌پوش بود و یک پستاندار غول‌پیکر زره‌دار بودم؛ من کیستم؟",
+["Glyptodon","Mylodon","Megatherium","Uintatherium"],
+0
+],
+
+[
+"یک مار غول‌پیکر از سنوزوئیک بودم؛ من کیستم؟",
+["Titanoboa","Hyaenodon","Kelenken","Megaloceros"],
+0
+],
+
+[
+"یک پرنده غول‌پیکر و ناتوان از پرواز بودم؛ من کیستم؟",
+["Kelenken","Aerotitan","Pterodaustro","Pteranodon"],
+0
+],
+
+[
+"تاج استخوانی بزرگی داشتم که احتمالاً در ارتباط صوتی نقش داشت؛ من کیستم؟",
+["Corythosaurus","Parasaurolophus","Stygimoloch","Oviraptor"],
+0
+],
+
+[
+"نامم با یک گروه بحث‌برانگیز از تروپودهای کوچک گره خورده بود؛ من کیستم؟",
+["Troodon","Velociraptor","Compsognathus","Oviraptor"],
+0
+]
+
+],
+
+
+period: [
+
+[
+"Stegosaurus در کدام دوره قرار می‌گیرد؟",
+["ژوراسیک","تریاس","کرتاسه","سنوزوئیک"],
+0
+],
+
+[
+"Brachiosaurus در کدام دوره قرار می‌گیرد؟",
+["ژوراسیک","تریاس","کرتاسه","سنوزوئیک"],
+0
+],
+
+[
+"Ankylosaurus در کدام دوره قرار می‌گیرد؟",
+["کرتاسه","ژوراسیک","تریاس","سنوزوئیک"],
+0
+],
+
+[
+"Spinosaurus در کدام دوره قرار می‌گیرد؟",
+["کرتاسه","ژوراسیک","تریاس","سنوزوئیک"],
+0
+],
+
+[
+"Allosaurus در کدام دوره قرار می‌گیرد؟",
+["ژوراسیک","تریاس","کرتاسه","سنوزوئیک"],
+0
+],
+
+[
+"Dilophosaurus در کدام دوره قرار می‌گیرد؟",
+["ژوراسیک","تریاس","کرتاسه","سنوزوئیک"],
+0
+],
+
+[
+"Parasaurolophus در کدام دوره قرار می‌گیرد؟",
+["کرتاسه","ژوراسیک","تریاس","سنوزوئیک"],
+0
+],
+
+[
+"Postosuchus در کدام دوره قرار می‌گیرد؟",
+["تریاس","ژوراسیک","کرتاسه","سنوزوئیک"],
+0
+],
+
+[
+"Mosasaurus در کدام دوره قرار می‌گیرد؟",
+["کرتاسه","ژوراسیک","تریاس","سنوزوئیک"],
+0
+],
+
+[
+"Tyrannosaurus Rex در کدام دوره قرار می‌گیرد؟",
+["کرتاسه","ژوراسیک","تریاس","سنوزوئیک"],
+0
+],
+
+[
+"Diplodocus در کدام دوره قرار می‌گیرد؟",
+["ژوراسیک","تریاس","کرتاسه","سنوزوئیک"],
+0
+],
+
+[
+"Triceratops در کدام دوره قرار می‌گیرد؟",
+["کرتاسه","ژوراسیک","تریاس","سنوزوئیک"],
+0
+],
+
+[
+"Woolly Mammoth در کدام دوره بزرگ زمین‌شناسی قرار می‌گیرد؟",
+["سنوزوئیک","کرتاسه","ژوراسیک","تریاس"],
+0
+],
+
+[
+"Smilodon در کدام دوره بزرگ زمین‌شناسی قرار می‌گیرد؟",
+["سنوزوئیک","کرتاسه","ژوراسیک","تریاس"],
+0
+],
+
+[
+"Titanoboa در کدام دوره بزرگ زمین‌شناسی قرار می‌گیرد؟",
+["سنوزوئیک","کرتاسه","ژوراسیک","تریاس"],
+0
+]
+
+],
+
+
+truth: [
+
+["Pteranodon یک دایناسور بود.",false],
+
+["Mosasaurus یک خزنده دریایی بود، نه دایناسور.",true],
+
+["Dimetrodon دایناسور بود.",false],
+
+["برای Dilophosaurus شواهد علمی معتبری از تف کردن سم وجود ندارد.",true],
+
+["Ankylosaurus گرز استخوانی در انتهای دم داشت.",true],
+
+["Carnotaurus دو شاخ بالای چشم‌هایش داشت.",true],
+
+["Brachiosaurus پاهای جلویی کوتاه‌تری از پاهای عقبی داشت.",false],
+
+["Kelenken یک پرنده غول‌پیکر و ناتوان از پرواز بود.",true],
+
+["Titanoboa یک دایناسور گوشت‌خوار بود.",false],
+
+["Glyptodon یک پستاندار زره‌پوش بود.",true],
+
+["Postosuchus یک دایناسور بود.",false],
+
+["Parasaurolophus تاج لوله‌ای بلندی روی سر داشت.",true],
+
+["Iguanodon خار بزرگی روی انگشت شست داشت.",true],
+
+["Spinosaurus هیچ ارتباطی با محیط‌های آبی نداشت.",false],
+
+["طول عمر دقیق بیشتر جانوران فهرست‌شده در DinoWorld مشخص است.",false]
+
+]
+
+};
+
+
+const names = {
+    main:"🧠 چالش اصلی",
+    guess:"🦖 حدس بزن کیه؟",
+    period:"⏳ کدام دوره؟",
+    truth:"🔎 حقیقت یا شایعه؟",
+    speed:"⚡ چالش سرعتی"
+};
+
+
+const $ = id => document.getElementById(id);
+
+let mode = "main";
+let questions = [];
+let index = 0;
+let score = 0;
+let answered = false;
+
+
+function shuffle(array){
+
+    const x = [...array];
+
+    for(let i=x.length-1;i>0;i--){
+
+        const j = Math.floor(Math.random()*(i+1));
+
+        [x[i],x[j]] = [x[j],x[i]];
+    }
+
+    return x;
+}
+
+
+function start(selectedMode){
+
+    mode = selectedMode;
+
+    if(selectedMode === "speed"){
+
+        const all = [
+
+            ...bank.main.map(x => ({
+                q:x[0],
+                options:x[1],
+                answer:x[2],
+                type:"mc"
+            })),
+
+            ...bank.guess.map(x => ({
+                q:x[0],
+                options:x[1],
+                answer:x[2],
+                type:"mc"
+            })),
+
+            ...bank.period.map(x => ({
+                q:x[0],
+                options:x[1],
+                answer:x[2],
+                type:"mc"
+            })),
+
+            ...bank.truth.map(x => ({
+                q:x[0],
+                answer:x[1],
+                type:"truth"
+            }))
+
+        ];
+
+        questions = shuffle(all).slice(0,10);
+
+    }else if(selectedMode === "truth"){
+
+        questions = shuffle(
+            bank.truth.map(x => ({
+                q:x[0],
+                answer:x[1],
+                type:"truth"
+            }))
+        );
+
+    }else{
+
+        questions = shuffle(
+            bank[selectedMode].map(x => ({
+                q:x[0],
+                options:x[1],
+                answer:x[2],
+                type:"mc"
+            }))
+        );
+    }
+
+
+    index = 0;
+    score = 0;
+    answered = false;
+
+    $("home").classList.add("hidden");
+    $("result").classList.add("hidden");
+    $("quiz").classList.remove("hidden");
+
+    show();
+}
+
+
+function show(){
+
+    const item = questions[index];
+
+    answered = false;
+
+    $("next").disabled = true;
+
+    $("feedback").textContent = "یک گزینه را انتخاب کن.";
+
+    $("answers").innerHTML = "";
+
+    $("question").textContent = item.q;
+
+    $("counter").textContent =
+        `سؤال ${index + 1} از ${questions.length}`;
+
+    $("bar").style.width =
+        `${index / questions.length * 100}%`;
+
+
+    if(item.type === "truth"){
+
+        add("درست",item.answer === true);
+
+        add("نادرست",item.answer === false);
+
+    }else{
+
+        item.options.forEach((option,i) => {
+
+            add(
+                option,
+                i === item.answer
+            );
+
+        });
+    }
+}
+
+
+function add(text,correct){
+
+    const button = document.createElement("button");
+
+    button.className = "answer";
+
+    button.textContent = text;
+
+    button.addEventListener(
+        "click",
+        () => choose(button,correct)
+    );
+
+    $("answers").appendChild(button);
+}
+
+
+function choose(button,correct){
+
+    if(answered) return;
+
+    answered = true;
+
+    document
+        .querySelectorAll(".answer")
+        .forEach(button => button.disabled = true);
+
+
+    if(correct){
+
+        score++;
+
+        button.classList.add("correct");
+
+        $("feedback").textContent =
+            "✅ درست گفتی!";
+
+    }else{
+
+        button.classList.add("wrong");
+
+        const item = questions[index];
+
+        document
+            .querySelectorAll(".answer")
+            .forEach(button => {
+
+                if(item.type === "truth"){
+
+                    if(
+                        (button.textContent === "درست")
+                        === item.answer
+                    ){
+
+                        button.classList.add("correct");
+                    }
+
+                }else{
+
+                    if(
+                        button.textContent
+                        === item.options[item.answer]
+                    ){
+
+                        button.classList.add("correct");
+                    }
+                }
+
+            });
+
+
+        $("feedback").textContent =
+            "❌ پاسخ درست با رنگ سبز مشخص شده است.";
+    }
+
+
+    $("next").disabled = false;
+
+    $("bar").style.width =
+        `${(index + 1) / questions.length * 100}%`;
+}
+
+
+$("next").addEventListener("click",() => {
+
+    if(!answered) return;
+
+    index++;
+
+    if(index < questions.length){
+
+        show();
+
+    }else{
+
+        finish();
+    }
+
+});
+
+
+function finish(){
+
+    $("quiz").classList.add("hidden");
+
+    $("result").classList.remove("hidden");
+
+    const percentage =
+        Math.round(score / questions.length * 100);
+
+
+    $("score").textContent =
+        `${score} از ${questions.length}`;
+
+
+    $("resultText").textContent =
+        percentage >= 90
+        ? "🏆 فوق‌العاده!"
+        : percentage >= 70
+        ? "🦖 خیلی خوب بود!"
+        : percentage >= 50
+        ? "🔬 خوبه، یک دور دیگر هم امتحان کن!"
+        : "🌋 دوباره امتحان کن و رکوردت را بهتر کن!";
+}
+
+
+$("restart").addEventListener(
+    "click",
+    () => start(mode)
+);
+
+
+document
+    .querySelectorAll("[data-mode]")
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => start(button.dataset.mode)
+        );
+
+    });
+
+</script>
+
+</body>
+</html>
