@@ -36,7 +36,6 @@
 
     <main class="periods">
 
-        <!-- پیام راهنما -->
         <div
             style="
                 max-width:700px;
@@ -53,7 +52,6 @@
         </div>
 
 
-        <!-- اطلاعات جانور -->
         <section
             id="animal-details"
             class="about"
@@ -71,7 +69,6 @@
         </section>
 
 
-        <!-- دکمه بازگشت -->
         <div
             style="
                 text-align:center;
@@ -94,7 +91,6 @@
         </div>
 
 
-        <!-- دکمه صفحه اصلی -->
         <div
             style="
                 text-align:center;
@@ -123,11 +119,9 @@
     </footer>
 
 
-    <!-- دیتابیس 66 جانور -->
     <script src="script.js/script.js"></script>
 
 
-    <!-- سیستم نمایش اطلاعات -->
     <script>
 
         document.addEventListener("DOMContentLoaded", function () {
@@ -155,11 +149,6 @@
             const selectedPeriod =
                 params.get("period");
 
-
-            /*
-             * بررسی می‌کنیم که دیتابیس
-             * script.js واقعاً بارگذاری شده باشد.
-             */
 
             if (
                 !window.dinoWorldAnimals ||
@@ -202,10 +191,6 @@
             }
 
 
-            /*
-             * پیدا کردن جانور انتخاب‌شده
-             */
-
             const animal =
                 window.dinoWorldAnimals.find(
                     function (item) {
@@ -213,10 +198,6 @@
                     }
                 );
 
-
-            /*
-             * اگر جانور پیدا نشد
-             */
 
             if (!animal) {
 
@@ -258,19 +239,11 @@
             }
 
 
-            /*
-             * عنوان صفحه
-             */
-
             nameElement.textContent =
                 animal.icon +
                 " " +
                 animal.name;
 
-
-            /*
-             * نمایش اطلاعات کامل
-             */
 
             detailsElement.innerHTML = `
 
@@ -476,11 +449,6 @@
 
             `;
 
-
-            /*
-             * دکمه بازگشت را به همان دوره‌ای
-             * وصل می‌کنیم که جانور از آن انتخاب شده.
-             */
 
             const returnPeriod =
                 selectedPeriod || animal.period;
