@@ -11,24 +11,24 @@
 
     <meta
         name="description"
-        content="اطلاعات کامل جانوران ماقبل تاریخ در موزه تعاملی DinoWorld"
+        content="انتخاب جانوران ماقبل تاریخ در موزه تعاملی DinoWorld"
     >
 
-    <title>DinoWorld | اطلاعات جانور ماقبل تاریخ</title>
+    <title>DinoWorld | انتخاب جانور</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
 
     <header class="hero">
 
-        <h1 id="animal-name">
-            🦖 در حال بارگذاری...
+        <h1>
+            🦖 انتخاب جانور
         </h1>
 
         <p>
-            موزه تعاملی دنیای ماقبل تاریخ
+            یک جانور را انتخاب کن تا اطلاعات کامل آن را ببینی.
         </p>
 
     </header>
@@ -36,31 +36,55 @@
 
     <main class="periods">
 
-        <section
-            id="animal-details"
-            class="about"
+        <h2>
+            🦴 جانوران موزه
+        </h2>
+
+
+        <div
+            style="
+                max-width:700px;
+                margin:0 auto 30px;
+                padding:15px 20px;
+                border-radius:15px;
+                background:#1e293b;
+                border:1px solid #334155;
+                text-align:center;
+                color:#cbd5e1;
+            "
+        >
+            ℹ️ اگر اطلاعات نمایش داده نمی‌شود، صفحه را رفرش کنید.
+        </div>
+
+
+        <div
+            id="animal-list"
+            class="period-grid"
         >
 
             <p>
-                در حال بارگذاری اطلاعات جانور...
+                در حال بارگذاری...
             </p>
 
-        </section>
+        </div>
 
 
         <div
             style="
                 text-align:center;
-                margin-top:30px;
+                margin-top:40px;
             "
         >
 
             <a
-                id="back-to-animals"
-                href="animals.html/animals.html"
+                href="../index.html"
                 class="period-card"
+                style="
+                    display:inline-block;
+                    width:auto;
+                "
             >
-                ← بازگشت به موزه
+                🏠 بازگشت به صفحه اصلی
             </a>
 
         </div>
@@ -69,210 +93,11 @@
 
 
     <footer>
-        🟢 DinoWorld | طراحی شده توسط آریا عابدینی 💚
+        🟢 DinoWorld | موزه تعاملی دنیای ماقبل تاریخ
     </footer>
 
 
-    <script src="./script.js/script.js"></script>
-
-
-    <script>
-
-        const params =
-            new URLSearchParams(
-                window.location.search
-            );
-
-        const selectedName =
-            params.get("name");
-
-        const selectedPeriod =
-            params.get("period");
-
-
-        const nameElement =
-            document.getElementById(
-                "animal-name"
-            );
-
-        const detailsElement =
-            document.getElementById(
-                "animal-details"
-            );
-
-        const backLink =
-            document.getElementById(
-                "back-to-animals"
-            );
-
-
-        const animal =
-            window.dinoWorldAnimals
-                ? window.dinoWorldAnimals.find(
-                    item =>
-                        item.name === selectedName
-                )
-                : null;
-
-
-        if (animal) {
-
-            nameElement.textContent =
-                animal.icon +
-                " " +
-                animal.name;
-
-
-            detailsElement.innerHTML = `
-
-                <img
-                    src="${animal.image}"
-                    alt="تصویر ${animal.name}"
-                    style="
-                        display:block;
-                        width:100%;
-                        max-width:650px;
-                        height:auto;
-                        margin:0 auto 30px;
-                        border-radius:20px;
-                        border:1px solid #334155;
-                    "
-                >
-
-
-                <h2>
-                    ${animal.name}
-                </h2>
-
-
-                <p>
-                    🕰️
-                    <strong>
-                        دوره زمین‌شناسی:
-                    </strong>
-                    ${animal.period}
-                </p>
-
-
-                <p>
-                    🍖
-                    <strong>
-                        غذا:
-                    </strong>
-                    ${animal.food}
-                </p>
-
-
-                <p>
-                    🌍
-                    <strong>
-                        محل زندگی:
-                    </strong>
-                    ${animal.habitat}
-                </p>
-
-
-                <p>
-                    📏
-                    <strong>
-                        اندازه:
-                    </strong>
-                    ${animal.size}
-                </p>
-
-
-                <p>
-                    🧍
-                    <strong>
-                        مقایسه با انسان:
-                    </strong>
-                    ${animal.human}
-                </p>
-
-
-                <p>
-                    ⏳
-                    <strong>
-                        طول عمر:
-                    </strong>
-                    ${animal.lifespan}
-                </p>
-
-
-                <p>
-                    ⚔️
-                    <strong>
-                        دشمنان:
-                    </strong>
-                    ${animal.enemies}
-                </p>
-
-
-                <div
-                    style="
-                        margin-top:30px;
-                        padding:20px;
-                        border-radius:20px;
-                        background:#1e293b;
-                        border:1px solid #334155;
-                    "
-                >
-
-                    <h3>
-                        💡 نکته جالب
-                    </h3>
-
-                    <p>
-                        ${animal.fact}
-                    </p>
-
-                </div>
-
-            `;
-
-
-            const periodToReturn =
-                selectedPeriod ||
-                animal.period;
-
-
-            if (periodToReturn) {
-
-                backLink.href =
-                    "animals.html/animals.html?period=" +
-                    encodeURIComponent(
-                        periodToReturn
-                    );
-
-            }
-
-        } else {
-
-            nameElement.textContent =
-                "❌ جانور پیدا نشد";
-
-
-            detailsElement.innerHTML = `
-
-                <h2>
-                    اطلاعاتی پیدا نشد
-                </h2>
-
-                <p>
-                    اطلاعات جانور موردنظر
-                    در پایگاه داده موزه وجود ندارد.
-                </p>
-
-                <p>
-                    لطفاً از فهرست جانوران
-                    یک مورد را انتخاب کنید.
-                </p>
-
-            `;
-
-        }
-
-    </script>
+    <script src="../script.js/script.js"></script>
 
 </body>
 
