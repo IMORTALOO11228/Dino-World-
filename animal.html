@@ -11,24 +11,24 @@
 
     <meta
         name="description"
-        content="انتخاب جانوران ماقبل تاریخ در موزه تعاملی DinoWorld"
+        content="اطلاعات کامل جانوران ماقبل تاریخ در موزه تعاملی DinoWorld"
     >
 
-    <title>DinoWorld | انتخاب جانور</title>
+    <title>DinoWorld | اطلاعات جانور ماقبل تاریخ</title>
 
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <header class="hero">
 
-        <h1>
-            🦖 انتخاب جانور
+        <h1 id="animal-name">
+            🦖 در حال بارگذاری...
         </h1>
 
         <p>
-            یک جانور را انتخاب کن تا اطلاعات کامل آن را ببینی.
+            موزه تعاملی دنیای ماقبل تاریخ
         </p>
 
     </header>
@@ -36,9 +36,16 @@
 
     <main class="periods">
 
-        <h2>
-            🦴 جانوران موزه
-        </h2>
+        <section
+            id="animal-details"
+            class="about"
+        >
+
+            <p>
+                در حال بارگذاری اطلاعات جانور...
+            </p>
+
+        </section>
 
 
         <div
@@ -58,33 +65,18 @@
 
 
         <div
-            id="animal-list"
-            class="period-grid"
-        >
-
-            <p>
-                در حال بارگذاری...
-            </p>
-
-        </div>
-
-
-        <div
             style="
                 text-align:center;
-                margin-top:40px;
+                margin-top:30px;
             "
         >
 
             <a
-                href="../index.html"
+                id="back-to-animals"
+                href="animals.html/animals.html"
                 class="period-card"
-                style="
-                    display:inline-block;
-                    width:auto;
-                "
             >
-                🏠 بازگشت به صفحه اصلی
+                ← بازگشت به موزه
             </a>
 
         </div>
@@ -93,12 +85,76 @@
 
 
     <footer>
-        🟢 DinoWorld | موزه تعاملی دنیای ماقبل تاریخ
+        🟢 DinoWorld | طراحی شده توسط آریا عابدینی 💚
     </footer>
 
 
-    <script src="../script.js/script.js"></script>
+    <script src="./script.js/script.js"></script>
 
-</body>
 
-</html>
+    <script>
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        const selectedName =
+            params.get("name");
+
+
+        const selectedPeriod =
+            params.get("period");
+
+
+        const nameElement =
+            document.getElementById(
+                "animal-name"
+            );
+
+
+        const detailsElement =
+            document.getElementById(
+                "animal-details"
+            );
+
+
+        const backLink =
+            document.getElementById(
+                "back-to-animals"
+            );
+
+
+        const animal =
+            window.dinoWorldAnimals
+                ? window.dinoWorldAnimals.find(
+                    item =>
+                        item.name === selectedName
+                )
+                : null;
+
+
+        if (animal) {
+
+            nameElement.textContent =
+                animal.icon +
+                " " +
+                animal.name;
+
+
+            detailsElement.innerHTML = `
+
+                <img
+                    src="${animal.image}"
+                    alt="تصویر ${animal.name}"
+                    style="
+                        display:block;
+                        width:100%;
+                        max-width:650px;
+                        height:auto;
+                        margin:0 auto 30px;
+                        border-radius:20px;
+                        border:1px solid #334155;
+                    "
+                >
