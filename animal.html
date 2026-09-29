@@ -55,20 +55,13 @@
             "
         >
 
-            <button
+            <a
                 id="back-to-animals"
-                type="button"
+                href="animals.html/animals.html"
                 class="period-card"
-                style="
-                    display:inline-block;
-                    width:auto;
-                    border:none;
-                    font:inherit;
-                    cursor:pointer;
-                "
             >
                 ← بازگشت به موزه
-            </button>
+            </a>
 
         </div>
 
@@ -80,7 +73,6 @@
     </footer>
 
 
-    <!-- پایگاه داده جانوران -->
     <script src="./script.js/script.js"></script>
 
 
@@ -91,10 +83,8 @@
                 window.location.search
             );
 
-
         const selectedName =
             params.get("name");
-
 
         const selectedPeriod =
             params.get("period");
@@ -105,14 +95,12 @@
                 "animal-name"
             );
 
-
         const detailsElement =
             document.getElementById(
                 "animal-details"
             );
 
-
-        const backButton =
+        const backLink =
             document.getElementById(
                 "back-to-animals"
             );
@@ -248,20 +236,15 @@
                 animal.period;
 
 
-            backButton.addEventListener(
-                "click",
-                function () {
+            if (periodToReturn) {
 
-                    window.location.replace(
-                        "animals.html/animals.html?period=" +
-                        encodeURIComponent(
-                            periodToReturn
-                        )
+                backLink.href =
+                    "animals.html/animals.html?period=" +
+                    encodeURIComponent(
+                        periodToReturn
                     );
 
-                }
-            );
-
+            }
 
         } else {
 
@@ -281,4 +264,16 @@
                 </p>
 
                 <p>
-                    لطفاً از ف
+                    لطفاً از فهرست جانوران
+                    یک مورد را انتخاب کنید.
+                </p>
+
+            `;
+
+        }
+
+    </script>
+
+</body>
+
+</html>
