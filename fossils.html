@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="دانشنامه تعاملی فسیل‌ها؛ فرایند فسیل‌شدن، انواع فسیل، سنگ‌های رسوبی، چینه‌شناسی و روش‌های سن‌یابی در DinoWorld">
+
+    <title>DinoWorld | دانشنامه فسیل‌ها</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            direction: rtl;
+            background: #07130f;
+            color: #f8fafc;
+            line-height: 2;
+        }
+
+        .hero {
+            min-height: 430px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background:
+                radial-gradient(circle at 50% 15%, #365314, transparent 35%),
+                linear-gradient(145deg, #052e16, #07130f 60%, #020617);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "🦴";
+            position: absolute;
+            font-size: 13rem;
+            opacity: .055;
+            left: 3%;
+            bottom: -45px;
+            transform: rotate(-20deg);
+        }
+
+        .hero::after {
+            content: "🪨";
+            position: absolute;
+            font-size: 10rem;
+            opacity: .05;
+            right: 4%;
+            top: 20px;
+            transform: rotate(15deg);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 6px 15px;
+            border: 1px solid #4d7c0f;
+            background: #1a2e05;
+            color: #bef264;
+            border-radius: 999px;
+            margin-bottom: 18px;
+            font-size: .9rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 8vw, 4.5rem);
+            line-height: 1.3;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .container {
+            width: min(1050px, 100%);
+            margin: auto;
+            padding: 35px 18px 65px;
+        }
+
+        .intro {
+            background: linear-gradient(145deg, #111c2e, #0c1726);
+            border: 1px solid #334155;
+            border-radius: 28px;
+            padding: 30px;
+            margin-bottom: 35px;
+        }
+
+        .intro h2 {
+            margin-bottom: 15px;
+            font-size: 1.7rem;
+        }
+
+        .intro p {
+            color: #cbd5e1;
+        }
+
+        .section {
+            margin-top: 50px;
+        }
+
+        .section-title {
+            margin-bottom: 22px;
+            font-size: 1.9rem;
+        }
+
+        .section-subtitle {
+            color: #94a3b8;
+            margin-bottom: 25px;
+        }
+
+        .definition {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 18px;
+        }
+
+        .panel {
+            background: #111c2e;
+            border: 1px solid #334155;
+            border-radius: 22px;
+            padding: 24px;
+        }
+
+        .panel h3 {
+            margin-bottom: 10px;
+            color: #bef264;
+        }
+
+        .panel p {
+            color: #cbd5e1;
+        }
+
+        .note {
+            margin-top: 18px;
+            padding: 17px 20px;
+            border-radius: 16px;
+            background: #172554;
+            border: 1px solid #3730a3;
+            color: #dbeafe;
+        }
+
+        .process {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(210px, 1fr));
+            gap: 16px;
+        }
+
+        .step {
+            background: #111c2e;
+            border: 1px solid #334155;
+            border-radius: 22px;
+            padding: 23px;
+            position: relative;
+        }
+
+        .number {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #365314;
+            color: #d9f99d;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .step h3 {
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            color: #cbd5e1;
+            font-size: .94rem;
+        }
+
+        .types {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px, 1fr));
+            gap: 17px;
+        }
+
+        .type-card {
+            background: #111c2e;
+            border: 1px solid #334155;
+            border-radius: 22px;
+            padding: 24px;
+        }
+
+        .type-icon {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+        }
+
+        .type-card h3 {
+            margin-bottom: 9px;
+        }
+
+        .type-card p {
+            color: #cbd5e1;
+        }
+
+        .comparison {
+            overflow-x: auto;
+            border: 1px solid #334155;
+            border-radius: 20px;
+        }
+
+        table {
+            width: 100%;
+            min-width: 650px;
+            border-collapse: collapse;
+            background: #111c2e;
+        }
+
+        th,
+        td {
+            padding: 16px;
+            border-bottom: 1px solid #334155;
+            text-align: right;
+        }
+
+        th {
+            background: #172033;
+            color: #bef264;
+        }
+
+        td {
+            color: #cbd5e1;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .dating-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(270px, 1fr));
+            gap: 18px;
+        }
+
+        .dating-card {
+            background: #111c2e;
+            border: 1px solid #334155;
+            border-radius: 24px;
+            padding: 25px;
+        }
+
+        .dating-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .dating-card p {
+            color: #cbd5e1;
+        }
+
+        .formula {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 15px;
+            background: #020617;
+            border: 1px solid #334155;
+            direction: ltr;
+            text-align: center;
+            font-family: Georgia, serif;
+            color: #d9f99d;
+            font-size: 1.05rem;
+        }
+
+        .limits {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px, 1fr));
+            gap: 15px;
+        }
+
+        .limit {
+            padding: 21px;
+            background: #111c2e;
+            border: 1px solid #334155;
+            border-radius: 20px;
+        }
+
+        .limit h3 {
+            margin-bottom: 8px;
+        }
+
+        .limit p {
+            color: #cbd5e1;
+            font-size: .94rem;
+        }
+
+        .museum-facts {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .fact {
+            background: linear-gradient(145deg, #111c2e, #0f172a);
+            border: 1px solid #334155;
+            border-radius: 22px;
+            padding: 22px;
+        }
+
+        .fact h3 {
+            margin-bottom: 8px;
+        }
+
+        .fact p {
+            color: #cbd5e1;
+            font-size: .94rem;
+        }
+
+        .quote {
+            margin-top: 40px;
+            padding: 27px;
+            border-radius: 25px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #172033,
+                    #10251d
+                );
+            border: 1px solid #365314;
+            text-align: center;
+        }
+
+        .quote p {
+            color: #dbeafe;
+            font-size: 1.08rem;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 55px;
+        }
+
+        .button {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            background: #1e293b;
+            border: 1px solid #475569;
+            padding: 13px 22px;
+            border-radius: 15px;
+            transition: .2s;
+        }
+
+        .button:hover {
+            background: #334155;
+            transform: translateY(-2px);
+        }
+
+        .button.main {
+            background: #365314;
+            border-color: #4d7c0f;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 15px;
+            background: #020617;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 700px) {
+
+            .hero {
+                min-height: 380px;
+                padding: 50px 18px;
+            }
+
+            .container {
+                padding: 25px 12px 50px;
+            }
+
+            .intro {
+                padding: 22px;
+            }
+
+            .definition {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                margin-top: 38px;
+            }
+
+            .section-title {
+                font-size: 1.55rem;
+            }
+
+            .panel,
+            .dating-card,
+            .type-card,
+            .step {
+                padding: 20px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .button {
+                text-align: center;
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <span class="eyebrow">
+            🦴 PALEONTOLOGY • دانشنامه فسیل‌ها
+        </span>
+
+        <h1>
+            🦴 رازهایی که سنگ‌ها حفظ کرده‌اند
+        </h1>
+
+        <p>
+            فسیل‌ها فقط استخوان‌های سنگ‌شده نیستند؛
+            آن‌ها بخشی از شواهد علمی درباره تاریخ حیات،
+            محیط‌های گذشته، تغییرات اقلیمی و فرگشت موجودات
+            روی زمین هستند.
+        </p>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+
+<section class="intro">
+
+    <h2>🔬 فسیل دقیقاً چیست؟</h2>
+
+    <p>
+        فسیل هر نوع بقایای حفظ‌شده یا اثر به‌جامانده از
+        موجودات زنده گذشته است که در رکورد زمین‌شناسی
+        باقی مانده باشد. این تعریف فقط به استخوان محدود نیست؛
+        صدف، دندان، برگ، چوب، ردپا، لانه، سوراخ‌های ایجادشده
+        توسط جانوران و حتی برخی آثار فعالیت زیستی نیز می‌توانند
+        فسیل محسوب شوند.
+    </p>
+
+    <div class="note">
+
+        🧠 <strong>نکته مهم:</strong>
+        همه موجوداتی که می‌میرند فسیل نمی‌شوند.
+        برای فسیل‌شدن معمولاً باید شرایط مناسبی مانند
+        دفن نسبتاً سریع، محیط مناسب و حفاظت از بقایا
+        وجود داشته باشد.
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <h2 class="section-title">
+        🪨 فسیل چگونه تشکیل می‌شود؟
+    </h2>
+
+    <p class="section-subtitle">
+        فسیل‌شدن یک فرایند واحد و یکسان برای همه موجودات نیست.
+        روش حفظ‌شدن یک استخوان دایناسور با یک ردپا یا یک برگ
+        بسیار متفاوت است.
+    </p>
+
+
+    <div class="process">
+
+
+        <div class="step">
+
+            <div class="number">۱</div>
+
+            <h3>☠️ مرگ موجود زنده</h3>
+
+            <p>
+                پس از مرگ، بافت‌های نرم معمولاً به‌وسیله
+                فعالیت میکروبی، تجزیه‌کنندگان و عوامل محیطی
+                از بین می‌روند. بخش‌های سخت مانند استخوان،
+                دندان و صدف معمولاً شانس بیشتری برای حفظ‌شدن دارند.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">۲</div>
+
+            <h3>🌊 دفن شدن</h3>
+
+            <p>
+                اگر بقایا نسبتاً سریع زیر رسوبات مانند گل،
+                ماسه یا سیلت دفن شوند، احتمال نابودی کامل
+                آن‌ها کمتر می‌شود.
+                دفن سریع یکی از عوامل مهم در حفظ بقایاست.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">۳</div>
+
+            <h3>💧 ورود آب و مواد معدنی</h3>
+
+            <p>
+                آب زیرزمینی می‌تواند از منافذ موجود در
+                استخوان یا صدف عبور کند و مواد معدنی
+                محلول را به داخل آن منتقل کند.
+                این مواد می‌توانند بخشی از ساختار اصلی را
+                جایگزین یا پر کنند.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">۴</div>
+
+            <h3>🪨 سنگ‌شدن و فشرده‌شدن</h3>
+
+            <p>
+                در طول زمان، رسوبات روی هم انباشته شده
+                و تحت فشار قرار می‌گیرند.
+                هم‌زمان تغییرات شیمیایی و معدنی می‌توانند
+                بقایا را به بخشی از ساختار سنگ تبدیل کنند.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">۵</div>
+
+            <h3>⛰️ بالا آمدن و فرسایش</h3>
+
+            <p>
+                حرکات زمین‌ساختی می‌توانند لایه‌های قدیمی
+                را بالا بیاورند. سپس فرسایش آب، باد یا یخ
+                ممکن است فسیل را دوباره به سطح زمین نزدیک کند.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">۶</div>
+
+            <h3>🔬 کشف و مطالعه</h3>
+
+            <p>
+                دیرینه‌شناسان با بررسی فسیل و سنگ اطراف آن
+                تلاش می‌کنند سن، محیط زندگی، آناتومی،
+                رژیم غذایی و روابط فرگشتی موجود زنده را
+                بازسازی کنند.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <h2 class="section-title">
+        🧬 انواع اصلی فسیل
+    </h2>
+
+    <div class="types">
+
+
+        <article class="type-card">
+
+            <div class="type-icon">🦴</div>
+
+            <h3>فسیل بدنی</h3>
+
+            <p>
+                بقایای مستقیم بدن موجود زنده، مانند استخوان،
+                دندان، صدف یا بخش‌هایی از گیاه.
+                فسیل‌های بدنی می‌توانند اطلاعات زیادی
+                درباره آناتومی موجودات گذشته ارائه دهند.
+            </p>
+
+        </article>
+
+
+        <article class="type-card">
+
+            <div class="type-icon">👣</div>
+
+            <h3>فسیل ردی</h3>
+
+            <p>
+                آثار فعالیت موجود زنده به جای خود بدن.
+                ردپا، مسیر حرکت، لانه، سوراخ‌های حفاری،
+                آثار تغذیه و برخی آثار تخم‌گذاری
+                نمونه‌هایی از فسیل‌های ردی هستند.
+            </p>
+
+        </article>
+
+
+        <article class="type-card">
+
+            <div class="type-icon">🪨</div>
+
+            <h3>قالب و ریختگی</h3>
+
+            <p>
+                گاهی بقایای موجود زنده از بین می‌روند،
+                اما فضای ایجادشده در سنگ باقی می‌ماند.
+                اگر این فضا بعداً با رسوب یا مواد معدنی
+                پر شود، می‌تواند شکل سه‌بعدی آن موجود
+                یا بخشی از آن را ثبت کند.
+            </p>
+
+        </article>
+
+
+        <article class="type-card">
+
+            <div class="type-icon">❄️</div>
+
+            <h3>حفاظت در شرایط ویژه</h3>
+
+            <p>
+                همه فسیل‌ها الزاماً از طریق جایگزینی مواد
+                معدنی تشکیل نمی‌شوند. در شرایط خاص،
+                مانند یخ‌زدگی یا محیط‌های بسیار خشک،
+                بخشی از بافت اصلی می‌تواند بهتر حفظ شود.
+            </p>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <h2 class="section-title">
+        🔍 فسیل‌ها چه اطلاعاتی به ما می‌دهند؟
+    </h2>
+
+    <div class="definition">
+
+
+        <div class="panel">
+
+            <h3>🧬 فرگشت</h3>
+
+            <p>
+                مقایسه فسیل‌های مربوط به زمان‌های مختلف
+                می‌تواند تغییرات تدریجی یا الگوهای گوناگون
+                در ویژگی‌های بدن موجودات را آشکار کند.
+                از همین شواهد برای بررسی تاریخ فرگشتی
+                گروه‌های مختلف استفاده می‌شود.
+            </p>
+
+        </div>
+
+
+        <div class="panel">
+
+            <h3>🌡️ محیط و اقلیم گذشته</h3>
+
+            <p>
+                نوع فسیل‌ها و رسوباتی که همراه آن‌ها پیدا می‌شوند
+                می‌توانند سرنخ‌هایی درباره محیط گذشته بدهند؛
+                مثلاً اینکه یک منطقه زمانی دریا، ساحل، رودخانه،
+                دریاچه یا محیط خشکی بوده است.
+            </p>
+
+        </div>
+
+
+        <div class="panel">
+
+            <h3>🍃 رژیم غذایی</h3>
+
+            <p>
+                شکل دندان‌ها، آثار سایش، محتویات حفظ‌شده
+                در برخی فسیل‌ها و حتی آثار گازگرفتگی روی
+                استخوان‌ها می‌توانند درباره رابطه شکارچی،
+                شکار و رژیم غذایی اطلاعات بدهند.
+            </p>
+
+        </div>
+
+
+        <div class="panel">
+
+            <h3>🌍 پراکندگی جغرافیایی</h3>
+
+            <p>
+                پیدا شدن فسیل‌های یک گروه جانوری در مناطق
+                مختلف به دانشمندان کمک می‌کند بفهمند
+                موجودات گذشته کجا زندگی می‌کردند و چگونه
+                در طول زمان پراکنده یا جابه‌جا شده‌اند.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <h2 class="section-title">
+        📚 فسیل و سنگ‌های رسوبی
+    </h2>
+
+    <div class="panel">
+
+        <p>
+            بخش بزرگی از فسیل‌ها در سنگ‌های رسوبی یافت می‌شوند.
+            این سنگ‌ها زمانی از انباشته‌شدن و فشرده‌شدن رسوبات
+            مانند گل، ماسه و بقایای زیستی تشکیل شده‌اند.
+        </p>
+
+        <p style="margin-top:15px;">
+            از آنجا که رسوبات معمولاً به صورت لایه‌لایه روی هم
+            قرار می‌گیرند، موقعیت یک فسیل در توالی لایه‌ها
+            می‌تواند برای تعیین سن نسبی آن بسیار مهم باشد.
+            البته زمین‌شناسی پیچیده است و فرایندهایی مانند
+            چین‌خوردگی، گسلش و فرسایش می‌توانند این ترتیب را
+            تغییر دهند؛ بنابراین دانشمندان فقط به یک نشانه
+            متکی نمی‌شوند.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <h2 class="section-title">
+        🧭 سن فسیل‌ها چگونه مشخص می‌شود؟
+    </h2>
+
+    <p class="section-subtitle">
+        یک نکته مهم این است که «سن نسبی» و «سن عددی»
+        دو مفهوم متفاوت هستند.
+    </p>
+
+
+    <div class="dating-grid">
+
+
+        <article class="dating-card">
+
+            <h3>📐 سن‌یابی نسبی</h3>
+
+            <p>
+                در سن‌یابی نسبی، هدف تعیین ترتیب رویدادهاست،
+                نه اینکه دقیقاً بگوییم یک فسیل چند میلیون سال دارد.
+            </p>
+
+            <p style="margin-top:12px;">
+                برای مثال، اگر یک لایه رسوبی زیر لایه دیگری
+                قرار گرفته باشد و ترتیب لایه‌ها دست‌نخورده باشد،
+                معمولاً لایه پایینی قدیمی‌تر است.
+            </p>
+
+        </article>
+
+
+        <article class="dating-card">
+
+            <h3>⚛️ سن‌یابی پرتوسنجی</h3>
+
+            <p>
+                بعضی عناصر دارای ایزوتوپ‌های پرتوزا هستند
+                که با نرخ مشخصی دچار واپاشی می‌شوند.
+                اندازه‌گیری نسبت ایزوتوپ مادر و محصولات واپاشی
+                می‌تواند سن یک ماده زمین‌شناسی را مشخص کند.
+            </p>
+
+            <div class="formula">
+                Parent → Daughter + انرژی
+            </div>
+
+        </article>
+
+
+        <article class="dating-card">
+
+            <h3>🧪 کربن-۱۴</h3>
+
+            <p>
+                کربن-۱۴ برای مواد آلی نسبتاً جوان کاربرد دارد
+                و نیمه‌عمر آن حدود ۵۷۳۰ سال است.
+                به همین دلیل برای سن‌های بسیار قدیمی مانند
+                فسیل‌های دایناسورها روش مناسب اصلی نیست.
+            </p>
+
+        </article>
+
+
+        <article class="dating-card">
+
+            <h3>🪨 اورانیوم-سرب</h3>
+
+            <p>
+                سامانه‌های اورانیوم-سرب از روش‌های مهم
+                سن‌یابی پرتوسنجی برای مواد بسیار قدیمی هستند.
+                این روش‌ها می‌توانند در تعیین سن سنگ‌های
+                زمین‌شناسی بسیار کهن نقش مهمی داشته باشند.
+            </p>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <h2 class="section-title">
+        🧩 فسیل شاخص چیست؟
+    </h2>
+
+    <div class="panel">
+
+        <p>
+            بعضی فسیل‌ها برای مقایسه سن نسبی لایه‌های سنگی
+            بسیار مفید هستند. به این فسیل‌ها «فسیل شاخص»
+            یا Index Fossil گفته 
