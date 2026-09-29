@@ -1,473 +1,116 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="اطلاعات کامل جانوران ماقبل تاریخ در موزه تعاملی DinoWorld"
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="اطلاعات جانوران ماقبل تاریخ در موزه تعاملی DinoWorld">
     <title>DinoWorld | اطلاعات جانور</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header class="hero">
+<header class="hero">
+    <h1 id="animal-name">🦖 در حال بارگذاری...</h1>
+    <p>موزه تعاملی دنیای ماقبل تاریخ</p>
+</header>
 
-        <h1 id="animal-name">
-            🦖 در حال بارگذاری...
-        </h1>
+<main class="periods">
 
-        <p>
-            موزه تعاملی دنیای ماقبل تاریخ
-        </p>
+    <div style="max-width:700px;margin:0 auto 30px;padding:15px 20px;border-radius:15px;background:#1e293b;border:1px solid #334155;text-align:center;color:#cbd5e1;">
+        ℹ️ اگر اطلاعات نمایش داده نمی‌شود، صفحه را رفرش کنید.
+    </div>
 
-    </header>
+    <section id="animal-details" class="about">
+        <p>در حال بارگذاری اطلاعات جانور...</p>
+    </section>
 
+    <div style="text-align:center;margin-top:40px;">
+        <a id="back-to-animals"
+           href="animals.html/animals.html"
+           class="period-card"
+           style="display:inline-block;width:auto;">
+            ← بازگشت به فهرست جانوران
+        </a>
+    </div>
 
-    <main class="periods">
+    <div style="text-align:center;margin-top:20px;">
+        <a href="index.html"
+           class="period-card"
+           style="display:inline-block;width:auto;">
+            🏠 صفحه اصلی
+        </a>
+    </div>
 
-        <div
-            style="
-                max-width:700px;
-                margin:0 auto 30px;
-                padding:15px 20px;
-                border-radius:15px;
-                background:#1e293b;
-                border:1px solid #334155;
-                text-align:center;
-                color:#cbd5e1;
-            "
+</main>
+
+<footer>
+    🟢 DinoWorld | طراحی شده توسط آریا عابدینی 💚
+</footer>
+
+<script src="script.js/script.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("name");
+    const period = params.get("period");
+
+    const title = document.getElementById("animal-name");
+    const details = document.getElementById("animal-details");
+    const back = document.getElementById("back-to-animals");
+
+    if (!window.dinoWorldAnimals) {
+        title.textContent = "⚠️ خطا";
+        details.innerHTML = "<p>اطلاعات جانوران بارگذاری نشد. صفحه را رفرش کنید.</p>";
+        return;
+    }
+
+    const animal = window.dinoWorldAnimals.find(
+        item => item.name === name
+    );
+
+    if (!animal) {
+        title.textContent = "❌ جانور پیدا نشد";
+        details.innerHTML = "<p>اطلاعات این جانور در موزه وجود ندارد.</p>";
+        return;
+    }
+
+    document.title = "DinoWorld | " + animal.name;
+    title.textContent = animal.icon + " " + animal.name;
+
+    details.innerHTML = `
+        <img
+            src="${animal.image}"
+            alt="تصویر ${animal.name}"
+            style="display:block;width:100%;max-width:700px;height:auto;margin:0 auto 30px;border-radius:20px;border:1px solid #334155;"
         >
-            ℹ️ اگر اطلاعات نمایش داده نمی‌شود، صفحه را رفرش کنید.
+
+        <h2>${animal.icon} ${animal.name}</h2>
+
+        <p>🕰️ <strong>دوره زمین‌شناسی:</strong> ${animal.period}</p>
+        <p>🍖 <strong>غذا:</strong> ${animal.food}</p>
+        <p>🌍 <strong>محل زندگی:</strong> ${animal.habitat}</p>
+        <p>📏 <strong>اندازه:</strong> ${animal.size}</p>
+        <p>🧍 <strong>مقایسه با انسان:</strong> ${animal.human}</p>
+        <p>⏳ <strong>طول عمر:</strong> ${animal.lifespan}</p>
+        <p>⚔️ <strong>دشمنان:</strong> ${animal.enemies}</p>
+
+        <div style="margin-top:25px;padding:20px;border-radius:20px;background:#1e293b;border:1px solid #334155;">
+            <h3>💡 نکته جالب</h3>
+            <p>${animal.fact}</p>
         </div>
+    `;
 
+    const returnPeriod = period || animal.period;
 
-        <section
-            id="animal-details"
-            class="about"
-            style="
-                max-width:900px;
-                margin:0 auto;
-                text-align:right;
-            "
-        >
+    back.href =
+        "animals.html/animals.html?period=" +
+        encodeURIComponent(returnPeriod);
 
-            <p style="text-align:center;">
-                در حال بارگذاری اطلاعات جانور...
-            </p>
-
-        </section>
-
-
-        <div
-            style="
-                text-align:center;
-                margin-top:40px;
-            "
-        >
-
-            <a
-                id="back-to-animals"
-                href="animals.html/animals.html"
-                class="period-card"
-                style="
-                    display:inline-block;
-                    width:auto;
-                "
-            >
-                ← بازگشت به فهرست جانوران
-            </a>
-
-        </div>
-
-
-        <div
-            style="
-                text-align:center;
-                margin-top:20px;
-            "
-        >
-
-            <a
-                href="index.html"
-                class="period-card"
-                style="
-                    display:inline-block;
-                    width:auto;
-                "
-            >
-                🏠 بازگشت به صفحه اصلی
-            </a>
-
-        </div>
-
-    </main>
-
-
-    <footer>
-        🟢 DinoWorld | طراحی شده توسط آریا عابدینی 💚
-    </footer>
-
-
-    <script src="script.js/script.js"></script>
-
-
-    <script>
-
-        document.addEventListener("DOMContentLoaded", function () {
-
-            const nameElement =
-                document.getElementById("animal-name");
-
-            const detailsElement =
-                document.getElementById("animal-details");
-
-            const backLink =
-                document.getElementById("back-to-animals");
-
-
-            const params =
-                new URLSearchParams(
-                    window.location.search
-                );
-
-
-            const selectedName =
-                params.get("name");
-
-
-            const selectedPeriod =
-                params.get("period");
-
-
-            if (
-                !window.dinoWorldAnimals ||
-                !Array.isArray(window.dinoWorldAnimals)
-            ) {
-
-                nameElement.textContent =
-                    "⚠️ خطا در بارگذاری اطلاعات";
-
-
-                detailsElement.innerHTML = `
-
-                    <div
-                        style="
-                            padding:25px;
-                            border-radius:20px;
-                            background:#1e293b;
-                            border:1px solid #334155;
-                            text-align:center;
-                        "
-                    >
-
-                        <h2>
-                            اطلاعات جانور بارگذاری نشد
-                        </h2>
-
-                        <p>
-                            فایل اطلاعات جانوران پیدا نشد.
-                        </p>
-
-                        <p>
-                            صفحه را یک بار رفرش کنید.
-                        </p>
-
-                    </div>
-
-                `;
-
-                return;
-            }
-
-
-            const animal =
-                window.dinoWorldAnimals.find(
-                    function (item) {
-                        return item.name === selectedName;
-                    }
-                );
-
-
-            if (!animal) {
-
-                nameElement.textContent =
-                    "❌ جانور پیدا نشد";
-
-
-                detailsElement.innerHTML = `
-
-                    <div
-                        style="
-                            padding:25px;
-                            border-radius:20px;
-                            background:#1e293b;
-                            border:1px solid #334155;
-                            text-align:center;
-                        "
-                    >
-
-                        <h2>
-                            اطلاعاتی پیدا نشد
-                        </h2>
-
-                        <p>
-                            جانور موردنظر در پایگاه داده
-                            موزه وجود ندارد.
-                        </p>
-
-                        <p>
-                            لطفاً از فهرست جانوران
-                            یک مورد را انتخاب کنید.
-                        </p>
-
-                    </div>
-
-                `;
-
-                return;
-            }
-
-
-            nameElement.textContent =
-                animal.icon +
-                " " +
-                animal.name;
-
-
-            detailsElement.innerHTML = `
-
-                <div
-                    style="
-                        text-align:center;
-                    "
-                >
-
-                    <img
-                        src="${animal.image}"
-                        alt="تصویر ${animal.name}"
-                        style="
-                            display:block;
-                            width:100%;
-                            max-width:700px;
-                            height:auto;
-                            margin:0 auto 30px;
-                            border-radius:20px;
-                            border:1px solid #334155;
-                        "
-                    >
-
-                </div>
-
-
-                <h2
-                    style="
-                        text-align:center;
-                        margin-bottom:25px;
-                    "
-                >
-                    ${animal.icon}
-                    ${animal.name}
-                </h2>
-
-
-                <div
-                    style="
-                        display:grid;
-                        gap:15px;
-                    "
-                >
-
-                    <div
-                        style="
-                            padding:18px;
-                            border-radius:15px;
-                            background:#1e293b;
-                            border:1px solid #334155;
-                        "
-                    >
-
-                        🕰️
-                        <strong>
-                            دوره زمین‌شناسی:
-                        </strong>
-
-                        ${animal.period}
-
-                    </div>
-
-
-                    <div
-                        style="
-                            padding:18px;
-                            border-radius:15px;
-                            background:#1e293b;
-                            border:1px solid #334155;
-                        "
-                    >
-
-                        🍖
-                        <strong>
-                            غذا:
-                        </strong>
-
-                        ${animal.food}
-
-                    </div>
-
-
-                    <div
-                        style="
-                            padding:18px;
-                            border-radius:15px;
-                            background:#1e293b;
-                            border:1px solid #334155;
-                        "
-                    >
-
-                        🌍
-                        <strong>
-                            محل زندگی:
-                        </strong>
-
-                        ${animal.habitat}
-
-                    </div>
-
-
-                    <div
-                        style="
-                            padding:18px;
-                            border-radius:15px;
-                            background:#1e293b;
-                            border:1px solid #334155;
-                        "
-                    >
-
-                        📏
-                        <strong>
-                            اندازه:
-                        </strong>
-
-                        ${animal.size}
-
-                    </div>
-
-
-                    <div
-                        style="
-                            padding:18px;
-                            border-radius:15px;
-                            background:#1e293b;
-                            border:1px solid #334155;
-                        "
-                    >
-
-                        🧍
-                        <strong>
-                            مقایسه با انسان:
-                        </strong>
-
-                        ${animal.human}
-
-                    </div>
-
-
-                    <div
-                        style="
-                            padding:18px;
-                            border-radius:15px;
-                            background:#1e293b;
-                            border:1px solid #334155;
-                        "
-                    >
-
-                        ⏳
-                        <strong>
-                            طول عمر:
-                        </strong>
-
-                        ${animal.lifespan}
-
-                    </div>
-
-
-                    <div
-                        style="
-                            padding:18px;
-                            border-radius:15px;
-                            background:#1e293b;
-                            border:1px solid #334155;
-                        "
-                    >
-
-                        ⚔️
-                        <strong>
-                            دشمنان:
-                        </strong>
-
-                        ${animal.enemies}
-
-                    </div>
-
-                </div>
-
-
-                <div
-                    style="
-                        margin-top:30px;
-                        padding:25px;
-                        border-radius:20px;
-                        background:#1e293b;
-                        border:1px solid #334155;
-                    "
-                >
-
-                    <h3
-                        style="
-                            margin-bottom:10px;
-                        "
-                    >
-                        💡 نکته جالب
-                    </h3>
-
-                    <p>
-                        ${animal.fact}
-                    </p>
-
-                </div>
-
-            `;
-
-
-            const returnPeriod =
-                selectedPeriod || animal.period;
-
-
-            if (returnPeriod) {
-
-                backLink.href =
-                    "animals.html/animals.html?period=" +
-                    encodeURIComponent(
-                        returnPeriod
-                    );
-
-            }
-
-        });
-
-    </script>
+});
+</script>
 
 </body>
-
 </html>
