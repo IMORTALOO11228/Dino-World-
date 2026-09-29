@@ -25,11 +25,13 @@
         </p>
     </header>
 
+
     <main class="periods">
 
         <section id="animal-details" class="about">
             <p>در حال بارگذاری اطلاعات جانور...</p>
         </section>
+
 
         <div style="text-align:center; margin-top:30px;">
 
@@ -38,19 +40,22 @@
                 href="animals.html/animals.html"
                 class="period-card"
             >
-                ← بازگشت به فهرست جانوران
+                ← بازگشت به موزه
             </a>
 
         </div>
 
     </main>
 
+
     <footer>
         🟢 DinoWorld | طراحی شده توسط آریا عابدینی 💚
     </footer>
 
-    <!-- بارگذاری پایگاه داده جانوران -->
+
+    <!-- پایگاه داده جانوران -->
     <script src="./script.js/script.js"></script>
+
 
     <script>
 
@@ -60,6 +65,7 @@
 
         const selectedName = params.get("name");
         const selectedPeriod = params.get("period");
+
 
         const nameElement =
             document.getElementById("animal-name");
@@ -71,9 +77,6 @@
             document.getElementById("back-to-animals");
 
 
-        /*
-         * پیدا کردن جانور از پایگاه داده
-         */
         const animal =
             window.dinoWorldAnimals
                 ? window.dinoWorldAnimals.find(
@@ -82,14 +85,15 @@
                 : null;
 
 
-        /*
-         * اگر جانور پیدا شد
-         */
         if (animal) {
+
+            /* نام جانور */
 
             nameElement.textContent =
                 animal.icon + " " + animal.name;
 
+
+            /* اطلاعات جانور */
 
             detailsElement.innerHTML = `
 
@@ -107,7 +111,11 @@
                     "
                 >
 
-                <h2>${animal.name}</h2>
+
+                <h2>
+                    ${animal.name}
+                </h2>
+
 
                 <p>
                     🕰️
@@ -115,11 +123,13 @@
                     ${animal.period}
                 </p>
 
+
                 <p>
                     🍖
                     <strong>غذا:</strong>
                     ${animal.food}
                 </p>
+
 
                 <p>
                     🌍
@@ -127,11 +137,13 @@
                     ${animal.habitat}
                 </p>
 
+
                 <p>
                     📏
                     <strong>اندازه:</strong>
                     ${animal.size}
                 </p>
+
 
                 <p>
                     🧍
@@ -139,17 +151,20 @@
                     ${animal.human}
                 </p>
 
+
                 <p>
                     ⏳
                     <strong>طول عمر:</strong>
                     ${animal.lifespan}
                 </p>
 
+
                 <p>
                     ⚔️
                     <strong>دشمنان:</strong>
                     ${animal.enemies}
                 </p>
+
 
                 <div
                     style="
@@ -161,7 +176,9 @@
                     "
                 >
 
-                    <h3>💡 نکته جالب</h3>
+                    <h3>
+                        💡 نکته جالب
+                    </h3>
 
                     <p>
                         ${animal.fact}
@@ -173,10 +190,13 @@
 
 
             /*
-             * حفظ دوره برای دکمه بازگشت
+             * بازگشت به همان دوره‌ای که
+             * کاربر از آن وارد شده است.
              */
+
             const periodToReturn =
                 selectedPeriod || animal.period;
+
 
             if (periodToReturn) {
 
@@ -186,12 +206,8 @@
 
             }
 
-
         } else {
 
-            /*
-             * اگر جانور پیدا نشد
-             */
             nameElement.textContent =
                 "❌ جانور پیدا نشد";
 
