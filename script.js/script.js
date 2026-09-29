@@ -961,7 +961,7 @@ document.addEventListener("DOMContentLoaded", () => {
   filteredAnimals.forEach((animal) => {
     const card = document.createElement("a");
 
-    card.href = `../animal.html?name=${encodeURIComponent(animal.name)}`;
+    card.href = `../animal.html?name=${encodeURIComponent(animal.name)}&period=${encodeURIComponent(animal.period)}`;
     card.className = "period-card animal-card";
 
     card.innerHTML = `
