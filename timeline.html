@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="خط زمانی کامل تاریخ زمین، پیدایش حیات، دوران دایناسورها و رویدادهای مهم زمین‌شناسی در DinoWorld">
+
+    <title>DinoWorld | خط زمانی تاریخ زمین</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            direction: rtl;
+            background: #07111f;
+            color: #f8fafc;
+            line-height: 2;
+        }
+
+        .hero {
+            padding: 65px 20px;
+            text-align: center;
+            background:
+                radial-gradient(circle at top, #164e63, #07111f 70%);
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 7vw, 3.7rem);
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 850px;
+            margin: auto;
+            color: #cbd5e1;
+            font-size: 1.05rem;
+        }
+
+        .container {
+            width: min(1000px, 100%);
+            margin: auto;
+            padding: 30px 18px 60px;
+        }
+
+        .intro {
+            background: #111c2e;
+            border: 1px solid #334155;
+            border-radius: 24px;
+            padding: 28px;
+            margin-bottom: 45px;
+        }
+
+        .intro h2 {
+            margin-bottom: 15px;
+        }
+
+        .intro p {
+            color: #cbd5e1;
+        }
+
+        .scale-box {
+            margin-top: 20px;
+            padding: 18px;
+            border-radius: 16px;
+            background: #0f172a;
+            border: 1px solid #334155;
+        }
+
+        .scale-box strong {
+            color: #86efac;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            right: 27px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #334155;
+            border-radius: 10px;
+        }
+
+        .event {
+            position: relative;
+            padding-right: 75px;
+            margin-bottom: 35px;
+        }
+
+        .dot {
+            position: absolute;
+            right: 14px;
+            top: 25px;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #22c55e;
+            border: 6px solid #07111f;
+            box-shadow: 0 0 0 2px #22c55e;
+            z-index: 2;
+        }
+
+        .card {
+            background: #111c2e;
+            border: 1px solid #334155;
+            border-radius: 22px;
+            padding: 25px;
+            transition: .2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: #64748b;
+        }
+
+        .date {
+            display: inline-block;
+            padding: 5px 13px;
+            border-radius: 999px;
+            background: #1e293b;
+            color: #86efac;
+            font-size: .9rem;
+            margin-bottom: 10px;
+        }
+
+        .card h2 {
+            margin-bottom: 12px;
+            font-size: 1.45rem;
+        }
+
+        .card p {
+            color: #cbd5e1;
+            font-size: .98rem;
+        }
+
+        .card ul {
+            margin-top: 14px;
+            padding-right: 20px;
+            color: #cbd5e1;
+        }
+
+        .card li {
+            margin-bottom: 5px;
+        }
+
+        .highlight {
+            border-color: #22c55e;
+            background: linear-gradient(
+                135deg,
+                #111c2e,
+                #10251d
+            );
+        }
+
+        .facts-title {
+            text-align: center;
+            margin: 55px 0 25px;
+        }
+
+        .facts {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .fact {
+            background: #111c2e;
+            border: 1px solid #334155;
+            border-radius: 20px;
+            padding: 22px;
+        }
+
+        .fact h3 {
+            margin-bottom: 8px;
+        }
+
+        .fact p {
+            color: #cbd5e1;
+            font-size: .95rem;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 50px;
+        }
+
+        .button {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            background: #1e293b;
+            border: 1px solid #475569;
+            padding: 13px 22px;
+            border-radius: 15px;
+            transition: .2s;
+        }
+
+        .button:hover {
+            background: #334155;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 15px;
+            background: #020617;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 600px) {
+
+            .hero {
+                padding: 50px 18px;
+            }
+
+            .container {
+                padding: 22px 12px 45px;
+            }
+
+            .timeline::before {
+                right: 18px;
+            }
+
+            .event {
+                padding-right: 53px;
+            }
+
+            .dot {
+                right: 5px;
+            }
+
+            .card {
+                padding: 19px;
+            }
+
+            .card h2 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+<header class="hero">
+
+    <h1>🌍 خط زمانی تاریخ زمین</h1>
+
+    <p>
+        یک سفر چند میلیارد ساله از شکل‌گیری زمین،
+        پیدایش حیات و ظهور دایناسورها تا دنیای امروزی.
+        هر ایستگاه، بخشی از داستان بزرگ سیاره ما را روایت می‌کند.
+    </p>
+
+</header>
+
+
+<main class="container">
+
+
+<section class="intro">
+
+    <h2>⏳ زمان زمین یعنی چه؟</h2>
+
+    <p>
+        زمین حدود ۴٫۵۴ میلیارد سال قدمت دارد.
+        این مدت آن‌قدر طولانی است که تصور کردن آن با مقیاس
+        زندگی انسان بسیار دشوار است.
+        دانشمندان برای مطالعه این تاریخ بسیار طولانی،
+        از «مقیاس زمانی زمین‌شناسی» استفاده می‌کنند.
+    </p>
+
+    <p>
+        در این مقیاس، میلیون‌ها و میلیاردها سال به دوره‌ها،
+        دوران‌ها و بازه‌های زمانی مختلف تقسیم می‌شوند.
+        فسیل‌ها، سنگ‌ها، لایه‌های زمین و روش‌های
+        سنجش پرتوزایی به دانشمندان کمک می‌کنند این گذشته
+        بسیار دور را بازسازی کنند.
+    </p>
+
+    <div class="scale-box">
+
+        🧪 <strong>دانشمندان چطور سن زمین را می‌فهمند؟</strong>
+
+        <br>
+
+        با بررسی سنگ‌ها، فسیل‌ها و ایزوتوپ‌های
+        پرتوزا می‌توان سن بسیاری از مواد زمین‌شناسی
+        را تخمین زد و رویدادهای گذشته را در یک
+        خط زمانی قرار داد.
+
+    </div>
+
+</section>
+
+
+<section class="timeline">
+
+
+<!-- EARTH -->
+
+<article class="event">
+
+    <span class="dot"></span>
+
+    <div class="card">
+
+        <span class="date">
+            حدود ۴٫۵۴ میلیارد سال پیش
+        </span>
+
+        <h2>🌍 شکل‌گیری زمین</h2>
+
+        <p>
+            زمین در جریان شکل‌گیری منظومه شمسی،
+            از مواد و اجرام کوچک‌تر به وجود آمد.
+            در آغاز، سیاره جوان بسیار داغ بود و
+            سطح آن شرایطی بسیار متفاوت با زمین امروزی داشت.
+        </p>
+
+        <ul>
+            <li>🌋 فعالیت‌های شدید آتشفشانی</li>
+            <li>🔥 دمای بسیار بالا در مراحل اولیه</li>
+            <li>🌙 شکل‌گیری ماه در تاریخ اولیه زمین</li>
+        </ul>
+
+    </div>
+
+</article>
+
+
+<!-- EARLY LIFE -->
+
+<article class="event">
+
+    <span class="dot"></span>
+
+    <div class="card">
+
+        <span class="date">
+            بیش از ۳ میلیارد سال پیش
+        </span>
+
+        <h2>🦠 حیات اولیه</h2>
+
+        <p>
+            بخش بسیار بزرگی از تاریخ زمین به موجودات
+            میکروسکوپی اختصاص داشت.
+            حیات اولیه بسیار ساده‌تر از جانوران امروزی بود
+            و برای مدت بسیار طولانی، موجودات تک‌سلولی
+            بخش مهمی از زیست‌بوم زمین را تشکیل می‌دادند.
+        </p>
+
+        <p>
+            فسیل‌ها و نشانه‌های شیمیایی موجود در سنگ‌های
+            بسیار قدیمی به دانشمندان کمک می‌کنند درباره
+            حیات اولیه زمین تحقیق کنند.
+        </p>
+
+    </div>
+
+</article>
+
+
+<!-- CAMBRIAN -->
+
+<article class="event">
+
+    <span class="dot"></span>
+
+    <div class="card">
+
+        <span class="date">
+            حدود ۵۳۹ میلیون سال پیش
+        </span>
+
+        <h2>🐚 آغاز کامبرین و افزایش تنوع جانوری</h2>
+
+        <p>
+            در آغاز دوره کامبرین، تنوع بسیاری از گروه‌های
+            جانوری در فسیل‌ها افزایش چشمگیری پیدا کرد.
+            این بازه یکی از مهم‌ترین فصل‌های تاریخ حیات
+            برای مطالعه تکامل جانوران است.
+        </p>
+
+        <p>
+            بسیاری از موجودات کامبرین دارای بدن‌هایی بودند
+            که نسبت به موجودات بسیار قدیمی‌تر، ساختارهای
+            پیچیده‌تری داشتند.
+        </p>
+
+    </div>
+
+</article>
+
+
+<!-- TRIASSIC -->
+
+<article class="event">
+
+    <span class="dot"></span>
+
+    <div class="card">
+
+        <span class="date">
+            حدود ۲۵۲ تا ۲۰۱ میلیون سال پیش
+        </span>
+
+        <h2>🦎 دوره تریاس</h2>
+
+        <p>
+            تریاس نخستین دوره دوران مزوزوئیک بود.
+            پس از انقراض بزرگ پایان پرمین،
+            اکوسیستم‌های زمین دوباره در حال بازسازی بودند.
+        </p>
+
+        <p>
+            نخستین دایناسورها در تریاس ظاهر شدند،
+            اما در ابتدا تنها یکی از گروه‌های متعدد
+            خزندگان و مهره‌داران بودند.
+        </p>
+
+        <ul>
+            <li>🦖 ظهور نخستین دایناسورها</li>
+            <li>🐊 گسترش آرکوسورها</li>
+            <li>🌋 تغییرات شدید اقلیمی و زمین‌شناسی</li>
+        </ul>
+
+    </div>
+
+</article>
+
+
+<!-- END TRIASSIC -->
+
+<article class="event">
+
+    <span class="dot"></span>
+
+    <div class="card">
+
+        <span class="date">
+            حدود ۲۰۱ میلیون سال پیش
+        </span>
+
+        <h2>🌋 پایان تریاس و یک انقراض بزرگ</h2>
+
+        <p>
+            در پایان تریاس، یک انقراض گسترده بسیاری از
+            گونه‌های دریایی و خشکی را تحت تأثیر قرار داد.
+            این رویداد با فعالیت‌های آتشفشانی عظیم
+            در زمان جدا شدن بخش‌هایی از ابرقاره پانگه‌آ
+            ارتباط دارد.
+        </p>
+
+        <p>
+            پس از این تغییر بزرگ، دایناسورها در بسیاری
+            از محیط‌های خشکی فرصت بیشتری برای گسترش پیدا کردند.
+        </p>
+
+    </div>
+
+</article>
+
+
+<!-- JURASSIC -->
+
+<article class="event">
+
+    <span class="dot"></span>
+
+    <div class="card">
+
+        <span class="date">
+            حدود ۲۰۱ تا ۱۴۵ میلیون سال پیش
+        </span>
+
+        <h2>🦕 دوره ژوراسیک</h2>
+
+        <p>
+            ژوراسیک دومین دوره دوران مزوزوئیک بود.
+            در این دوره دایناسورها در بسیاری از محیط‌های
+            خشکی فراوان شدند و جانوران عظیم‌الجثه‌ای
+            در بخش‌های مختلف جهان زندگی می‌کردند.
+        </p>
+
+        <ul>
+            <li>🦕 دایناسورهای گردن‌بلند بسیار بزرگ</li>
+            <li>🦖 شکارچیان بزرگ</li>
+            <li>🌿 گسترش گیاه‌خواران بزرگ</li>
+            <li>🪽 پرندگان اولیه و خویشاوندان نزدیک آن‌ها</li>
+        </ul>
+
+    </div>
+
+</article>
+
+
+<!-- FIRST BIRDS -->
+
+<article class="event">
+
+    <span class="dot"></span>
+
+    <div class="card">
+
+        <span class="date">
+            حدود ۱۵۰ میلیون سال پیش
+        </span>
+
+        <h2>🪽 پرندگان اولیه</h2>
+
+        <p>
+            در اواخر ژوراسیک، پرندگان اولیه در کنار
+            دایناسورهای پردار زندگی می‌کردند.
+            فسیل‌هایی مانند Archaeopteryx نشان می‌دهند
+            که ویژگی‌های پرندگان و دایناسورهای تروپود
+            در تاریخ تکامل به یکدیگر ارتباط نزدیکی داشته‌اند.
+        </p>
+
+        <p>
+            امروزه پرندگان تنها دودمان زنده دایناسورها
+            محسوب می‌شوند.
+        </p>
+
+    </div>
+
+</article>
+
+
+<!-- CRETACEOUS -->
+
+<article class="event">
+
+    <span class="dot"></span>
+
+    <div class="card">
+
+        <span class="date">
+            حدود ۱۴۵ تا ۶۶ میلیون سال پیش
+        </span>
+
+        <h2>🦖 دوره کرتاسه</h2>
+
+        <p>
+            کرتاسه آخرین دوره دوران مزوزوئیک بود.
+            در این زمان دایناسورها در سراسر جهان
+            تنوع بسیار زیادی داشتند.
+        </p>
+
+        <p>
+            جانورانی مانند Tyrannosaurus،
+            Triceratops، Spinosaurus و تعداد زیادی
+            از دایناسورهای دیگر در بخش‌های مختلف جهان
+            زندگی می‌کردند.
+        </p>
+
+        <p>
+            گیاهان گلدار نیز در این دوره گسترش زیادی پیدا کردند
+            و به تدریج به بخش مهمی از بسیاری از اکوسیستم‌ها تبدیل شدند.
+        </p>
+
+    </div>
+
+</article>
+
+
+<!-- KPG -->
+
+<article class="event">
+
+    <span class="dot"></span>
+
+    <div class="card highlight">
+
+        <span class="date">
+            حدود ۶۶ میلیون سال پیش
+        </span>
+
+        <h2>☄️ انقراض K–Pg</h2>
+
+        <p>
+            در پایان کرتاسه، یکی از معروف‌ترین رویدادهای
+            انقراض تاریخ زمین رخ داد.
+            شواهد زمین‌شناسی نشان می‌دهند که برخورد
+            یک سیارک بزرگ در منطقه‌ای که امروزه
+            شبه‌جزیره یوکاتان مکزیک است،
+            نقش اصلی در این انقراض داشته است.
+        </p>
+
+        <p>
+            برخورد این جرم عظیم باعث ایجاد تغییرات
+            شدید در محیط جهانی شد و بسیاری از
+            زنجیره‌های غذایی را مختل کرد.
+        </p>
+
+        <ul>
+            <li>🦖 دایناسورهای غیرپرنده از بین رفتند.</li>
+            <li>🪽 پرندگان به عنوان دایناسورهای زنده باقی ماندند.</li>
+            <li>🦅 پتروسورها نیز منقرض شدند.</li>
+            <li>🌊 بسیاری از جانوران دریایی نیز از بین رفتند.</li>
+        </ul>
+
+    </div>
+
+</article>
+
+
+<!-- CENOZOIC -->
+
+<article class="event">
+
+    <span class="dot"></span>
+
+    <div class="card">
+
+        <span class="date">
+            ۶۶ میلیون سال پیش تا امروز
+        </span>
+
+        <h2>🐘 آغاز سنوزوئیک</h2>
+
+        <p>
+            پس از انقراض K–Pg، بسیاری از جایگاه‌های زیستی
+            خالی شدند و گروه‌های مختلف جانوری در محیط‌های
+            جدید گسترش پیدا کردند.
+        </p>
+
+        <p>
+            پستانداران در این دوران تنوع بسیار زیادی پیدا کردند
+            و گونه‌های گوناگونی در جنگل‌ها، دشت‌ها، کوهستان‌ها
+            و دریاها به وجود آمدند.
+        </p>
+
+    </div>
+
+</article>
+
+
+<!-- MAMMALS -->
+
+<article class="event">
+
+    <span class="dot"></span>
+
+    <div class="card">
+
+        <span class="date">
+            میلیون‌ها سال پیش
+        </span>
+
+        <h2>🦣 عصر تنوع پستانداران</h2>
+
+        <p>
+            سنوزوئیک را گاهی «عصر پستانداران» می‌نامند،
+            زیرا پستانداران در این بازه تنوع و پراکندگی
+            بسیار زیادی پیدا کردند.
+        </p>
+
+        <p>
+            در این دوران، جانورانی مانند نیاکان فیل‌ها،
+            کرگدن‌ها، گربه‌سانان، خرس‌ها و تعداد زیادی
+            از گروه‌های دیگر شکل‌ها و اندازه‌های گوناگونی پیدا کردند.
+        </p>
+
+    </div>
+
+</article>
+
+
+<!-- ICE AGE -->
+
+<article class="event">
+
+    <span class="dot"></span>
+
+    <div class="card">
+
+        <span class="date">
+            حدود ۲٫۶ میلیون سال پیش تا ۱۱٬۷۰۰ سال پیش
+        </span>
+
+        <h2>❄️ پلیستوسن و عصرهای یخبندان</h2>
+
+        <p>
+            پلیستوسن دوره‌ای بود که در آن چرخه‌های متعددی
+            از سرد شدن شدید اقلیم و گسترش یخچال‌ها رخ داد.
+        </p>
+
+        <p>
+            در این زمان جانوران بزرگی مانند ماموت‌ها،
+            کرگدن‌های پشمالو، گوزن‌های غول‌پیکر و
+            برخی پستانداران بزرگ دیگر در بخش‌هایی از جهان زندگی می‌کردند.
+        </p>
+
+    </div>
+
+</article>
+
+
+<!-- HOLOCENE -->
+
+<article class="event">
+
+    <span class="dot"></span>
+
+    <div class="card">
+
+        <span class="date">
+            حدود ۱۱٬۷۰۰ سال پیش تا امروز
+        </span>
+
+        <h2>🌱 هولوسن؛ دوره‌ای که اکنون در آن هستیم</h2>
+
+        <p>
+            هولوسن دوره زمین‌شناسی کنونی ماست.
+            در این دوره، انسان‌ها در بسیاری از نقاط جهان
+            جوامع پیچیده‌تری تشکیل دادند و کشاورزی،
+            شهرها و تمدن‌ها گسترش پیدا کردند.
+        </p>
+
+        <p>
+            با وجود اینکه هولوسن از دید زمین‌شناسی بسیار کوتاه است،
+            تغییرات انسانی در محیط زمین در همین بازه بسیار قابل توجه بوده است.
+        </p>
+
+    </div>
+
+</article>
+
+
+<!-- TODAY -->
+
+<article class="event">
+
+    <span class="dot"></span>
+
+    <div class="card">
+
+        <span class="date">
+            امروز
+        </span>
+
+        <h2>🌎 زمین امروزی</h2>
+
+        <p>
+            ما در انتهای این خط زمانی قرار داریم.
+            از شکل‌گیری زمین تا امروز میلیاردها سال گذشته است،
+            در حالی که تاریخ انسان در مقایسه با این بازه
+            بسیار کوتاه محسوب می‌شود.
+        </p>
+
+        <p>
+            داستان زمین هنوز ادامه دارد و دانشمندان با بررسی
+            سنگ‌ها، فسیل‌ها، DNA و شواهد محیطی تلاش می‌کنند
+            تاریخ این سیاره را دقیق‌تر بشناسند.
+        </p>
+
+    </div>
+
+</article>
+
+
+</section>
+
+
+<h2 class="facts-title">
+    🧠 چند نکته مهم درباره زمان زمین‌شناسی
+</h2>
+
+
+<section class="facts">
+
+    <div class="fact">
+
+        <h3>🌍 سن زمین</h3>
+
+        <p>
+            سن زمین حدود ۴٫۵۴ میلیارد سال تخمین زده می‌شود.
+        </p>
+
+    </div>
+
+
+    <div class="fact">
+
+        <h3>🦖 دایناسورها</h3>
+
+        <p>
+            دایناسورها حدود ۲۳۰ میلیون سال پیش ظاهر شدند
+            و تا پایان کرتاسه، به جز پرندگان، باقی ماندند.
+        </p>
+
+    </div>
+
+
+    <div class="fact">
+
+        <h3>☄️ K–Pg</h3>
+
+        <p>
+            انقراض پایان کرتاسه حدود ۶۶ میلیون سال پیش رخ داد
+            و یکی از مهم‌ترین رویدادهای انقراضی تاریخ زمین است.
+        </p>
+
+    </div>
+
+
+    <div class="fact">
+
+        <h3>🐦 دایناسورهای امروزی</h3>
+
+        <p>
+            پرندگان از نظر فرگشتی بخشی از دایناسورها هستند
+            و تنها دودمان زنده دایناسورها محسوب می‌شوند.
+        </p>
+
+    </div>
+
+
+    <div class="fact">
+
+        <h3>⏱️ زمان عمیق</h3>
+
+        <p>
+            زمین‌شناسان برای توصیف میلیاردها سال تاریخ زمین
+            از مفهوم «زمان عمیق» استفاده می‌کنند.
+        </p>
+
+    </div>
+
+
+    <div class="fact">
+
+        <h3>🦴 فسیل‌ها</h3>
+
+        <p>
+            فسیل‌ها یکی از مهم‌ترین شواهدی هستند که به دانشمندان
+            اجازه می‌دهند زندگی و محیط‌های گذشته زمین را بررسی کنند.
+        </p>
+
+    </div>
+
+</section>
+
+
+<div class="buttons">
+
+    <a class="button" href="index.html#fun">
+        🎮 بازگشت به سرگرمی‌ها
+    </a>
+
+    <a class="button" href="index.html">
+        🏠 بازگشت به موزه
+    </a>
+
+    <a class="button" href="quiz.html">
+        🧠 رفتن به کوییز
+    </a>
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+    🟢 DinoWorld | طراحی شده توسط آریا عابدینی 💚
+
+</footer>
+
+
+</body>
+</html>
