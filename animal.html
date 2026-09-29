@@ -39,10 +39,11 @@
         <div style="text-align: center; margin-top: 30px;">
 
             <a
-                href="animals.html/animals.html"
-                class="period-card"
-            >
-                ← بازگشت به فهرست جانوران
+    id="back-to-animals"
+    href="animals.html/animals.html"
+    class="period-card"
+>
+    ← بازگشت به فهرست جانوران
             </a>
 
         </div>
@@ -61,7 +62,7 @@
             window.location.search
         );
 
-        const selectedName = params.get("name");
+        const selectedPeriod = params.get("period");
 
         const animal = window.dinoWorldAnimals?.find(
             item => item.name === selectedName
