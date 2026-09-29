@@ -3,7 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <meta
         name="description"
@@ -18,30 +22,53 @@
 <body>
 
     <header class="hero">
-        <h1 id="animal-name">🦖 در حال بارگذاری...</h1>
+
+        <h1 id="animal-name">
+            🦖 در حال بارگذاری...
+        </h1>
 
         <p>
             موزه تعاملی دنیای ماقبل تاریخ
         </p>
+
     </header>
 
 
     <main class="periods">
 
-        <section id="animal-details" class="about">
-            <p>در حال بارگذاری اطلاعات جانور...</p>
+        <section
+            id="animal-details"
+            class="about"
+        >
+
+            <p>
+                در حال بارگذاری اطلاعات جانور...
+            </p>
+
         </section>
 
 
-        <div style="text-align:center; margin-top:30px;">
+        <div
+            style="
+                text-align:center;
+                margin-top:30px;
+            "
+        >
 
-            <a
+            <button
                 id="back-to-animals"
-                href="animals.html/animals.html"
+                type="button"
                 class="period-card"
+                style="
+                    display:inline-block;
+                    width:auto;
+                    border:none;
+                    font:inherit;
+                    cursor:pointer;
+                "
             >
                 ← بازگشت به موزه
-            </a>
+            </button>
 
         </div>
 
@@ -59,41 +86,54 @@
 
     <script>
 
-        const params = new URLSearchParams(
-            window.location.search
-        );
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
 
-        const selectedName = params.get("name");
-        const selectedPeriod = params.get("period");
+
+        const selectedName =
+            params.get("name");
+
+
+        const selectedPeriod =
+            params.get("period");
 
 
         const nameElement =
-            document.getElementById("animal-name");
+            document.getElementById(
+                "animal-name"
+            );
+
 
         const detailsElement =
-            document.getElementById("animal-details");
+            document.getElementById(
+                "animal-details"
+            );
 
-        const backLink =
-            document.getElementById("back-to-animals");
+
+        const backButton =
+            document.getElementById(
+                "back-to-animals"
+            );
 
 
         const animal =
             window.dinoWorldAnimals
                 ? window.dinoWorldAnimals.find(
-                    item => item.name === selectedName
+                    item =>
+                        item.name === selectedName
                 )
                 : null;
 
 
         if (animal) {
 
-            /* نام جانور */
-
             nameElement.textContent =
-                animal.icon + " " + animal.name;
+                animal.icon +
+                " " +
+                animal.name;
 
-
-            /* اطلاعات جانور */
 
             detailsElement.innerHTML = `
 
@@ -119,49 +159,63 @@
 
                 <p>
                     🕰️
-                    <strong>دوره زمین‌شناسی:</strong>
+                    <strong>
+                        دوره زمین‌شناسی:
+                    </strong>
                     ${animal.period}
                 </p>
 
 
                 <p>
                     🍖
-                    <strong>غذا:</strong>
+                    <strong>
+                        غذا:
+                    </strong>
                     ${animal.food}
                 </p>
 
 
                 <p>
                     🌍
-                    <strong>محل زندگی:</strong>
+                    <strong>
+                        محل زندگی:
+                    </strong>
                     ${animal.habitat}
                 </p>
 
 
                 <p>
                     📏
-                    <strong>اندازه:</strong>
+                    <strong>
+                        اندازه:
+                    </strong>
                     ${animal.size}
                 </p>
 
 
                 <p>
                     🧍
-                    <strong>مقایسه با انسان:</strong>
+                    <strong>
+                        مقایسه با انسان:
+                    </strong>
                     ${animal.human}
                 </p>
 
 
                 <p>
                     ⏳
-                    <strong>طول عمر:</strong>
+                    <strong>
+                        طول عمر:
+                    </strong>
                     ${animal.lifespan}
                 </p>
 
 
                 <p>
                     ⚔️
-                    <strong>دشمنان:</strong>
+                    <strong>
+                        دشمنان:
+                    </strong>
                     ${animal.enemies}
                 </p>
 
@@ -189,22 +243,25 @@
             `;
 
 
-            /*
-             * بازگشت به همان دوره‌ای که
-             * کاربر از آن وارد شده است.
-             */
-
             const periodToReturn =
-                selectedPeriod || animal.period;
+                selectedPeriod ||
+                animal.period;
 
 
-            if (periodToReturn) {
+            backButton.addEventListener(
+                "click",
+                function () {
 
-                backLink.href =
-                    "animals.html/animals.html?period=" +
-                    encodeURIComponent(periodToReturn);
+                    window.location.replace(
+                        "animals.html/animals.html?period=" +
+                        encodeURIComponent(
+                            periodToReturn
+                        )
+                    );
 
-            }
+                }
+            );
+
 
         } else {
 
@@ -224,16 +281,4 @@
                 </p>
 
                 <p>
-                    لطفاً از فهرست جانوران
-                    یک مورد را انتخاب کنید.
-                </p>
-
-            `;
-
-        }
-
-    </script>
-
-</body>
-
-</html>
+                    لطفاً از ف
