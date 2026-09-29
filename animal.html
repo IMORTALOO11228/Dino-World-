@@ -1,116 +1,115 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="اطلاعات جانوران ماقبل تاریخ در موزه تعاملی DinoWorld">
-    <title>DinoWorld | اطلاعات جانور</title>
-    <link rel="stylesheet" href="style.css">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="انتخاب جانوران ماقبل تاریخ در موزه تعاملی DinoWorld"
+    >
+
+    <title>DinoWorld | انتخاب جانور</title>
+
+    <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
 
-<header class="hero">
-    <h1 id="animal-name">🦖 در حال بارگذاری...</h1>
-    <p>موزه تعاملی دنیای ماقبل تاریخ</p>
-</header>
+    <header class="hero">
 
-<main class="periods">
+        <h1>
+            🦖 انتخاب جانور
+        </h1>
 
-    <div style="max-width:700px;margin:0 auto 30px;padding:15px 20px;border-radius:15px;background:#1e293b;border:1px solid #334155;text-align:center;color:#cbd5e1;">
-        ℹ️ اگر اطلاعات نمایش داده نمی‌شود، صفحه را رفرش کنید.
-    </div>
+        <p>
+            یک جانور را انتخاب کن تا اطلاعات کامل آن را ببینی.
+        </p>
 
-    <section id="animal-details" class="about">
-        <p>در حال بارگذاری اطلاعات جانور...</p>
-    </section>
+    </header>
 
-    <div style="text-align:center;margin-top:40px;">
-        <a id="back-to-animals"
-           href="animals.html/animals.html"
-           class="period-card"
-           style="display:inline-block;width:auto;">
-            ← بازگشت به فهرست جانوران
-        </a>
-    </div>
 
-    <div style="text-align:center;margin-top:20px;">
-        <a href="index.html"
-           class="period-card"
-           style="display:inline-block;width:auto;">
-            🏠 صفحه اصلی
-        </a>
-    </div>
+    <main class="periods">
 
-</main>
+        <h2>
+            🦴 جانوران موزه
+        </h2>
 
-<footer>
-    🟢 DinoWorld | طراحی شده توسط آریا عابدینی 💚
-</footer>
 
-<script src="script.js/script.js"></script>
+        <!-- پیام راهنما -->
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
+        <div
+            style="
+                max-width:700px;
+                margin:0 auto 30px;
+                padding:15px 20px;
+                border-radius:15px;
+                background:#1e293b;
+                border:1px solid #334155;
+                text-align:center;
+                color:#cbd5e1;
+            "
+        >
+            ℹ️ اگر اطلاعات نمایش داده نمی‌شود، صفحه را رفرش کنید.
+        </div>
 
-    const params = new URLSearchParams(window.location.search);
-    const name = params.get("name");
-    const period = params.get("period");
 
-    const title = document.getElementById("animal-name");
-    const details = document.getElementById("animal-details");
-    const back = document.getElementById("back-to-animals");
+        <!-- فهرست جانوران -->
 
-    if (!window.dinoWorldAnimals) {
-        title.textContent = "⚠️ خطا";
-        details.innerHTML = "<p>اطلاعات جانوران بارگذاری نشد. صفحه را رفرش کنید.</p>";
-        return;
-    }
-
-    const animal = window.dinoWorldAnimals.find(
-        item => item.name === name
-    );
-
-    if (!animal) {
-        title.textContent = "❌ جانور پیدا نشد";
-        details.innerHTML = "<p>اطلاعات این جانور در موزه وجود ندارد.</p>";
-        return;
-    }
-
-    document.title = "DinoWorld | " + animal.name;
-    title.textContent = animal.icon + " " + animal.name;
-
-    details.innerHTML = `
-        <img
-            src="${animal.image}"
-            alt="تصویر ${animal.name}"
-            style="display:block;width:100%;max-width:700px;height:auto;margin:0 auto 30px;border-radius:20px;border:1px solid #334155;"
+        <div
+            id="animal-list"
+            class="period-grid"
         >
 
-        <h2>${animal.icon} ${animal.name}</h2>
+            <p>
+                در حال بارگذاری...
+            </p>
 
-        <p>🕰️ <strong>دوره زمین‌شناسی:</strong> ${animal.period}</p>
-        <p>🍖 <strong>غذا:</strong> ${animal.food}</p>
-        <p>🌍 <strong>محل زندگی:</strong> ${animal.habitat}</p>
-        <p>📏 <strong>اندازه:</strong> ${animal.size}</p>
-        <p>🧍 <strong>مقایسه با انسان:</strong> ${animal.human}</p>
-        <p>⏳ <strong>طول عمر:</strong> ${animal.lifespan}</p>
-        <p>⚔️ <strong>دشمنان:</strong> ${animal.enemies}</p>
-
-        <div style="margin-top:25px;padding:20px;border-radius:20px;background:#1e293b;border:1px solid #334155;">
-            <h3>💡 نکته جالب</h3>
-            <p>${animal.fact}</p>
         </div>
-    `;
 
-    const returnPeriod = period || animal.period;
 
-    back.href =
-        "animals.html/animals.html?period=" +
-        encodeURIComponent(returnPeriod);
+        <!-- بازگشت به صفحه اصلی -->
 
-});
-</script>
+        <div
+            style="
+                text-align:center;
+                margin-top:40px;
+            "
+        >
+
+            <a
+                href="../index.html"
+                class="period-card"
+                style="
+                    display:inline-block;
+                    width:auto;
+                "
+            >
+                🏠 بازگشت به صفحه اصلی
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        🟢 DinoWorld |
+        طراحی شده توسط آریا عابدینی 💚
+
+    </footer>
+
+
+    <!-- اتصال به دیتابیس ۶۶ جانور -->
+
+    <script src="../script.js/script.js"></script>
 
 </body>
+
 </html>
