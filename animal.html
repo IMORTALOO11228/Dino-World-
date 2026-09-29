@@ -181,7 +181,23 @@ const selectedPeriod = params.get("period");
 
         }
 
-    </script>
+    } else {
+
+    nameElement.textContent =
+        "❌ جانور پیدا نشد";
+
+    // ...
+}
+
+const backLink = document.getElementById("back-to-animals");
+
+if (selectedPeriod) {
+    backLink.href =
+        "animals.html/animals.html?period=" +
+        encodeURIComponent(selectedPeriod);
+}
+
+</script>
 
 </body>
 
