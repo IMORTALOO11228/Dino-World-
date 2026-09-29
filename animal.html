@@ -99,10 +99,8 @@
                 window.location.search
             );
 
-
         const selectedName =
             params.get("name");
-
 
         const selectedPeriod =
             params.get("period");
@@ -113,12 +111,10 @@
                 "animal-name"
             );
 
-
         const detailsElement =
             document.getElementById(
                 "animal-details"
             );
-
 
         const backLink =
             document.getElementById(
@@ -158,3 +154,142 @@
                         border:1px solid #334155;
                     "
                 >
+
+
+                <h2>
+                    ${animal.name}
+                </h2>
+
+
+                <p>
+                    🕰️
+                    <strong>
+                        دوره زمین‌شناسی:
+                    </strong>
+                    ${animal.period}
+                </p>
+
+
+                <p>
+                    🍖
+                    <strong>
+                        غذا:
+                    </strong>
+                    ${animal.food}
+                </p>
+
+
+                <p>
+                    🌍
+                    <strong>
+                        محل زندگی:
+                    </strong>
+                    ${animal.habitat}
+                </p>
+
+
+                <p>
+                    📏
+                    <strong>
+                        اندازه:
+                    </strong>
+                    ${animal.size}
+                </p>
+
+
+                <p>
+                    🧍
+                    <strong>
+                        مقایسه با انسان:
+                    </strong>
+                    ${animal.human}
+                </p>
+
+
+                <p>
+                    ⏳
+                    <strong>
+                        طول عمر:
+                    </strong>
+                    ${animal.lifespan}
+                </p>
+
+
+                <p>
+                    ⚔️
+                    <strong>
+                        دشمنان:
+                    </strong>
+                    ${animal.enemies}
+                </p>
+
+
+                <div
+                    style="
+                        margin-top:30px;
+                        padding:20px;
+                        border-radius:20px;
+                        background:#1e293b;
+                        border:1px solid #334155;
+                    "
+                >
+
+                    <h3>
+                        💡 نکته جالب
+                    </h3>
+
+                    <p>
+                        ${animal.fact}
+                    </p>
+
+                </div>
+
+            `;
+
+
+            const periodToReturn =
+                selectedPeriod ||
+                animal.period;
+
+
+            if (periodToReturn) {
+
+                backLink.href =
+                    "animals.html/animals.html?period=" +
+                    encodeURIComponent(
+                        periodToReturn
+                    );
+
+            }
+
+        } else {
+
+            nameElement.textContent =
+                "❌ جانور پیدا نشد";
+
+
+            detailsElement.innerHTML = `
+
+                <h2>
+                    اطلاعاتی پیدا نشد
+                </h2>
+
+                <p>
+                    اطلاعات جانور موردنظر
+                    در پایگاه داده موزه وجود ندارد.
+                </p>
+
+                <p>
+                    لطفاً از فهرست جانوران
+                    یک مورد را انتخاب کنید.
+                </p>
+
+            `;
+
+        }
+
+    </script>
+
+</body>
+
+</html>
