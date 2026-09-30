@@ -3,113 +3,1089 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="نقشه آموزشی محل‌های مشهور کشف فسیل‌ها در جهان در موزه تعاملی DinoWorld">
-<title>DinoWorld | نقشه محل کشف فسیل‌ها</title>
+<meta name="description" content="نقشه تعاملی مناطق مشهور کشف فسیل‌ها در DinoWorld">
+<title>DinoWorld | نقشه کشف فسیل‌ها</title>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{font-family:Tahoma,Arial,sans-serif;direction:rtl;background:#06111b;color:#f8fafc;line-height:1.9}
-.hero{min-height:390px;display:flex;align-items:center;justify-content:center;text-align:center;padding:50px 18px;background:radial-gradient(circle at 50% 10%,#164e63,transparent 38%),linear-gradient(145deg,#082f49,#06111b 65%,#020617);position:relative;overflow:hidden}
-.hero:before{content:"🌍";position:absolute;font-size:15rem;opacity:.045;left:-20px;bottom:-55px}
-.hero-content{max-width:900px;position:relative;z-index:1}.badge{display:inline-block;padding:6px 15px;border-radius:999px;background:#083344;border:1px solid #155e75;color:#67e8f9;margin-bottom:16px;font-size:.9rem}
-.hero h1{font-size:clamp(2.2rem,8vw,4.3rem);line-height:1.3;margin-bottom:15px}.hero p{color:#cbd5e1;max-width:780px;margin:auto}
-.container{width:min(1100px,100%);margin:auto;padding:30px 15px 65px}
-.intro,.panel,.location-card,.fact{background:#0f1d2b;border:1px solid #294056;border-radius:24px}
-.intro{padding:27px;margin-bottom:32px}.intro h2{margin-bottom:10px}.intro p,.panel p,.location-card p,.fact p{color:#cbd5e1}
-.note{margin-top:18px;padding:16px 18px;border-radius:16px;background:#172554;border:1px solid #3730a3;color:#dbeafe}
-.section{margin-top:45px}.section h2{font-size:1.8rem;margin-bottom:9px}.subtitle{color:#94a3b8;margin-bottom:22px}
-.map-wrap{background:#071827;border:1px solid #294056;border-radius:28px;padding:15px;overflow:hidden}
-.map-title{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;padding:8px 8px 15px}.map-title strong{color:#67e8f9}.map-title span{color:#94a3b8;font-size:.88rem}
-svg{display:block;width:100%;height:auto;background:#06121e;border-radius:20px}.gridline{stroke:#24445a;stroke-width:1;opacity:.7}.axis{fill:#64748b;font-size:12px}
-.marker{cursor:pointer}.marker circle{fill:#22d3ee;stroke:#cffafe;stroke-width:2}.marker text{fill:#e2e8f0;font-size:13px;font-family:Tahoma,Arial,sans-serif}.marker:hover circle{r:9}
-.location-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px}.location-card{padding:23px;transition:.2s}.location-card.active{border-color:#22d3ee;background:#10283a}
-.location-card h3{margin-bottom:7px;color:#67e8f9}.meta{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}.tag{font-size:.78rem;padding:4px 9px;border-radius:999px;background:#172033;border:1px solid #334155;color:#cbd5e1}
-.location-card button{border:1px solid #155e75;background:#083344;color:#cffafe;border-radius:12px;padding:9px 13px;font-family:inherit;cursor:pointer;margin-top:12px}
-.location-card button:hover{background:#164e63}.fact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}.fact{padding:21px}.fact h3{margin-bottom:7px}
-.buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:50px}.button{display:inline-block;min-width:190px;text-align:center;text-decoration:none;color:#fff!important;padding:13px 20px;border-radius:15px;background:#172033;border:1px solid #475569}.button:hover{background:#26364a}.button.main{background:#075985;border-color:#0e7490}
-footer{text-align:center;padding:28px 15px;background:#020617;color:#94a3b8}
-@media(max-width:650px){.hero{min-height:350px}.container{padding:24px 11px 50px}.intro,.panel,.location-card,.fact{padding:20px}.section h2{font-size:1.5rem}.map-wrap{padding:8px}.marker text{font-size:10px}.buttons{flex-direction:column}.button{width:100%;min-width:0}}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Tahoma,Arial,sans-serif;
+    direction:rtl;
+    background:#06131d;
+    color:#e8f5f8;
+    line-height:1.9;
+}
+
+.wrap{
+    max-width:1150px;
+    margin:auto;
+    padding:28px 16px 55px;
+}
+
+.hero{
+    text-align:center;
+    padding:22px 10px 28px;
+}
+
+.hero h1{
+    font-size:clamp(2rem,7vw,3.5rem);
+    color:#67e8f9;
+    margin-bottom:8px;
+}
+
+.hero p{
+    color:#a9bdc7;
+    max-width:800px;
+    margin:auto;
+}
+
+.notice{
+    background:#102735;
+    border:1px solid #285063;
+    border-radius:18px;
+    padding:15px 18px;
+    text-align:center;
+    color:#b9d1d9;
+    margin:0 auto 24px;
+}
+
+.map-box{
+    background:#081923;
+    border:1px solid #29485a;
+    border-radius:28px;
+    padding:12px;
+    box-shadow:0 12px 35px #0005;
+    overflow:hidden;
+}
+
+.map-head{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    align-items:center;
+    flex-wrap:wrap;
+    padding:8px 12px 15px;
+}
+
+.map-head h2{
+    color:#67e8f9;
+    font-size:clamp(1.3rem,4vw,2rem);
+}
+
+.map-head span{
+    color:#8da6b0;
+    font-size:.9rem;
+}
+
+#map{
+    width:100%;
+    height:auto;
+    display:block;
+    background:#06141e;
+    border-radius:20px;
+    touch-action:manipulation;
+}
+
+.graticule{
+    fill:none;
+    stroke:#244352;
+    stroke-width:.55;
+    opacity:.8;
+}
+
+.ocean-border{
+    fill:none;
+    stroke:#356174;
+    stroke-width:2;
+}
+
+.land{
+    fill:#173546;
+    stroke:#416476;
+    stroke-width:.7;
+}
+
+.marker{
+    cursor:pointer;
+}
+
+.marker-dot{
+    fill:#22d3ee;
+    stroke:#dffbff;
+    stroke-width:2;
+}
+
+.marker-ring{
+    fill:none;
+    stroke:#67e8f9;
+    stroke-width:2;
+    opacity:0;
+}
+
+.marker-label{
+    fill:#dff9ff;
+    font-size:13px;
+    font-weight:bold;
+    paint-order:stroke;
+    stroke:#06131d;
+    stroke-width:4px;
+    stroke-linejoin:round;
+    pointer-events:none;
+}
+
+.marker.active .marker-dot{
+    fill:#facc15;
+    stroke:#fff7b2;
+}
+
+.marker.active .marker-ring{
+    opacity:1;
+    animation:pulse 1.1s infinite;
+}
+
+@keyframes pulse{
+    0%{
+        r:7;
+        opacity:.9;
+    }
+
+    100%{
+        r:24;
+        opacity:0;
+    }
+}
+
+.map-status{
+    margin-top:12px;
+    padding:12px 15px;
+    border-radius:14px;
+    background:#102735;
+    color:#cce7ed;
+    text-align:center;
+    min-height:48px;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2rem;
+    margin:48px 0 8px;
+    color:#f1f8fa;
+}
+
+.section-sub{
+    text-align:center;
+    color:#9fb4bd;
+    margin-bottom:25px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:18px;
+}
+
+.card{
+    background:#102b3b;
+    border:1px solid #1dbbd5;
+    border-radius:24px;
+    padding:22px;
+    transition:.2s;
+}
+
+.card.selected{
+    border-color:#facc15;
+    box-shadow:
+        0 0 0 2px #facc1530,
+        0 12px 30px #0004;
+}
+
+.card h3{
+    color:#67e8f9;
+    font-size:1.35rem;
+    margin-bottom:8px;
+}
+
+.tags{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin:10px 0 14px;
+}
+
+.tag{
+    border:1px solid #39566a;
+    background:#142838;
+    border-radius:999px;
+    padding:3px 10px;
+    color:#c8dbe1;
+    font-size:.82rem;
+}
+
+.card p{
+    color:#c0d0d6;
+    margin-bottom:16px;
+}
+
+.show-btn{
+    border:0;
+    border-radius:13px;
+    padding:11px 17px;
+    background:#155e75;
+    color:#fff;
+    font-size:1rem;
+    cursor:pointer;
+}
+
+.show-btn:active{
+    transform:scale(.98);
+}
+
+.facts{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+    margin-top:25px;
+}
+
+.fact{
+    background:#0d2230;
+    border:1px solid #29485a;
+    border-radius:18px;
+    padding:18px;
+}
+
+.fact strong{
+    display:block;
+    color:#67e8f9;
+    margin-bottom:5px;
+}
+
+.nav{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:45px;
+}
+
+.nav a{
+    color:#fff;
+    text-decoration:none;
+    background:#15384a;
+    border:1px solid #315b6e;
+    border-radius:14px;
+    padding:12px 17px;
+}
+
+footer{
+    text-align:center;
+    color:#718994;
+    border-top:1px solid #193442;
+    padding:25px 10px;
+}
+
+@media(max-width:600px){
+
+    .wrap{
+        padding:18px 10px 45px;
+    }
+
+    .map-box{
+        border-radius:22px;
+        padding:8px;
+    }
+
+    .map-head{
+        padding:6px 7px 10px;
+    }
+
+    .marker-label{
+        font-size:10px;
+    }
+
+    .card{
+        padding:18px;
+    }
+}
 </style>
 </head>
+
 <body>
-<header class="hero"><div class="hero-content">
-<span class="badge">🌍 PALEONTOLOGY • FOSSIL MAP</span>
-<h1>🌍 نقشه محل‌های مشهور کشف فسیل</h1>
-<p>در این بخش چند منطقه مهم دیرینه‌شناسی را روی یک نقشه آموزشی می‌بینی. این فهرست کامل نیست؛ نمونه‌هایی از مکان‌هایی است که به شناخت جانوران و محیط‌های گذشته کمک کرده‌اند.</p>
-</div></header>
 
-<main class="container">
-<section class="intro"><h2>🧭 چطور این نقشه را بخوانیم؟</h2>
-<p>هر نقطه نماینده یک منطقه یا سازند فسیل‌دار است، نه یک نقطه دقیق برای محل مرگ یک جانور. فسیل‌ها معمولاً در یک سازند، لایه یا محدوده جغرافیایی پیدا می‌شوند.</p>
-<div class="note">⚠️ <strong>نکته علمی:</strong> نقشه زیر «شماتیک و آموزشی» است و برای تعیین مختصات دقیق حفاری طراحی نشده است.</div></section>
+<main class="wrap">
 
-<section class="section"><h2>🗺️ نقشه شماتیک جهانی</h2><p class="subtitle">روی هر نقطه بزن تا اطلاعات آن منطقه را ببینی.</p>
-<div class="map-wrap"><div class="map-title"><strong>Fossil Discovery Regions</strong><span>شماتیک / نه به مقیاس دقیق</span></div>
-<svg viewBox="0 0 1000 470" role="img" aria-label="نقشه شماتیک مناطق مشهور فسیلی">
-<g>
-<line class="gridline" x1="70" y1="55" x2="930" y2="55"/><line class="gridline" x1="70" y1="145" x2="930" y2="145"/><line class="gridline" x1="70" y1="235" x2="930" y2="235"/><line class="gridline" x1="70" y1="325" x2="930" y2="325"/><line class="gridline" x1="70" y1="415" x2="930" y2="415"/>
-<line class="gridline" x1="70" y1="55" x2="70" y2="415"/><line class="gridline" x1="285" y1="55" x2="285" y2="415"/><line class="gridline" x1="500" y1="55" x2="500" y2="415"/><line class="gridline" x1="715" y1="55" x2="715" y2="415"/><line class="gridline" x1="930" y1="55" x2="930" y2="415"/>
-<text class="axis" x="72" y="440">غرب</text><text class="axis" x="490" y="440">۰°</text><text class="axis" x="900" y="440">شرق</text><text class="axis" x="42" y="60">شمال</text><text class="axis" x="42" y="412">جنوب</text>
-</g>
-<g class="marker" data-target="hell-creek"><circle cx="205" cy="145" r="7"/><text x="218" y="141">Hell Creek</text></g>
-<g class="marker" data-target="morrison"><circle cx="215" cy="205" r="7"/><text x="228" y="201">Morrison</text></g>
-<g class="marker" data-target="dinosaur-park"><circle cx="210" cy="125" r="7"/><text x="223" y="121">Dinosaur Park</text></g>
-<g class="marker" data-target="liaoning"><circle cx="790" cy="150" r="7"/><text x="803" y="146">Liaoning</text></g>
-<g class="marker" data-target="gobi"><circle cx="760" cy="125" r="7"/><text x="773" y="121">Gobi</text></g>
-<g class="marker" data-target="tendaguru"><circle cx="555" cy="310" r="7"/><text x="568" y="306">Tendaguru</text></g>
-<g class="marker" data-target="kem-kem"><circle cx="465" cy="225" r="7"/><text x="478" y="221">Kem Kem</text></g>
-</svg></div></section>
+<header class="hero">
+    <h1>🌍 نقشه محل‌های مشهور کشف فسیل</h1>
 
-<section class="section"><h2>📍 مناطق مهم فسیلی</h2><p class="subtitle">برای دیدن نقطه روی نقشه، روی «نمایش روی نقشه» بزن.</p>
-<div class="location-grid">
+    <p>
+        مناطق مهم دیرینه‌شناسی را روی نقشه جهان پیدا کن
+        و محل هر منطقه را با نشانگر مخصوص ببین.
+    </p>
+</header>
 
-<article class="location-card" id="hell-creek"><h3>🦖 Hell Creek Formation</h3><div class="meta"><span class="tag">آمریکای شمالی</span><span class="tag">کرتاسه پسین</span></div><p>سازند Hell Creek در بخش‌هایی از مونتانا و مناطق اطراف آن قرار دارد و فسیل‌های معروفی از جمله Tyrannosaurus rex و Triceratops در آن شناخته شده‌اند.</p><button type="button" data-map="hell-creek">📍 نمایش روی نقشه</button></article>
+<div class="notice">
+    📌 نقشه جهان از داده‌های جغرافیایی عمومی Natural Earth استفاده می‌کند.
+    محل نشانگرها تقریبی و منطقه‌ای است و مختصات دقیق یک حفاری خاص نیست.
+</div>
 
-<article class="location-card" id="morrison"><h3>🦕 Morrison Formation</h3><div class="meta"><span class="tag">آمریکای شمالی</span><span class="tag">ژوراسیک پسین</span></div><p>سازند Morrison در غرب ایالات متحده گسترده است و فسیل‌هایی مانند Allosaurus، Stegosaurus، Diplodocus و Apatosaurus از آن شناخته شده‌اند.</p><button type="button" data-map="morrison">📍 نمایش روی نقشه</button></article>
+<section class="map-box" id="map-section">
 
-<article class="location-card" id="dinosaur-park"><h3>🦴 Dinosaur Provincial Park</h3><div class="meta"><span class="tag">آلبرتا، کانادا</span><span class="tag">کرتاسه پسین</span></div><p>این منطقه از مهم‌ترین نواحی فسیل‌دار دایناسورهاست و تنوع بسیار زیادی از دایناسورهای کرتاسه را در خود جای داده است.</p><button type="button" data-map="dinosaur-park">📍 نمایش روی نقشه</button></article>
+    <div class="map-head">
 
-<article class="location-card" id="liaoning"><h3>🪶 Liaoning / Yixian</h3><div class="meta"><span class="tag">چین</span><span class="tag">کرتاسه آغازین</span></div><p>لایه‌های فسیل‌دار لیائونینگ به خاطر حفظ فوق‌العاده گیاهان، حشرات، ماهی‌ها، دایناسورهای پردار، پرندگان و پستانداران مشهورند.</p><button type="button" data-map="liaoning">📍 نمایش روی نقشه</button></article>
+        <h2>🗺️ Fossil Discovery Regions</h2>
 
-<article class="location-card" id="gobi"><h3>🦖 صحرای گُبی</h3><div class="meta"><span class="tag">مغولستان</span><span class="tag">کرتاسه پسین</span></div><p>نخستین فسیل Velociraptor در سال ۱۹۲۳ در صحرای گبی مغولستان پیدا شد. این منطقه یکی از نواحی مشهور فسیل‌های دایناسوری کرتاسه است.</p><button type="button" data-map="gobi">📍 نمایش روی نقشه</button></article>
+        <span>
+            روی نشانگرها بزن یا از دکمه‌های پایین استفاده کن.
+        </span>
 
-<article class="location-card" id="tendaguru"><h3>🦕 Tendaguru</h3><div class="meta"><span class="tag">تانزانیا</span><span class="tag">ژوراسیک پسین</span></div><p>محوطه Tendaguru در تانزانیا یکی از مکان‌های مهم دیرینه‌شناسی آفریقاست و مجموعه بزرگی از فسیل‌های دایناسوری در آن مطالعه شده است.</p><button type="button" data-map="tendaguru">📍 نمایش روی نقشه</button></article>
+    </div>
 
-<article class="location-card" id="kem-kem"><h3>🐟 Kem Kem Beds</h3><div class="meta"><span class="tag">مراکش</span><span class="tag">کرتاسه پسین</span></div><p>منطقه Kem Kem در شمال آفریقا با فسیل‌های مهره‌داران کرتاسه شناخته می‌شود. Spinosaurus از جانوران مهم مرتبط با فسیل‌های شمال آفریقاست.</p><button type="button" data-map="kem-kem">📍 نمایش روی نقشه</button></article>
+    <svg
+        id="map"
+        viewBox="0 0 1000 500"
+        role="img"
+        aria-label="نقشه جهان با مناطق مهم کشف فسیل"
+    >
 
-</div></section>
+        <defs>
 
-<section class="section"><h2>🔬 چرا محل کشف فسیل مهم است؟</h2><div class="fact-grid">
-<article class="fact"><h3>🪨 سنگ اطراف</h3><p>نوع سنگ و لایه‌ای که فسیل در آن قرار دارد، بخشی از زمینه زمین‌شناسی آن را مشخص می‌کند.</p></article>
-<article class="fact"><h3>🌱 محیط گذشته</h3><p>ترکیب فسیل‌ها همراه با رسوبات می‌تواند درباره رودخانه، دریاچه، دشت سیلابی یا محیط‌های دیگر اطلاعات بدهد.</p></article>
-<article class="fact"><h3>🧬 مقایسه جهانی</h3><p>مقایسه فسیل‌های مناطق مختلف به دانشمندان اجازه می‌دهد پراکندگی و تغییرات جانوران را در طول زمان بررسی کنند.</p></article>
-<article class="fact"><h3>⏳ جایگاه زمانی</h3><p>هر سازند و لایه جایگاه مشخصی در تاریخ زمین دارد و همین موضوع برای بازسازی تاریخ حیات مهم است.</p></article>
-</div></section>
+            <radialGradient id="ocean" cx="50%" cy="40%">
 
-<section class="section"><div class="panel"><h2>⚠️ یک نکته درباره «محل کشف»</h2><p style="margin-top:10px">وقتی می‌گوییم یک جانور «در یک منطقه پیدا شده»، منظور معمولاً این است که فسیل آن در رسوبات یا سازندهای آن منطقه کشف شده است؛ این عبارت الزاماً به معنی این نیست که تمام گستره زندگی آن جانور فقط همان منطقه بوده است.</p></div></section>
+                <stop
+                    offset="0%"
+                    stop-color="#0d2635"
+                />
 
-<nav class="buttons" aria-label="ناوبری موزه">
-<a class="button main" href="index.html#fun">🎮 بازگشت به بازی و سرگرمی‌ها</a>
-<a class="button" href="fossils.html">🦴 بازگشت به فسیل‌ها</a>
-<a class="button" href="timeline.html">⏳ بازگشت به خط زمانی</a>
-<a class="button" href="index.html">🏠 بازگشت به صفحه اصلی</a>
+                <stop
+                    offset="100%"
+                    stop-color="#06131d"
+                />
+
+            </radialGradient>
+
+        </defs>
+
+        <rect
+            width="1000"
+            height="500"
+            rx="18"
+            fill="url(#ocean)"
+        />
+
+        <g id="grid"></g>
+
+        <g id="lands"></g>
+
+        <g id="markers"></g>
+
+    </svg>
+
+    <div
+        class="map-status"
+        id="map-status"
+        aria-live="polite"
+    >
+        یک منطقه را انتخاب کن تا همان نشانگر روی نقشه برجسته شود.
+    </div>
+
+</section>
+
+
+<h2 class="section-title">
+    📍 مناطق مهم فسیلی
+</h2>
+
+<p class="section-sub">
+    با زدن «نمایش روی نقشه»، صفحه به نقشه می‌رود
+    و همان نشانگر روشن می‌شود.
+</p>
+
+
+<section
+    class="cards"
+    id="cards"
+></section>
+
+
+<h2 class="section-title">
+    🔬 چرا محل فسیل مهم است؟
+</h2>
+
+
+<div class="facts">
+
+    <div class="fact">
+
+        <strong>
+            لایه زمین‌شناسی
+        </strong>
+
+        سن سنگ‌ها و ترتیب لایه‌ها
+        به تعیین جایگاه زمانی فسیل کمک می‌کند.
+
+    </div>
+
+
+    <div class="fact">
+
+        <strong>
+            محیط گذشته
+        </strong>
+
+        رسوبات و همراهی فسیل‌ها
+        درباره محیط زندگی گذشته سرنخ می‌دهند.
+
+    </div>
+
+
+    <div class="fact">
+
+        <strong>
+            پراکندگی جغرافیایی
+        </strong>
+
+        مقایسه مناطق مختلف به بررسی
+        پراکندگی جانوران کمک می‌کند.
+
+    </div>
+
+
+    <div class="fact">
+
+        <strong>
+            همراهی فسیل‌ها
+        </strong>
+
+        وجود گیاهان و جانوران مختلف
+        درباره اکوسیستم اطلاعات می‌دهد.
+
+    </div>
+
+</div>
+
+
+<nav class="nav">
+
+    <a href="index.html#fun">
+        🎮 بازگشت به بازی و سرگرمی‌ها
+    </a>
+
+    <a href="fossils.html">
+        🦴 فسیل‌ها
+    </a>
+
+    <a href="timeline.html">
+        ⏳ خط زمانی
+    </a>
+
+    <a href="index.html">
+        🏠 صفحه اصلی
+    </a>
+
 </nav>
+
 </main>
 
-<footer>🟢 DinoWorld | طراحی شده توسط آریا عابدینی 💚</footer>
+
+<footer>
+    🟢 DinoWorld | طراحی شده توسط آریا عابدینی 💚
+</footer>
+
 
 <script>
-(function(){
-const cards=document.querySelectorAll('.location-card');
-const buttons=document.querySelectorAll('[data-map]');
-const markers=document.querySelectorAll('.marker');
-function selectLocation(id){
-cards.forEach(card=>card.classList.toggle('active',card.id===id));
-const card=document.getElementById(id);
-if(card)card.scrollIntoView({behavior:'smooth',block:'center'});
+
+const regions = [
+
+    {
+        name:"Hell Creek Formation",
+        fa:"سازند هل کریک",
+        place:"آمریکای شمالی",
+        period:"کرتاسه پسین",
+        lon:-105,
+        lat:47,
+        emoji:"🦖",
+        text:"سازند Hell Creek در بخش‌هایی از مونتانا و مناطق اطراف آن قرار دارد و از مشهورترین نواحی فسیلی کرتاسه پسین است. فسیل‌هایی از Tyrannosaurus rex و Triceratops در آن شناخته شده‌اند."
+    },
+
+    {
+        name:"Morrison Formation",
+        fa:"سازند موریسون",
+        place:"آمریکای شمالی",
+        period:"ژوراسیک پسین",
+        lon:-108,
+        lat:39,
+        emoji:"🦕",
+        text:"سازند Morrison یکی از نواحی بسیار مهم فسیلی ژوراسیک پسین در غرب آمریکای شمالی است و برای دایناسورهایی مانند Allosaurus، Stegosaurus و Diplodocus مشهور است."
+    },
+
+    {
+        name:"Dinosaur Provincial Park",
+        fa:"پارک استانی دایناسورها",
+        place:"آلبرتا، کانادا",
+        period:"کرتاسه پسین",
+        lon:-111,
+        lat:51,
+        emoji:"🦴",
+        text:"این منطقه در آلبرتا کانادا مجموعه بزرگی از فسیل‌های مهره‌داران کرتاسه پسین را در خود جای داده است."
+    },
+
+    {
+        name:"Liaoning / Yixian",
+        fa:"لیائونینگ / ییشیان",
+        place:"چین",
+        period:"کرتاسه پیشین",
+        lon:122.5,
+        lat:41.5,
+        emoji:"🪶",
+        text:"رسوبات لیائونینگ و سازند ییشیان به دلیل حفظ استثنایی گیاهان، حشرات، ماهی‌ها، پرندگان، پستانداران و دایناسورهای پردار مشهورند."
+    },
+
+    {
+        name:"Gobi Desert",
+        fa:"بیابان گُبی",
+        place:"مغولستان",
+        period:"کرتاسه پسین",
+        lon:103,
+        lat:44,
+        emoji:"🏜️",
+        text:"بیابان گبی از مهم‌ترین مناطق فسیلی آسیای مرکزی است. بسیاری از فسیل‌های دایناسورها و تخم‌ها از این منطقه شناخته شده‌اند و نخستین نمونه شناخته‌شده Velociraptor در سال 1923 در مغولستان کشف شد."
+    },
+
+    {
+        name:"Tendaguru",
+        fa:"تندگورو",
+        place:"تانزانیا",
+        period:"ژوراسیک پسین",
+        lon:39.5,
+        lat:-10,
+        emoji:"🌍",
+        text:"منطقه Tendaguru در تانزانیا به خاطر فسیل‌های ژوراسیک پسین، به‌ویژه دایناسورهای بزرگ گیاه‌خوار، اهمیت تاریخی زیادی دارد."
+    },
+
+    {
+        name:"Kem Kem Beds",
+        fa:"بسترهای کم‌کم",
+        place:"مراکش",
+        period:"کرتاسه پسین",
+        lon:-5.5,
+        lat:30.5,
+        emoji:"🐊",
+        text:"بسترهای Kem Kem در مراکش مجموعه‌ای مهم از فسیل‌های مهره‌داران کرتاسه پسین را در خود جای داده‌اند و بقایای Spinosaurus از این منطقه شناخته شده‌اند."
+    }
+
+];
+
+
+const svg =
+    document.getElementById("map");
+
+const lands =
+    document.getElementById("lands");
+
+const grid =
+    document.getElementById("grid");
+
+const markers =
+    document.getElementById("markers");
+
+const cards =
+    document.getElementById("cards");
+
+const status =
+    document.getElementById("map-status");
+
+const NS =
+    "http://www.w3.org/2000/svg";
+
+const W = 1000;
+
+const H = 500;
+
+
+function x(lon){
+
+    return ((lon + 180) / 360) * W;
+
 }
-buttons.forEach(button=>button.addEventListener('click',()=>selectLocation(button.dataset.map)));
-markers.forEach(marker=>marker.addEventListener('click',()=>selectLocation(marker.dataset.target)));
-})();
+
+
+function y(lat){
+
+    return ((90 - lat) / 180) * H;
+
+}
+
+
+function createSVG(tag,attrs={}){
+
+    const element =
+        document.createElementNS(NS,tag);
+
+    for(const key in attrs){
+
+        element.setAttribute(
+            key,
+            attrs[key]
+        );
+
+    }
+
+    return element;
+
+}
+
+
+/* خطوط طول */
+
+for(
+    let lon=-180;
+    lon<=180;
+    lon+=30
+){
+
+    grid.appendChild(
+
+        createSVG(
+            "path",
+            {
+                class:"graticule",
+                d:
+                    `M ${x(lon)} 0
+                     L ${x(lon)} ${H}`
+            }
+        )
+
+    );
+
+}
+
+
+/* خطوط عرض */
+
+for(
+    let lat=-60;
+    lat<=60;
+    lat+=30
+){
+
+    grid.appendChild(
+
+        createSVG(
+            "path",
+            {
+                class:"graticule",
+                d:
+                    `M 0 ${y(lat)}
+                     L ${W} ${y(lat)}`
+            }
+        )
+
+    );
+
+}
+
+
+/* کادر دور نقشه */
+
+svg
+    .querySelector("rect")
+    .insertAdjacentElement(
+        "afterend",
+        createSVG(
+            "rect",
+            {
+                x:1,
+                y:1,
+                width:998,
+                height:498,
+                rx:18,
+                class:"ocean-border"
+            }
+        )
+    );
+
+
+/* رسم کشورها */
+
+function drawFeature(feature){
+
+    const geometry =
+        feature.geometry;
+
+    if(!geometry){
+        return;
+    }
+
+
+    const path =
+        createSVG(
+            "path",
+            {
+                class:"land"
+            }
+        );
+
+
+    let polygons = [];
+
+
+    if(
+        geometry.type === "Polygon"
+    ){
+
+        polygons =
+            geometry.coordinates;
+
+    }
+
+    else if(
+        geometry.type === "MultiPolygon"
+    ){
+
+        polygons =
+            geometry.coordinates.flat();
+
+    }
+
+
+    let d = "";
+
+
+    polygons.forEach(
+        ring => {
+
+            ring.forEach(
+                (point,index) => {
+
+                    d +=
+                        (index === 0 ? "M" : "L") +
+                        x(point[0]).toFixed(2) +
+                        " " +
+                        y(point[1]).toFixed(2) +
+                        " ";
+
+                }
+            );
+
+            d += "Z ";
+
+        }
+    );
+
+
+    path.setAttribute(
+        "d",
+        d
+    );
+
+
+    lands.appendChild(path);
+
+}
+
+
+/*
+دریافت نقشه واقعی جهان
+از Natural Earth
+*/
+
+async function loadWorld(){
+
+    try{
+
+        const response =
+            await fetch(
+                "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson"
+            );
+
+
+        if(!response.ok){
+
+            throw new Error(
+                "World map failed"
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        data.features.forEach(
+            drawFeature
+        );
+
+
+        status.textContent =
+            "🌍 نقشه جهان آماده است. یک منطقه را انتخاب کن.";
+
+    }
+
+    catch(error){
+
+        status.textContent =
+            "⚠️ نقشه جهان بارگذاری نشد. اینترنت را بررسی و صفحه را دوباره باز کن.";
+
+    }
+
+}
+
+
+/*
+انتخاب منطقه
+*/
+
+function selectRegion(index){
+
+    const allMarkers =
+        document.querySelectorAll(
+            ".marker"
+        );
+
+
+    const allCards =
+        document.querySelectorAll(
+            ".card"
+        );
+
+
+    allMarkers.forEach(
+        (marker,i)=>{
+
+            marker.classList.toggle(
+                "active",
+                i === index
+            );
+
+        }
+    );
+
+
+    allCards.forEach(
+        (card,i)=>{
+
+            card.classList.toggle(
+                "selected",
+                i === index
+            );
+
+        }
+    );
+
+
+    const region =
+        regions[index];
+
+
+    status.textContent =
+        `📍 ${region.fa} — ${region.place} | ${region.period}`;
+
+
+    /*
+    رفتن به خود نقشه
+    */
+
+    document
+        .getElementById("map-section")
+        .scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+
+
+    /*
+    چشمک‌زدن نشانگر انتخاب‌شده
+    */
+
+    const marker =
+        allMarkers[index];
+
+
+    if(marker){
+
+        const ring =
+            marker.querySelector(
+                ".marker-ring"
+            );
+
+
+        ring.animate(
+            [
+                {
+                    r:8,
+                    opacity:1
+                },
+
+                {
+                    r:34,
+                    opacity:0
+                }
+            ],
+            {
+                duration:900,
+                iterations:2
+            }
+        );
+
+    }
+
+}
+
+
+/*
+ساخت نشانگرها و کارت‌ها
+*/
+
+regions.forEach(
+    (region,index)=>{
+
+
+        const marker =
+            createSVG(
+                "g",
+                {
+                    class:"marker"
+                }
+            );
+
+
+        const ring =
+            createSVG(
+                "circle",
+                {
+                    class:"marker-ring",
+                    cx:x(region.lon),
+                    cy:y(region.lat),
+                    r:8
+                }
+            );
+
+
+        const dot =
+            createSVG(
+                "circle",
+                {
+                    class:"marker-dot",
+                    cx:x(region.lon),
+                    cy:y(region.lat),
+                    r:6
+                }
+            );
+
+
+        const label =
+            createSVG(
+                "text",
+                {
+                    class:"marker-label",
+                    x:x(region.lon)+10,
+                    y:y(region.lat)-10
+                }
+            );
+
+
+        label.textContent =
+            region.name;
+
+
+        marker.append(
+            ring,
+            dot,
+            label
+        );
+
+
+        marker.addEventListener(
+            "click",
+            ()=>{
+                selectRegion(index);
+            }
+        );
+
+
+        markers.appendChild(
+            marker
+        );
+
+
+        /*
+        کارت منطقه
+        */
+
+        const card =
+            document.createElement(
+                "article"
+            );
+
+
+        card.className =
+            "card";
+
+
+        card.innerHTML = `
+
+            <h3>
+                ${region.emoji}
+                ${region.name}
+            </h3>
+
+            <div class="tags">
+
+                <span class="tag">
+                    ${region.place}
+                </span>
+
+                <span class="tag">
+                    ${region.period}
+                </span>
+
+            </div>
+
+            <p>
+                ${region.text}
+            </p>
+
+            <button
+                class="show-btn"
+                type="button"
+            >
+                📍 نمایش روی نقشه
+            </button>
+
+        `;
+
+
+        card
+            .querySelector(".show-btn")
+            .addEventListener(
+                "click",
+                ()=>{
+                    selectRegion(index);
+                }
+            );
+
+
+        cards.appendChild(
+            card
+        );
+
+    }
+);
+
+
+/*
+شروع نقشه
+*/
+
+loadWorld();
+
 </script>
+
 </body>
 </html>
