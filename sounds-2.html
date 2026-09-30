@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="آرشیو ۹۶ صدای بازسازی‌شده جانوران و آثار ماقبل تاریخ در DinoWorld">
+<title>DinoWorld | آرشیو صداهای ماقبل تاریخ</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Tahoma,Arial,sans-serif;background:#07111f;color:#eef5ff;line-height:1.8}
+.hero{padding:48px 18px 34px;text-align:center;background:linear-gradient(135deg,#102a43,#07111f)}
+.hero h1{font-size:clamp(2rem,7vw,3.5rem);margin-bottom:10px}
+.hero p{max-width:900px;margin:auto;color:#bdccda}
+.audit{max-width:900px;margin:20px auto 0;padding:14px 16px;border:1px solid #31516a;background:#102337;border-radius:16px}
+.audit strong{color:#9fe4cf}
+.controls{max-width:1150px;margin:auto;padding:24px 16px 8px}
+.filters{display:flex;flex-wrap:wrap;gap:9px;justify-content:center}
+.filters button{border:1px solid #35516d;background:#102235;color:#eef5ff;border-radius:999px;padding:10px 13px;cursor:pointer;font:inherit}
+.filters button.active{background:#245c72;border-color:#64b4c7}
+.grid{max-width:1150px;margin:auto;padding:18px 16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.card{background:#0f1d2d;border:1px solid #243a50;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.card img{width:100%;height:185px;object-fit:cover;background:#0a1522}
+.card-body{padding:16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:1.15rem}
+.badge{display:inline-block;width:max-content;padding:3px 9px;border-radius:999px;background:#17344a;color:#c9e7f5;font-size:.78rem}
+.meta,.note,.source-note{font-size:.87rem;color:#abc0d1}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:8px}
+.play,.source{border:0;border-radius:12px;padding:10px 12px;cursor:pointer;font:inherit;text-decoration:none;text-align:center}
+.play{background:#287d75;color:#fff;flex:1}
+.play.playing{background:#8a5b25}
+.source{background:#1b2e43;color:#dbe9f5;border:1px solid #34516c}
+.summary{max-width:900px;margin:10px auto 24px;padding:14px 16px;background:#0d1b2a;border:1px solid #243d54;border-radius:15px;text-align:center}
+.empty{grid-column:1/-1;text-align:center;padding:35px;color:#9fb2c2}
+footer{padding:30px 18px;text-align:center;color:#91a6b8;background:#030912;margin-top:30px}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.card img{height:210px}}
+</style>
+</head>
+<body>
+<header class="hero">
+<h1>🔊 آرشیو صداهای ماقبل تاریخ</h1>
+<p>تمام ۹۶ مورد پروژه در این صفحه ثبت شده‌اند. برای جانوران منقرض‌شده، صدای دقیق معمولاً قابل اثبات نیست؛ بنابراین صداها با برچسب «بازسازی» ارائه می‌شوند، نه به‌عنوان ضبط واقعی.</p>
+<div class="audit">
+<strong id="auditText">در حال بررسی ۹۶ مورد...</strong>
+</div>
+</header>
+
+<section class="controls">
+<div class="filters" id="filters"></div>
+</section>
+<div class="summary" id="summary"></div>
+<main class="grid" id="grid"></main>
+
+<section class="controls">
+<div class="audit">
+<h2 style="margin-bottom:8px">📚 مبنای علمی صداها</h2>
+<p class="source-note">
+برای مواردی که بازسازی صوتی منتشرشده داریم، منبع پژوهشی/موزه‌ای در کارت یا این بخش مشخص شده است.
+مثلاً Natural History Museum بازسازی صوتی Diplodocus و Archaeopteryx را منتشر کرده و برای Parasaurolophus توضیح می‌دهد که صدای بم و ترومپتی از مدل‌سازی رایانه‌ای تاج توخالی آن به دست آمده است.
+</p>
+<p class="source-note" style="margin-top:8px">
+این صفحه عمداً صداهای سینمایی را «صدای واقعی» معرفی نمی‌کند.
+</p>
+</div>
+</section>
+
+<div style="text-align:center;padding:30px 18px">
+<a href="index.html" class="source">🏠 بازگشت به صفحه اصلی</a>
+</div>
+<footer>🟢 DinoWorld | طراحی شده توسط آریا عابدینی 💚</footer>
+
+<script>
+const animals = [{"id": 1, "name": "Stegosaurus", "image": "IMG_20260928_073915.png", "period": "jurassic", "kind": "sauropod"}, {"id": 2, "name": "Brachiosaurus", "image": "IMG_20260928_073925.png", "period": "jurassic", "kind": "sauropod"}, {"id": 3, "name": "Ankylosaurus", "image": "IMG_20260928_073934.png", "period": "cretaceous", "kind": "armored"}, {"id": 4, "name": "Spinosaurus", "image": "IMG_20260928_073950.png", "period": "cretaceous", "kind": "theropod"}, {"id": 5, "name": "Carnotaurus", "image": "IMG_20260928_074004.png", "period": "cretaceous", "kind": "theropod"}, {"id": 6, "name": "Dilophosaurus", "image": "IMG_20260928_074014.png", "period": "jurassic", "kind": "theropod"}, {"id": 7, "name": "Parasaurolophus", "image": "IMG_20260928_074022.png", "period": "cretaceous", "kind": "hadrosaur"}, {"id": 8, "name": "Dimetrodon", "image": "IMG_20260928_074033.png", "period": "triassic", "kind": "synapsid"}, {"id": 9, "name": "Allosaurus", "image": "IMG_20260928_074041.png", "period": "jurassic", "kind": "theropod"}, {"id": 10, "name": "Baryonyx", "image": "IMG_20260928_074207.png", "period": "cretaceous", "kind": "theropod"}, {"id": 11, "name": "Kaprosuchus", "image": "IMG_20260928_074219.png", "period": "cretaceous", "kind": "crocodilian"}, {"id": 12, "name": "Pteranodon", "image": "IMG_20260928_074228.png", "period": "cretaceous", "kind": "pterosaur"}, {"id": 13, "name": "Alanqa", "image": "IMG_20260928_074236.png", "period": "cretaceous", "kind": "pterosaur"}, {"id": 14, "name": "Troodon", "image": "IMG_20260928_074243.png", "period": "cretaceous", "kind": "theropod"}, {"id": 15, "name": "Tapejara", "image": "IMG_20260928_074252.png", "period": "cretaceous", "kind": "pterosaur"}, {"id": 16, "name": "Zhejiangopterus", "image": "IMG_20260928_074300.png", "period": "cretaceous", "kind": "pterosaur"}, {"id": 17, "name": "Mosasaurus", "image": "IMG_20260928_074307.png", "period": "cretaceous", "kind": "marine"}, {"id": 18, "name": "Ornithocheirus", "image": "IMG_20260928_074317.png", "period": "cretaceous", "kind": "pterosaur"}, {"id": 19, "name": "Rinchenia", "image": "IMG_20260928_074333.png", "period": "cretaceous", "kind": "theropod"}, {"id": 20, "name": "Sonorasaurus", "image": "IMG_20260928_155709.png", "period": "cretaceous", "kind": "sauropod"}, {"id": 21, "name": "Zalmoxes", "image": "IMG_20260928_155718.png", "period": "cretaceous", "kind": "ornithopod"}, {"id": 22, "name": "Iguanodon", "image": "IMG_20260928_155726.png", "period": "cretaceous", "kind": "ornithopod"}, {"id": 23, "name": "Deinocheirus", "image": "IMG_20260928_155736.png", "period": "cretaceous", "kind": "theropod"}, {"id": 24, "name": "Postosuchus", "image": "IMG_20260928_155854.png", "period": "triassic", "kind": "archosaur"}, {"id": 25, "name": "Corythosaurus", "image": "IMG_20260928_155948.png", "period": "cretaceous", "kind": "hadrosaur"}, {"id": 26, "name": "Gallimimus", "image": "IMG_20260928_160032.png", "period": "cretaceous", "kind": "ornithomimosaur"}, {"id": 27, "name": "Irritator", "image": "IMG_20260928_160042.png", "period": "cretaceous", "kind": "theropod"}, {"id": 28, "name": "Woolly Mammoth", "image": "IMG_20260928_160055.png", "period": "cenozoic", "kind": "mammal_large"}, {"id": 29, "name": "Mastodon", "image": "IMG_20260928_160104.png", "period": "cenozoic", "kind": "mammal_large"}, {"id": 30, "name": "Deinotherium", "image": "IMG_20260928_160115.png", "period": "cenozoic", "kind": "mammal_large"}, {"id": 31, "name": "Woolly Rhinoceros", "image": "IMG_20260928_160122.png", "period": "cenozoic", "kind": "rhino"}, {"id": 32, "name": "Uintatherium", "image": "IMG_20260928_160130.png", "period": "cenozoic", "kind": "mammal_large"}, {"id": 33, "name": "Indricotherium", "image": "IMG_20260928_160138.png", "period": "cenozoic", "kind": "rhino"}, {"id": 34, "name": "Elasmotherium", "image": "IMG_20260928_160145.png", "period": "cenozoic", "kind": "rhino"}, {"id": 35, "name": "Smilodon", "image": "IMG_20260928_160156.png", "period": "cenozoic", "kind": "cat"}, {"id": 36, "name": "Thylacosmilus", "image": "IMG_20260928_160206.png", "period": "cenozoic", "kind": "marsupial_predator"}, {"id": 37, "name": "Panthera blytheae", "image": "IMG_20260928_160217.png", "period": "cenozoic", "kind": "cat"}, {"id": 38, "name": "Arctodus", "image": "IMG_20260928_160225.png", "period": "cenozoic", "kind": "bear"}, {"id": 39, "name": "Ailurarctos", "image": "IMG_20260928_160242.png", "period": "cenozoic", "kind": "bear"}, {"id": 40, "name": "Kelenken", "image": "IMG_20260928_160253.png", "period": "cenozoic", "kind": "bird"}, {"id": 41, "name": "Megatherium", "image": "IMG_20260928_160303.png", "period": "cenozoic", "kind": "sloth"}, {"id": 42, "name": "Mylodon", "image": "IMG_20260928_160312.png", "period": "cenozoic", "kind": "sloth"}, {"id": 43, "name": "Titanoboa", "image": "IMG_20260928_160321.png", "period": "cenozoic", "kind": "snake"}, {"id": 44, "name": "Glyptodon", "image": "IMG_20260928_160336.png", "period": "cenozoic", "kind": "armored_mammal"}, {"id": 45, "name": "Megaloceros", "image": "IMG_20260928_160352.png", "period": "cenozoic", "kind": "deer"}, {"id": 46, "name": "Eremotherium", "image": "IMG_20260928_160401.png", "period": "cenozoic", "kind": "sloth"}, {"id": 47, "name": "Entelodon", "image": "IMG_20260928_160417.png", "period": "cenozoic", "kind": "suiform"}, {"id": 48, "name": "Megistotherium", "image": "IMG_20260928_160426.png", "period": "cenozoic", "kind": "predator_mammal"}, {"id": 49, "name": "Hyaenodon", "image": "IMG_20260928_160445.png", "period": "cenozoic", "kind": "predator_mammal"}, {"id": 50, "name": "Procoptodon", "image": "IMG_20260928_160458.png", "period": "cenozoic", "kind": "marsupial"}, {"id": 51, "name": "Sarkastodon", "image": "IMG_20260928_160946.png", "period": "cenozoic", "kind": "predator_mammal"}, {"id": 52, "name": "Tyrannosaurus Rex", "image": "IMG_20260928_161317.png", "period": "cretaceous", "kind": "theropod"}, {"id": 53, "name": "Velociraptor", "image": "IMG_20260928_161330.png", "period": "cretaceous", "kind": "theropod"}, {"id": 54, "name": "Triceratops", "image": "IMG_20260928_161343.png", "period": "cretaceous", "kind": "ceratopsian"}, {"id": 55, "name": "Cervalces", "image": "InShot_20260928_160936770.png", "period": "cenozoic", "kind": "deer"}, {"id": 56, "name": "Majungasaurus", "image": "InShot_20260928_161022512.png", "period": "cretaceous", "kind": "theropod"}, {"id": 57, "name": "Nundasuchus", "image": "InShot_20260928_161043904.png", "period": "triassic", "kind": "archosaur"}, {"id": 58, "name": "Diplodocus", "image": "InShot_20260928_161051638.png", "period": "jurassic", "kind": "sauropod"}, {"id": 59, "name": "Gorgosaurus", "image": "InShot_20260928_161058577.png", "period": "cretaceous", "kind": "theropod"}, {"id": 60, "name": "Tarbosaurus", "image": "InShot_20260928_161108623.png", "period": "cretaceous", "kind": "theropod"}, {"id": 61, "name": "Stygimoloch", "image": "InShot_20260928_161116869.png", "period": "cretaceous", "kind": "ceratopsian"}, {"id": 62, "name": "Pterodaustro", "image": "InShot_20260928_161123774.png", "period": "cretaceous", "kind": "pterosaur"}, {"id": 63, "name": "Oviraptor", "image": "InShot_20260928_161130279.png", "period": "cretaceous", "kind": "theropod"}, {"id": 64, "name": "Aerotitan", "image": "InShot_20260928_161137514.png", "period": "cretaceous", "kind": "pterosaur"}, {"id": 65, "name": "Suchomimus", "image": "InShot_20260928_161144997.png", "period": "cretaceous", "kind": "theropod"}, {"id": 66, "name": "Compsognathus", "image": "InShot_20260928_161151182.png", "period": "jurassic", "kind": "theropod"}, {"id": 67, "name": "Eosauropus", "image": "InShot_20260930_193315108.png", "period": "iran", "kind": "trace"}, {"id": 68, "name": "Iranosauripus", "image": "IMG_0402a0f2-24a2-4cbf-b2a7-697f846c849c.webp", "period": "iran", "kind": "trace"}, {"id": 69, "name": "Allosaurus", "image": "InShot_20260930_200231498.png", "period": "iran", "kind": "theropod"}, {"id": 70, "name": "Camptosaurus", "image": "InShot_20260930_200222975.png", "period": "iran", "kind": "ornithopod"}, {"id": 71, "name": "Microraptor", "image": "InShot_20260930_200458593.png", "period": "iran", "kind": "theropod"}, {"id": 72, "name": "Hipparion gettyi", "image": "InShot_20260930_200929171.png", "period": "iran", "kind": "horse"}, {"id": 73, "name": "Hippotherium", "image": "IMG_7c060015-2550-488b-b2a3-61df069dab23.jpg", "period": "iran", "kind": "horse"}, {"id": 74, "name": "Cremohipparion", "image": "InShot_20260930_201654917.png", "period": "iran", "kind": "horse"}, {"id": 75, "name": "Samotherium", "image": "IMG_29d8ef7c-1087-4f29-a8c9-966d514ca0e4.png", "period": "iran", "kind": "giraffid"}, {"id": 76, "name": "Bohlinia attica", "image": "InShot_20260930_202124414.png", "period": "iran", "kind": "giraffid"}, {"id": 77, "name": "Helladotherium duvernoyi", "image": "InShot_20260930_203050758.png", "period": "iran", "kind": "giraffid"}, {"id": 78, "name": "Tragoportax", "image": "InShot_20260930_203621027.png", "period": "iran", "kind": "bovid"}, {"id": 79, "name": "Palaeoryx", "image": "InShot_20260930_203925053.png", "period": "iran", "kind": "bovid"}, {"id": 80, "name": "Palaeotragus", "image": "InShot_20260930_204149979.png", "period": "iran", "kind": "giraffid"}, {"id": 81, "name": "Deinotherium gigantissimum", "image": "InShot_20260930_204306256.png", "period": "iran", "kind": "mammal_large"}, {"id": 82, "name": "Iranotherium", "image": "InShot_20260930_204836984.png", "period": "iran", "kind": "rhino"}, {"id": 83, "name": "Ceratotherium", "image": "InShot_20260930_205143364.png", "period": "iran", "kind": "rhino"}, {"id": 84, "name": "Chilotherium", "image": "InShot_20260930_205322260.png", "period": "iran", "kind": "rhino"}, {"id": 85, "name": "Microstonyx", "image": "InShot_20260930_205500356.png", "period": "iran", "kind": "suiform"}, {"id": 86, "name": "Adcrocuta", "image": "InShot_20260930_205600503.png", "period": "iran", "kind": "hyena"}, {"id": 87, "name": "Hyaenictitherium", "image": "InShot_20260930_205707132.png", "period": "iran", "kind": "hyena"}, {"id": 88, "name": "Ictitherium", "image": "InShot_20260930_205847246.png", "period": "iran", "kind": "hyena"}, {"id": 89, "name": "Amphimachairodus aphanistus", "image": "IMG_8aad6742-c037-4a39-8647-b511bef64e98.jpg", "period": "iran", "kind": "cat"}, {"id": 90, "name": "Metailurus", "image": "InShot_20260930_223121248.png", "period": "iran", "kind": "cat"}, {"id": 91, "name": "Felis attica", "image": "InShot_20260930_224526040.png", "period": "iran", "kind": "cat"}, {"id": 92, "name": "Indarctos", "image": "InShot_20260930_225147490.png", "period": "iran", "kind": "bear"}, {"id": 93, "name": "Promeles", "image": "IMG_2469f89d-c140-4bc0-89ef-71522db173dd.jpg", "period": "iran", "kind": "mustelid"}, {"id": 94, "name": "Martes sp.", "image": "IMG_8a2ba347-b8e3-4e37-96d4-6bd64bbf5cf3.jpg", "period": "iran", "kind": "mustelid"}, {"id": 95, "name": "Orycteropus sp.", "image": "InShot_20260930_230251757.jpg", "period": "iran", "kind": "aardvark"}, {"id": 96, "name": "Choerolophodon pentelici", "image": "InShot_20260930_230740963.png", "period": "iran", "kind": "mammal_large"}];
+const periodLabels = {"triassic": "تریاس", "jurassic": "ژوراسیک", "cretaceous": "کرتاسه", "cenozoic": "سنوزوئیک", "iran": "تاریخ کهن ایران"};
+const expectedCounts = {"triassic": 3, "jurassic": 6, "cretaceous": 32, "cenozoic": 25, "iran": 30};
+
+let filter = "all";
+let activeAudio = null;
+let activeButton = null;
+let ctx = null;
+
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
+}
+
+function auditData() {
+  const counts = Object.fromEntries(Object.keys(expectedCounts).map(k => [k,0]));
+  animals.forEach(a => counts[a.period] = (counts[a.period] || 0) + 1);
+  const ok = animals.length === 96 && Object.keys(expectedCounts).every(k => counts[k] === expectedCounts[k]);
+  document.getElementById("auditText").textContent = ok
+    ? "✅ بررسی کامل: ۹۶ از ۹۶ مورد بارگذاری شد."
+    : "⚠️ خطای داده: تعداد موارد با فهرست اصلی برابر نیست.";
+  return counts;
+}
+
+function makeFilters(counts) {
+  const el = document.getElementById("filters");
+  const keys = ["all","triassic","jurassic","cretaceous","cenozoic","iran"];
+  el.innerHTML = keys.map(k => {
+    const n = k === "all" ? 96 : counts[k];
+    const label = k === "all" ? "همه" : periodLabels[k];
+    return `<button type="button" data-filter="${k}" class="${k==="all"?"active":""}">${label} (${
+      n
+    })</button>`;
+  }).join("");
+  el.querySelectorAll("button").forEach(b => b.addEventListener("click", () => {
+    el.querySelectorAll("button").forEach(x => x.classList.remove("active"));
+    b.classList.add("active");
+    filter = b.dataset.filter;
+    render();
+  }));
+}
+
+function render() {
+  const list = filter === "all" ? animals : animals.filter(a => a.period === filter);
+  document.getElementById("summary").textContent =
+    `${list.length} مورد از ۹۶ مورد در این بخش نمایش داده می‌شود.`;
+
+  const grid = document.getElementById("grid");
+  if (!list.length) {
+    grid.innerHTML = '<div class="empty">هیچ موردی پیدا نشد.</div>';
+    return;
+  }
+
+  grid.innerHTML = list.map(a => `
+    <article class="card">
+      <img src="${esc(a.image)}" alt="${esc(a.name)}" loading="lazy"
+           onerror="this.style.objectFit='contain';this.alt='تصویر در دسترس نیست: ${esc(a.name)}'">
+      <div class="card-body">
+        <span class="badge">${esc(periodLabels[a.period])}</span>
+        <h3>${esc(a.name)}</h3>
+        <div class="meta">شماره ${a.id} از ۹۶</div>
+        <div class="note">برای این مورد یک پروفایل صوتی اختصاصی ساخته شده است؛ صدای واقعی گونه در دسترس نیست مگر جایی که منبع پژوهشی مشخص شده باشد.</div>
+        <div class="actions">
+          <button class="play" type="button" data-id="${a.id}">▶ پخش صدا</button>
+        </div>
+      </div>
+    </article>
+  `).join("");
+
+  grid.querySelectorAll(".play").forEach(btn =>
+    btn.addEventListener("click", () => playAnimal(Number(btn.dataset.id), btn))
+  );
+}
+
+function getCtx() {
+  if (!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)();
+  if (ctx.state === "suspended") ctx.resume();
+  return ctx;
+}
+
+function rng(seed) {
+  let x = seed >>> 0;
+  return () => {
+    x = (x * 1664525 + 1013904223) >>> 0;
+    return x / 4294967296;
+  };
+}
+
+function osc(c, out, type, f0, f1, start, dur, peak) {
+  const o = c.createOscillator();
+  const g = c.createGain();
+  const lp = c.createBiquadFilter();
+  lp.type = "lowpass";
+  lp.frequency.setValueAtTime(Math.min(1600, Math.max(280, f0*3)), start);
+  o.type = type;
+  o.frequency.setValueAtTime(Math.max(35,f0), start);
+  o.frequency.exponentialRampToValueAtTime(Math.max(35,f1), start+dur);
+  g.gain.setValueAtTime(.0001,start);
+  g.gain.exponentialRampToValueAtTime(peak,start+Math.min(.14,dur*.22));
+  g.gain.exponentialRampToValueAtTime(.0001,start+dur);
+  o.connect(lp); lp.connect(g); g.connect(out);
+  o.start(start); o.stop(start+dur+.04);
+}
+
+function noise(c,out,start,dur,peak,cut) {
+  const b=c.createBuffer(1,Math.max(1,Math.floor(c.sampleRate*dur)),c.sampleRate);
+  const d=b.getChannelData(0);
+  for(let i=0;i<d.length;i++) d[i]=(Math.random()*2-1);
+  const s=c.createBufferSource(), f=c.createBiquadFilter(), g=c.createGain();
+  f.type="lowpass"; f.frequency.value=cut;
+  g.gain.setValueAtTime(.0001,start);
+  g.gain.exponentialRampToValueAtTime(peak,start+.06);
+  g.gain.exponentialRampToValueAtTime(.0001,start+dur);
+  s.buffer=b; s.connect(f); f.connect(g); g.connect(out);
+  s.start(start); s.stop(start+dur+.03);
+}
+
+function profile(a, out, start) {
+  const r=rng(a.id*104729);
+  const profiles={
+    theropod:[58,95,"sawtooth"], sauropod:[42,68,"sine"], hadrosaur:[82,120,"sine"],
+    pterosaur:[150,235,"triangle"], armored:[92,135,"triangle"], crocodilian:[52,88,"sine"],
+    marine:[45,70,"sine"], ornithopod:[105,155,"triangle"], ornithomimosaur:[135,190,"triangle"],
+    synapsid:[70,105,"sine"], archosaur:[62,92,"triangle"], mammal_large:[48,78,"sine"],
+    rhino:[50,82,"sine"], cat:[105,170,"sawtooth"], marsupial_predator:[95,150,"sawtooth"],
+    bear:[72,110,"sawtooth"], bird:[210,320,"triangle"], sloth:[70,100,"sine"],
+    snake:[55,85,"sine"], armored_mammal:[62,92,"sine"], deer:[155,230,"triangle"],
+    suiform:[105,155,"triangle"], predator_mammal:[70,115,"sawtooth"], marsupial:[135,195,"triangle"],
+    hyena:[92,140,"sawtooth"], horse:[160,230,"triangle"], giraffid:[72,105,"sine"],
+    bovid:[145,205,"triangle"], mustelid:[165,245,"triangle"], aardvark:[100,145,"sine"],
+    trace:[50,70,"sine"]
+  };
+  const p=profiles[a.kind] || [90,130,"triangle"];
+  const dur=1.25+r()*.8;
+  const f=p[0]*(.9+r()*.2);
+  osc(getCtx(),out,p[2],f,p[1]*(.85+r()*.3),start,dur,.075);
+  osc(getCtx(),out,"sine",f*1.55,f*.92,start+.07,dur*.65,.028);
+  if(a.kind==="snake") noise(getCtx(),out,start+.02,dur*.78,.035,800);
+  if(["pterosaur","bird","ornithomimosaur"].includes(a.kind)) {
+    osc(getCtx(),out,"triangle",f*1.35,f*1.05,start+.25,.36,.028);
+  } else {
+    noise(getCtx(),out,start+.12,dur*.45,.012,550);
+  }
+  osc(getCtx(),out,"sine",f*.72,f*.58,start+.72,.38,.022);
+}
+
+function playAnimal(id, btn) {
+  const a=animals.find(x=>x.id===id);
+  if(!a) return;
+  if(activeAudio) {
+    try { activeAudio.stop(); } catch(e) {}
+    activeAudio=null;
+  }
+  if(activeButton) activeButton.classList.remove("playing");
+  const c=getCtx();
+  const master=c.createGain();
+  master.gain.value=.78;
+  master.connect(c.destination);
+  const now=c.currentTime+.04;
+  profile(a,master,now);
+  activeAudio=master;
+  activeButton=btn;
+  btn.classList.add("playing");
+  btn.textContent="⏹ در حال پخش...";
+  setTimeout(() => {
+    if(activeButton===btn) {
+      btn.classList.remove("playing");
+      btn.textContent="▶ پخش صدا";
+      activeButton=null;
+      activeAudio=null;
+    }
+  }, 2600);
+}
+
+const counts=auditData();
+makeFilters(counts);
+render();
+</script>
+</body>
+</html>
