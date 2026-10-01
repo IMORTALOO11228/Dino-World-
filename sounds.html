@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="آرشیو ۹۶ صدای بازسازی‌شده جانوران و آثار ماقبل تاریخ در DinoWorld">
+<title>DinoWorld | آرشیو صداهای ماقبل تاریخ</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Tahoma,Arial,sans-serif;background:#07111f;color:#eef5ff;line-height:1.8}
+.hero{padding:48px 18px 34px;text-align:center;background:linear-gradient(135deg,#102a43,#07111f)}
+.hero h1{font-size:clamp(2rem,7vw,3.5rem);margin-bottom:10px}
+.hero p{max-width:900px;margin:auto;color:#bdccda}
+.audit{max-width:900px;margin:20px auto 0;padding:14px 16px;border:1px solid #31516a;background:#102337;border-radius:16px}
+.audit strong{color:#9fe4cf}
+.controls{max-width:1150px;margin:auto;padding:24px 16px 8px}
+.filters{display:flex;flex-wrap:wrap;gap:9px;justify-content:center}
+.filters button{border:1px solid #35516d;background:#102235;color:#eef5ff;border-radius:999px;padding:10px 13px;cursor:pointer;font:inherit}
+.filters button.active{background:#245c72;border-color:#64b4c7}
+.grid{max-width:1150px;margin:auto;padding:18px 16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.card{background:#0f1d2d;border:1px solid #243a50;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.card img{width:100%;height:185px;object-fit:cover;background:#0a1522}
+.card-body,.body{padding:16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:1.15rem}
+.badge{display:inline-block;width:max-content;padding:3px 9px;border-radius:999px;background:#17344a;color:#c9e7f5;font-size:.78rem}
+.meta,.note,.source-note{font-size:.87rem;color:#abc0d1}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:8px}
+.play,.source{border:0;border-radius:12px;padding:10px 12px;cursor:pointer;font:inherit;text-decoration:none;text-align:center}
+.play{background:#287d75;color:#fff;flex:1}
+.play.playing{background:#8a5b25}
+.source{background:#1b2e43;color:#dbe9f5;border:1px solid #34516c}
+.summary{max-width:900px;margin:10px auto 24px;padding:14px 16px;background:#0d1b2a;border:1px solid #243d54;border-radius:15px;text-align:center}
+.empty{grid-column:1/-1;text-align:center;padding:35px;color:#9fb2c2}
+footer{padding:30px 18px;text-align:center;color:#91a6b8;background:#030912;margin-top:30px}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.card img{height:210px}}
+</style>
+</head>
+<body>
+<header class="hero">
+<h1>🔊 آرشیو صداهای ماقبل تاریخ</h1>
+<p>تمام ۹۶ مورد پروژه در این صفحه ثبت شده‌اند. برای جانوران منقرض‌شده، صدای دقیق معمولاً قابل اثبات نیست؛ بنابراین صداها با برچسب «بازسازی» ارائه می‌شوند، نه به‌عنوان ضبط واقعی.</p>
+<div class="audit">
+<strong id="auditText">در حال بررسی ۹۶ مورد...</strong>
+</div>
+</header>
+
+<section class="controls">
+<div class="filters" id="filters"></div>
+</section>
+<div class="summary" id="summary"></div>
+<main class="grid" id="grid"></main>
+
+<section class="controls">
+<div class="audit">
+<h2 style="margin-bottom:8px">📚 مبنای علمی صداها</h2>
+<p class="source-note">
+برای مواردی که بازسازی صوتی منتشرشده داریم، منبع پژوهشی/موزه‌ای در کارت یا این بخش مشخص شده است.
+مثلاً Natural History Museum بازسازی صوتی Diplodocus و Archaeopteryx را منتشر کرده و برای Parasaurolophus توضیح می‌دهد که صدای بم و ترومپتی از مدل‌سازی رایانه‌ای تاج توخالی آن به دست آمده است.
+</p>
+<p class="source-note" style="margin-top:8px">
+این صفحه عمداً صداهای سینمایی را «صدای واقعی» معرفی نمی‌کند.
+</p>
+</div>
+</section>
+
+<div style="text-align:center;padding:30px 18px">
+<a href="index.html" class="source">🏠 بازگشت به صفحه اصلی</a>
+</div>
+<footer>🟢 DinoWorld | طراحی شده توسط آریا عابدینی 💚</footer>
+
+<script>
+const periodLabels = {"triassic": "تریاس", "jurassic": "ژوراسیک", "cretaceous": "کرتاسه", "cenozoic": "سنوزوئیک", "iran": "تاریخ کهن ایران"};
+const audioSources = {"synapsid": ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Bird_call_with_so-called_separated_chirps.ogg", "صدای پرندهٔ زنده؛ فقط قیاس بسیار کلی برای جانور سیناپسیدی", "قیاس محدود"], "sauropod": ["https://www.nhm.ac.uk/content/dam/nhm-www/take-part/dippy-on-tour/diplodocus-roar.mp3", "بازسازی علمی Diplodocus — Natural History Museum", "بازسازی علمی"], "theropod": ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Bird_call_with_so-called_separated_chirps.ogg", "صدای پرندهٔ زنده به‌عنوان قیاس آوایی؛ صدای واقعی دایناسور نیست", "قیاس با جانور زنده"], "hadrosaur": ["", "برای Parasaurolophus بازسازی علمی منتشر شده، اما فایل مستقیم مجاز برای جاسازی پیدا نشد", "بازسازی علمی، بدون فایل مستقیم"], "armored": ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Bird_call_with-so-called-separated-chirps.ogg", "قیاس آوایی با پرندگان زنده", "قیاس با جانور زنده"], "ornithopod": ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Bird_call_with-so-called-separated-chirps.ogg", "قیاس آوایی با پرندگان زنده", "قیاس با جانور زنده"], "ornithomimosaur": ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Bird_call_with-so-called-separated-chirps.ogg", "قیاس آوایی با پرندگان زنده", "قیاس با جانور زنده"], "ceratopsian": ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Bird_call_with-so-called-separated-chirps.ogg", "قیاس آوایی با پرندگان زنده", "قیاس با جانور زنده"], "pterosaur": ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Bird_call_with-so-called-separated-chirps.ogg", "قیاس آوایی با پرندگان زنده؛ صدای واقعی پترواسور نیست", "قیاس با جانور زنده"], "crocodilian": ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Crocodile_in_Vezo.ogg", "صدای کروکودیل زنده؛ قیاس برای کروکودیل‌تبارها", "قیاس با جانور زنده"], "archosaur": ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Crocodile_in_Vezo.ogg", "صدای کروکودیل زنده؛ قیاس محتاطانه برای آرکوسورها", "قیاس با جانور زنده"], "marine": ["", "برای Mosasaurus فایل صوتی معتبر و مجازِ مناسب پیدا نشد", "بدون صدای قابل‌استناد"], "mammal_large": ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Elephant_voice_-_trumpeting.ogg", "صدای فیل زنده؛ قیاس برای برخی پستانداران بزرگ", "قیاس با جانور زنده"], "rhino": ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Elephant_voice_-_trumpeting.ogg", "قیاس با پستانداران بزرگ؛ صدای واقعی کرگدن باستانی نیست", "قیاس محدود"], "cat": ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Maullido_de_gata_hembra_joven.ogg", "صدای گربهٔ خانگی زنده؛ قیاس برای گربه‌سانان", "قیاس با جانور زنده"], "marsupial_predator": ["", "برای Thylacosmilus صدای مستقیم و قابل‌استناد نداریم", "بدون صدای قابل‌استناد"], "bear": ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Bear_growl.ogg", "غرش خرس زنده؛ قیاس برای خرس‌های باستانی", "قیاس با جانور زنده"], "bird": ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Bird_call_with_so-called_separated_chirps.ogg", "صدای پرندهٔ زنده؛ قیاس برای پرندهٔ غول‌پیکر باستانی", "قیاس با جانور زنده"], "sloth": ["", "برای تنبل‌های زمینی منقرض‌شده صدای مناسب و قابل‌استناد پیدا نشد", "بدون صدای قابل‌استناد"], "snake": ["", "برای Titanoboa صدای مستقیم و قابل‌استناد پیدا نشد", "بدون صدای قابل‌استناد"], "armored_mammal": ["", "برای Glyptodon صدای مناسب و قابل‌استناد پیدا نشد", "بدون صدای قابل‌استناد"], "deer": ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Wiehern.ogg", "صدای اسب زنده؛ فقط قیاس محدود برای علفخواران بزرگ", "قیاس محدود"], "suiform": ["", "برای Entelodon/Microstonyx صدای مستقیم و قابل‌استناد پیدا نشد", "بدون صدای قابل‌استناد"], "predator_mammal": ["", "برای این پستاندار شکارگر صدای مستقیم و قابل‌استناد پیدا نشد", "بدون صدای قابل‌استناد"], "marsupial": ["", "برای Procoptodon صدای مستقیم و قابل‌استناد پیدا نشد", "بدون صدای قابل‌استناد"], "horse": ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Wiehern.ogg", "صدای اسب زنده؛ قیاس برای اسب‌های سه‌انگشتی/هیپاریون‌ها", "قیاس با جانور زنده"], "giraffid": ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Wiehern.ogg", "قیاس محدود با پستانداران علفخوار زنده", "قیاس محدود"], "bovid": ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Wiehern.ogg", "قیاس محدود با پستانداران علفخوار زنده", "قیاس محدود"], "hyena": ["https://commons.wikimedia.org/wiki/Special:Redirect/file/Spotted_Hyaena_Grunting_(Crocuta_crocuta).ogg", "صدای کفتار خالدار زنده؛ قیاس برای کفتارهای باستانی", "قیاس با جانور زنده"], "mustelid": ["", "برای Promeles/Martes صدای مستقیم و مناسب پیدا نشد", "بدون صدای قابل‌استناد"], "aardvark": ["", "برای Orycteropus باستانی صدای مناسب و قابل‌استناد پیدا نشد", "بدون صدای قابل‌استناد"], "trace": ["", "Eosauropus و Iranosauripus نام ردپا هستند، نه جانور؛ صدای اختصاصی ندارند", "ردپافسیل — بدون صدا"]};
+const filters=[['all','همه'],['triassic','تریاس'],['jurassic','ژوراسیک'],['cretaceous','کرتاسه'],['cenozoic','سنوزوئیک'],['iran','ایران']];
+const grid=document.getElementById('grid'), filterBox=document.getElementById('filters'), summary=document.getElementById('summary');
+function esc(v){return String(v).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));}
+function sourcePage(url){ if(url.includes('Special:Redirect/file/')) return url.replace('https://commons.wikimedia.org/wiki/Special:Redirect/file/','https://commons.wikimedia.org/wiki/File:'); return url; }
+function card(a){const s=a.sound;const audio=s.url?`<audio controls preload="none" src="${esc(s.url)}"></audio>`:`<div class="no-audio">🔇 فایل صوتی قابل‌استناد برای این مورد در دسترس نیست.</div>`;const src=s.url?`<a class="source" href="${esc(sourcePage(s.url))}" target="_blank" rel="noopener">📚 مشاهده منبع</a>`:'';return `<article class="card" data-period="${esc(a.period)}"><img src="${esc(a.image)}" alt="${esc(a.name)}" onerror="this.style.display='none'"><div class="card-body"><span class="badge">${esc(periodLabels[a.period])}</span><h3>${esc(a.name)}</h3><span class="type">${esc(s.type)}</span><p class="note">${esc(s.label)}</p>${audio}${src}</div></article>`;}
+function render(f){grid.innerHTML=animals.filter(a=>f==='all'||a.period===f).map(card).join('');summary.textContent=`نمایش ${animals.filter(a=>f==='all'||a.period===f).length} مورد از ${animals.length} مورد`;document.querySelectorAll('#filters button').forEach(b=>b.classList.toggle('active',b.dataset.f===f));}
+filters.forEach(([f,t])=>{const b=document.createElement('button');b.textContent=t;b.dataset.f=f;b.addEventListener('click',()=>render(f));filterBox.appendChild(b)});render('all');
+</script>
+</body>
+</html>
